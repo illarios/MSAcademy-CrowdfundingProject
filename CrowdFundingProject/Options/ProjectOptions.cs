@@ -8,6 +8,7 @@ namespace CrowdFundingProject.Options
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public int Category { get; set; }
         public bool NotifyStatus { get; set; }
         public decimal Goal { get; set; }
         public decimal CurrentAmount { get; set; }

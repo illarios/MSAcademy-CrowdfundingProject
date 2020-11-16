@@ -10,7 +10,7 @@ namespace CrowdFundingProject.Options
         public string Username { get; set; }
         public decimal Wallet { get; set; }
         public string Email { get; set; }
-        public Boolean IsActive { get; set; }
+        public bool IsActive { get; set; }
         public List<string> Tag { get; set; }
     }
 }
