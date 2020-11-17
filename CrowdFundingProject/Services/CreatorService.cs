@@ -33,10 +33,16 @@ namespace CrowdFundingProject.Services
             return true;
         }
 
-        public List<Creator> FindCreator(int creatorId)
+        public List<Creator> GetCreators()
         {
             List<Creator> creators = dbContext.Creators.ToList();
             return creators;
+        }
+
+        public Creator GetCreatorById(int creatorId)
+        {
+            Creator creator = dbContext.Creators.Find(creatorId);
+            return creator;
         }
 
         public Creator UpdateCreator(CreatorOptions creatorOptions, int creatorId)

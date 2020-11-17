@@ -10,7 +10,7 @@ namespace CrowdFundingProject.Services
     {
         Project CreateProject(ProjectOptions projectOptions);
         Project UpdateProject(ProjectOptions projectOptions, int projectId);
-        Project DeleteProject(int projectId);
+        bool DeleteProject(int projectId);
         Project GetProjectById(int projectId);
         List<Project> GetAllProjects();
     }

@@ -7,7 +7,6 @@ namespace CrowdFundingProject.Options
 {
     public class CartOptions
     {
-        public int Id { get; set; }
         public Project Project { get; set; }
         public Backer Backer { get; set; }
         public Bundle Bundle { get; set; }

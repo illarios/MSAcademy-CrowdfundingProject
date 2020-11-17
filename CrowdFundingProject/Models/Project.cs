@@ -18,7 +18,7 @@ namespace CrowdFundingProject.Models
         public bool IsTrending { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset EndDate { get; set; }
-        public List<string> Tag { get; set; }
+        public List<string> Tags { get; set; }
 
          //Foreign Key
          public Creator Creator { get; set; }

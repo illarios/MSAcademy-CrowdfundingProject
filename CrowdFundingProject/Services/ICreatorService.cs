@@ -10,7 +10,8 @@ namespace CrowdFundingProject.Services
     {
         Creator CreateCreator(CreatorOptions creatorOptions);
         Creator UpdateCreator(CreatorOptions creatorOptions, int creatorId);
-        List<Creator> FindCreator(int creatorId);
+        List<Creator> GetCreators();
+        Creator GetCreatorById(int creatorId);
         bool DeleteCreator(int creatorId);
     }
 }
