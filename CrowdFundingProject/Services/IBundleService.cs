@@ -8,8 +8,8 @@ namespace CrowdFundingProject.Services
 {
     public interface IBundleService
     {
-        BundleOptions AddBundle(Project project);
-        BundleOptions UpdateBundle(int id);
-        bool DeleteBundle(int id);
+        Bundle AddBundle(BundleOptions bundleOpt, int projectId);
+        Bundle UpdateBundle(BundleOptions bundleOpt, int bundleId);
+        bool DeleteBundle(int bundleId);
     }
 }

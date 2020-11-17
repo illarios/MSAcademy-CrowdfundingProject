@@ -7,7 +7,6 @@ namespace CrowdFundingProject.Options
 {
     public class BundleOptions
     {
-        public int Id { get; set; }
         public decimal Prize { get; set; }
         public string Description { get; set; }
         public Project Project { get; set; }
