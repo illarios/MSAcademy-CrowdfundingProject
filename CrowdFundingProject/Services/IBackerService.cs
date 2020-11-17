@@ -1,4 +1,5 @@
-﻿using CrowdFundingProject.Options;
+﻿using CrowdFundingProject.Models;
+using CrowdFundingProject.Options;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,10 @@ namespace CrowdFundingProject.Services
 {
     public interface IBackerService
     {
-        BackerOptions CreateBacker(BackerOptions backerOptions);
-        BackerOptions GetBackerById(int id);
-        BackerOptions UpdateBacker(BackerOptions backerOptions, int id);
-        bool DeleteBacker(int id);
+        Backer CreateBacker(BackerOptions backerOptions);
+        Backer GetBackerById(int backerId);
+        Backer UpdateBacker(BackerOptions backerOptions, int backerId);
+        bool DeleteBacker(int backerId);
+     
     }
 }
