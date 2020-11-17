@@ -3,6 +3,7 @@ using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CrowdFundingProject.Services
@@ -45,6 +46,13 @@ namespace CrowdFundingProject.Services
             dbContext.Carts.Find(cart).Projects.Remove(project);
             dbContext.SaveChanges();
             return true;
+        }
+
+        public List<Bundle> GetCartItems(int cartId)
+        {
+            Cart cart = dbContext.Carts.Find(cartId);
+            List<Bundle> bundles = cart.Bundles.ToList();
+            return bundles;
         }
     }
 }

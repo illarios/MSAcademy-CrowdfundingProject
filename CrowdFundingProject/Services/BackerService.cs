@@ -36,6 +36,11 @@ namespace CrowdFundingProject.Services
             return true;
 
         }
+        public List<Backer> GetBackers()
+        {
+            List<Backer> backers = dbContext.Backers.ToList();
+            return backers;
+        }
 
         public Backer GetBackerById(int backerId)
         {
@@ -50,9 +55,12 @@ namespace CrowdFundingProject.Services
             backer.Wallet = backerOptions.Wallet;
             dbContext.SaveChanges();
             return backer;
-
-
         }
 
+        public List<Project> GetSupportingProjects(int backerId)
+        {
+            List<Project> projects = dbContext.Backers.Find(backerId).SupportingProjects.ToList();
+            return projects;
+        }
     }
 }

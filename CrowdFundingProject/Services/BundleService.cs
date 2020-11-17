@@ -3,6 +3,7 @@ using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CrowdFundingProject.Services
@@ -25,7 +26,15 @@ namespace CrowdFundingProject.Services
             dbContext.SaveChanges();
             return bundle;
         }
-
+        public List<Bundle> GetBundlesOfProjects(int projectId){
+            List<Bundle> bundles = dbContext.Bundles.Where(c => c.Project.Id == projectId).ToList();
+            return bundles;
+        }
+        public List<Bundle> GetBundles()
+        {
+            List<Bundle> bundles = dbContext.Bundles.ToList();
+            return bundles;
+        }
         public bool DeleteBundle(int bundleId)
         {
             if (bundleId < 0) return false;

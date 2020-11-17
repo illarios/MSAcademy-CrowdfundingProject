@@ -10,6 +10,8 @@ namespace CrowdFundingProject.Services
     {
         Bundle AddBundle(BundleOptions bundleOpt, int projectId);
         Bundle UpdateBundle(BundleOptions bundleOpt, int bundleId);
+        List<Bundle> GetBundles();
+        List<Bundle> GetBundlesOfProjects(int projectId);
         bool DeleteBundle(int bundleId);
     }
 }

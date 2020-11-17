@@ -10,6 +10,8 @@ namespace CrowdFundingProject.Services
     {
         Backer CreateBacker(BackerOptions backerOptions);
         Backer GetBackerById(int backerId);
+        List<Backer> GetBackers();
+        List<Project> GetSupportingProjects(int backerId);
         Backer UpdateBacker(BackerOptions backerOptions, int backerId);
         bool DeleteBacker(int backerId);
      
