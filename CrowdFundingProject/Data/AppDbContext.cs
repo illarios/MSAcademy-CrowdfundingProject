@@ -13,6 +13,8 @@ namespace CrowdFundingProject.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Backer> Backers { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Image> Images { get; set; }
 
 
         private readonly string connectionString =
@@ -47,6 +49,8 @@ namespace CrowdFundingProject.Data
 
             modelBuilder.Entity<Project>();
             modelBuilder.Entity<Cart>();
+            modelBuilder.Entity<Tag>();
+            modelBuilder.Entity<Image>();
         }
     }
 }

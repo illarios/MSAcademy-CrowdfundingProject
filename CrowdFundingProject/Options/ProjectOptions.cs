@@ -1,3 +1,4 @@
+using CrowdFundingProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,6 @@ namespace CrowdFundingProject.Options
 	    public bool IsTrending { get; set; }
 	    public DateTimeOffset Created { get; set; }
 	    public DateTimeOffset EndDate { get; set; }
-	    public List<string> Tags { get; set; }
+	    public List<Tag> Tags { get; set; }
     }
 }

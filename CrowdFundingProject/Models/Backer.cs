@@ -12,7 +12,7 @@ namespace CrowdFundingProject.Models
         public string Email { get; set; }
         public bool IsActive { get; set; }
         public List<Project> SupportingProjects { get; set; }
-        public List<string> Tag { get; set; }
+        public List<Tag> Tags { get; set; }
         public Cart Cart { get; set; }
     }
 }

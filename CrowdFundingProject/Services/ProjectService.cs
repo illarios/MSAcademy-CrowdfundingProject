@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrowdFundingProject.Services
 {
@@ -48,7 +49,11 @@ namespace CrowdFundingProject.Services
             List<Project> projects = dbContext.Projects.ToList();
             return projects;
         }
-
+        //public List<Project> GetAllProjectsbyTag(string tag)
+        //{
+        //    List<Project> projects = dbContext.Projects.ToList();   //   Where(c => c.Tags).Find(c => c.Name == tag).ToList();
+        //    return projects;
+        //}
         public Project GetProjectById(int projectId)
         {
             Project project = dbContext.Projects.Find(projectId);

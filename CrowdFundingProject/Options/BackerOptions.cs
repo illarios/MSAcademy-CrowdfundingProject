@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrowdFundingProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,6 @@ namespace CrowdFundingProject.Options
         public decimal Wallet { get; set; }
         public string Email { get; set; }
         public bool IsActive { get; set; }
-        public List<string> Tag { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }
