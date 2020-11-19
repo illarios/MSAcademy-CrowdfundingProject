@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdFundingProject", "CrowdFundingProject\CrowdFundingProject.csproj", "{0A67E7AF-6C0C-4B07-83BA-56DDD6CDA845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrowdFundingProject", "CrowdFundingProject\CrowdFundingProject.csproj", "{0A67E7AF-6C0C-4B07-83BA-56DDD6CDA845}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrowdfundingWeb", "CrowdfundingWeb\CrowdfundingWeb.csproj", "{F697F838-B31C-46E9-98CF-B018B5CF157B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0A67E7AF-6C0C-4B07-83BA-56DDD6CDA845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A67E7AF-6C0C-4B07-83BA-56DDD6CDA845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A67E7AF-6C0C-4B07-83BA-56DDD6CDA845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F697F838-B31C-46E9-98CF-B018B5CF157B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F697F838-B31C-46E9-98CF-B018B5CF157B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F697F838-B31C-46E9-98CF-B018B5CF157B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F697F838-B31C-46E9-98CF-B018B5CF157B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
