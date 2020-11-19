@@ -19,7 +19,7 @@ namespace CrowdFundingProject.Services
                 Email = backerOptions.Email,
                 IsActive = true,
                 Wallet = backerOptions.Wallet,
-                Tag = backerOptions.Tag
+                Tags = backerOptions.Tags
             };
             dbContext.Backers.Add(backer);
             dbContext.SaveChanges();

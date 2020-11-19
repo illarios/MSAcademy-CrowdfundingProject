@@ -14,7 +14,7 @@ namespace CrowdFundingProject.Models
         public bool NotifyStatus { get; set; }
         public decimal Goal { get; set; }
         public decimal CurrentAmount { get; set; }
-        public object Media { get; set; }
+        //public object Media { get; set; }
         public bool IsTrending { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset EndDate { get; set; }

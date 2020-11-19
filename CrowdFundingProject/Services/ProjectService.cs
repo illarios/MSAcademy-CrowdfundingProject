@@ -23,7 +23,7 @@ namespace CrowdFundingProject.Services
                 NotifyStatus = projectOptions.NotifyStatus,
                 Goal = projectOptions.Goal,
                 CurrentAmount = projectOptions.CurrentAmount,
-                Media = projectOptions.Media,
+                //Media = projectOptions.Media,
                 IsTrending = projectOptions.IsTrending,
                 Created = projectOptions.Created,
                 EndDate = projectOptions.EndDate,
@@ -69,7 +69,7 @@ namespace CrowdFundingProject.Services
             project.NotifyStatus = projectOptions.NotifyStatus;
             project.Goal = projectOptions.Goal;
             project.CurrentAmount = projectOptions.CurrentAmount;
-            project.Media = projectOptions.Media;
+            //project.Media = projectOptions.Media;
             project.IsTrending = projectOptions.IsTrending;
             project.Created = projectOptions.Created;
             project.EndDate = projectOptions.EndDate;

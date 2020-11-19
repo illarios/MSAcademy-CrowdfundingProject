@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ill/Desktop/MSAcademy/MSAcademy-CrowdfundingProject/CrowdFundingProject/CrowdFundingProject.csproj": {}
+    "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj": {}
   },
   "projects": {
-    "/Users/ill/Desktop/MSAcademy/MSAcademy-CrowdfundingProject/CrowdFundingProject/CrowdFundingProject.csproj": {
+    "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ill/Desktop/MSAcademy/MSAcademy-CrowdfundingProject/CrowdFundingProject/CrowdFundingProject.csproj",
+        "projectUniqueName": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj",
         "projectName": "CrowdFundingProject",
-        "projectPath": "/Users/ill/Desktop/MSAcademy/MSAcademy-CrowdfundingProject/CrowdFundingProject/CrowdFundingProject.csproj",
-        "packagesPath": "/var/root/.nuget/packages/",
-        "outputPath": "/Users/ill/Desktop/MSAcademy/MSAcademy-CrowdfundingProject/CrowdFundingProject/obj/",
+        "projectPath": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj",
+        "packagesPath": "C:\\Users\\trias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/var/root/.config/NuGet/NuGet.Config"
+          "C:\\Users\\trias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -36,17 +37,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.9, )"
             }
           },
           "imports": [
@@ -64,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
