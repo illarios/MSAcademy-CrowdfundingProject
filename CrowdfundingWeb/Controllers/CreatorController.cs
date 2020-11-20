@@ -23,42 +23,42 @@ namespace CrowdfundingWeb.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public Creator GetCreatorById(int id)
         {
             Creator creator = creatorService.GetCreatorById(id);
             return creator;
         }
 
-        [HttpGet("/all")]
+        [HttpGet("all")]
         public List<Creator> GetCreators()
         {
             List<Creator> creators = creatorService.GetCreators();
             return creators;
         }
 
-        [HttpGet("/my/projects")]
+        [HttpGet("my/projects")]
         public List<Project> GetAllProjects(int id)
         {
             List<Project> projects = creatorService.GetAllProjects(id);
             return projects;
         }
 
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public Creator CreateCreator(CreatorOptions creatorOptions)
         {
             Creator creator = creatorService.CreateCreator(creatorOptions);
             return creator;
         }
 
-        [HttpPut("/update/{id}")]
+        [HttpPut("update/{id}")]
         public Creator UpdateCreator(CreatorOptions creatorOptions, int id)
         {
             Creator creator = creatorService.UpdateCreator(creatorOptions, id);
             return creator;
         }
 
-        [HttpDelete("/delete/{id}")]
+        [HttpDelete("delete/{id}")]
         public bool DeleteCreator(int id)
         {
             return creatorService.DeleteCreator(id);

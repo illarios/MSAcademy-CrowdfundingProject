@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CrowdFundingProject.Models;
+﻿using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace CrowdfundingWeb.Controllers
 {
@@ -23,42 +19,42 @@ namespace CrowdfundingWeb.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public Backer GetBackerById(int id)
         {
             Backer backer = backerService.GetBackerById(id);
             return backer;
         }
 
-        [HttpGet("/all")]
+        [HttpGet("all")]
         public List<Backer> GetBackers()
         {
             List<Backer> backers = backerService.GetBackers();
             return backers;
         }
 
-        [HttpGet("/my/projects")]
+        [HttpGet("my/projects")]
         public List<Project> GetSupportingProjects(int id)
         {
             List<Project> projects = backerService.GetSupportingProjects(id);
             return projects;
         }
 
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public Backer CreateBacker(BackerOptions backerOptions)
         {
             Backer backer = backerService.CreateBacker(backerOptions);
             return backer;
         }
 
-        [HttpPut("/update/{id}")]
+        [HttpPut("update/{id}")]
         public Backer UpdateBacker(BackerOptions backerOptions, int id)
         {
             Backer backer = backerService.UpdateBacker(backerOptions, id);
             return backer;
         }
 
-        [HttpDelete("/delete/{id}")]
+        [HttpDelete("delete/{id}")]
         public bool DeleteBacker(int id)
         {
             return backerService.DeleteBacker(id);

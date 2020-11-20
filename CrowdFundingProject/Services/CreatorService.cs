@@ -17,7 +17,8 @@ namespace CrowdFundingProject.Services
             {
                 Username = creatorOptions.Username,
                 Email = creatorOptions.Email,
-                Bio = creatorOptions.Bio
+                Bio = creatorOptions.Bio,
+                IsActive = true
             };
             
             dbContext.Creators.Add(creator);
@@ -30,6 +31,7 @@ namespace CrowdFundingProject.Services
             Creator creator = dbContext.Creators.Find(creatorId);
             if (creator == null) return false;
             creator.IsActive = false;
+            dbContext.SaveChanges();
             return true;
         }
 
@@ -48,6 +50,7 @@ namespace CrowdFundingProject.Services
         public Creator UpdateCreator(CreatorOptions creatorOptions, int creatorId)
         {
             Creator creator = dbContext.Creators.Find(creatorId);
+
             creator.Bio = creatorOptions.Bio;
             creator.Email = creatorOptions.Email;
             dbContext.SaveChanges();

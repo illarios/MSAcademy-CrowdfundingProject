@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrowdFundingProject.Services
 {
@@ -38,7 +39,7 @@ namespace CrowdFundingProject.Services
         }
         public List<Backer> GetBackers()
         {
-            List<Backer> backers = dbContext.Backers.ToList();
+            List<Backer> backers = dbContext.Backers.Include(c => c.Tags).ToList();
             return backers;
         }
 
