@@ -29,9 +29,9 @@ namespace CrowdFundingProject.Services
 
         public bool DeleteBacker(int backerid)
         {
-            Backer Backer = dbContext.Backers.Find(backerid);
-            if (Backer == null) return false;
-            dbContext.Backers.Remove(Backer);
+            Backer backer = dbContext.Backers.Find(backerid);
+            if (backer == null) return false;
+            backer.IsActive = false;
             dbContext.SaveChanges();
             return true;
 

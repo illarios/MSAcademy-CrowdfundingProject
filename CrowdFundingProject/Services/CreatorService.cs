@@ -29,7 +29,7 @@ namespace CrowdFundingProject.Services
         {
             Creator creator = dbContext.Creators.Find(creatorId);
             if (creator == null) return false;
-            dbContext.Creators.Remove(creator);
+            creator.IsActive = false;
             return true;
         }
 
