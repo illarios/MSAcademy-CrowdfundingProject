@@ -13,15 +13,15 @@ namespace CrowdfundingWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //private readonly ICreatorService creatorService;
-        //private readonly IBackerService backerService;
+        private readonly ICreatorService creatorService;
+        private readonly IBackerService backerService;
 
-        public HomeController(ILogger<HomeController> logger) //, ICreatorService _creatorService,IBackerService _backerService)
+        public HomeController(ILogger<HomeController> logger, ICreatorService _creatorService,IBackerService _backerService)
 
         {
             _logger = logger;
-           // creatorService = _creatorService;
-           // backerService = _backerService;
+            creatorService = _creatorService;
+            backerService = _backerService;
         }
         
         public IActionResult Index()
@@ -29,7 +29,7 @@ namespace CrowdfundingWeb.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AboutUs()
         {
             return View();
         }

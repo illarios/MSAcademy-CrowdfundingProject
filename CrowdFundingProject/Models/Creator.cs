@@ -12,6 +12,7 @@ namespace CrowdFundingProject.Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string Bio { get; set; }
+        public bool IsActive { get; set; }
         //Foreign Key
         public  List<Project> Projects { get; set; }
     }

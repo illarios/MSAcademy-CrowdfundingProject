@@ -9,5 +9,6 @@ namespace CrowdFundingProject.Options
         public string Username { get; set; }
         public string Email { get; set; }
         public string Bio { get; set; }
+        public bool IsActive { get; set; }
     }
 }
