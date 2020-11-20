@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj": {}
+    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj": {
+    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj",
+        "projectUniqueName": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj",
         "projectName": "CrowdFundingProject",
-        "projectPath": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\CrowdFundingProject.csproj",
-        "packagesPath": "C:\\Users\\trias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trias\\source\\repos\\CrowdFundingProject\\CrowdFundingProject\\obj\\",
+        "projectPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj",
+        "packagesPath": "C:\\Users\\Κωνσταντίνος\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\trias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Κωνσταντίνος\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
