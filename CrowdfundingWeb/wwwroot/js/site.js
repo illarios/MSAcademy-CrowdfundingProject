@@ -1,7 +1,166 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+//======================B A C K E R S===========================
+function addBacker()
+{
+    actionUrl = "/api/Backer/create"    //<------------
+    actiontype = "POST"
+    actionDataType = "json"
 
+    sendData = {
+        "Username": $("#Username").val(),
+        "Email": $("#Email").val(),
+        "Wallet": $("#Wallet").val(),
+    }
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+            alert(JSON.stringify(data))
+            window.open("/home/Backer", "_self")
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+function updateBacker() {
+    actionUrl = "/api/Backer/update" + id    //<------------
+    actiontype = "PUT"
+    actionDataType = "json"
+
+    sendData = {
+        "Username": $("#Username").val(),
+        "Email": $("#Email").val(),
+        "Wallet": $("#Wallet").val(),
+    }
+
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+            alert(JSON.stringify(data))
+            window.open("/home/Backer", "_self")
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+function updateBacker() {
+    id = $("#Id").val()
+
+    actionUrl = "/api/Backer/delete/" + id    //<----------
+    actiontype = "DELETE"
+    actionDataType = "json"
+
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+
+            alert(JSON.stringify(data))
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
+//====================== C R E A T O R S========================
+function addCreator() {
+    actionUrl = "/api/Creator/create"    //<------------
+    actiontype = "POST"
+    actionDataType = "json"
+
+    sendData = {
+        "Username": $("#Username").val(),
+        "Email": $("#Email").val(),
+        "Bio": $("#Bio").val(),
+    }
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+            alert(JSON.stringify(data))
+            window.open("/home/Creator", "_self")
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+function updateCreator() {
+    actionUrl = "/api/Creator/update" + id    //<------------
+    actiontype = "PUT"
+    actionDataType = "json"
+
+    sendData = {
+        "Username": $("#Username").val(),
+        "Email": $("#Email").val(),
+        "Bio": $("#Bio").val(),
+    }
+
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        data: JSON.stringify(sendData),
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+            alert(JSON.stringify(data))
+            window.open("/home/Creator", "_self")
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+function updateCreator() {
+    id = $("#Id").val()
+
+    actionUrl = "/api/Creator/delete/" + id    //<----------
+    actiontype = "DELETE"
+    actionDataType = "json"
+
+    $.ajax({
+        url: actionUrl,
+        dataType: actionDataType,
+        type: actiontype,
+        contentType: 'application/json',
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+
+            alert(JSON.stringify(data))
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
 
 //====================== P R O J E C T S =======================
 
@@ -35,6 +194,9 @@ function addProject() {
         }
     });
 }
+
+
+
 
 function updateProject() {
     id = $("#Id").val()
