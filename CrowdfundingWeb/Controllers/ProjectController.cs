@@ -13,6 +13,8 @@ namespace CrowdfundingWeb.Controllers
     {
         private readonly ILogger<ProjectController> _logger;
         private readonly IProjectService projectService;
+        private readonly IBackerService backerService;
+        private readonly IBundleService bundleService;
 
         public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger)
         {
@@ -52,6 +54,20 @@ namespace CrowdfundingWeb.Controllers
         public bool DeleteProject(int id)
         {
             return projectService.DeleteProject(id);
+        }
+
+        [HttpGet("my/backers")]
+        public List<Backer> GetBackers()
+        {
+            List<Backer> backers = backerService.GetBackers();
+            return backers;
+        }
+
+        [HttpGet("my/bundles")]
+        public List<Bundle> GetBundles()
+        {
+            List<Bundle> bundles = bundleService.GetBundles();
+            return bundles;
         }
     }
 }
