@@ -18,8 +18,9 @@ namespace CrowdfundingWeb.Controllers
         private readonly ILogger<CreatorController> _logger;
         private readonly ICreatorService creatorService; // = new CreatorService();
 
-        public CreatorController(ILogger<CreatorController> logger)
+        public CreatorController(ICreatorService _creatorService, ILogger<CreatorController> logger)
         {
+            creatorService = _creatorService;
             _logger = logger;
         }
 

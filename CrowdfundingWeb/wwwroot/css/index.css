@@ -68,6 +68,7 @@ h5 {
 
 .index-body {
     background-image: url("../images/index-bg2.png");
+    background-color: #e7dfc6;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity: 0.9;
@@ -91,6 +92,7 @@ body {
     margin: 4em auto;
     @extend %clearfix;
 }
+
 
 section {
     width: 33.333333333333333%;
