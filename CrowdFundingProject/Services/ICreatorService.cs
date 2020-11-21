@@ -14,5 +14,6 @@ namespace CrowdFundingProject.Services
         List<Project> GetAllProjects(int creatorId);
         Creator GetCreatorById(int creatorId);
         bool DeleteCreator(int creatorId);
+        Creator GetCreatorByUsername(string username);
     }
 }

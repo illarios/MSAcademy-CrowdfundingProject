@@ -14,6 +14,6 @@ namespace CrowdFundingProject.Services
         List<Project> GetSupportingProjects(int backerId);
         Backer UpdateBacker(BackerOptions backerOptions, int backerId);
         bool DeleteBacker(int backerId);
-     
+        Backer GetBackerByUsername(string username);
     }
 }

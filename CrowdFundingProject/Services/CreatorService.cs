@@ -64,5 +64,11 @@ namespace CrowdFundingProject.Services
             List<Project> projects = creator.Projects.ToList();
             return projects;
         }
+
+        public Creator GetCreatorByUsername(string username)
+        {
+            Creator creator = dbContext.Creators.Find(username);
+            return creator;
+        }
     }
 }
