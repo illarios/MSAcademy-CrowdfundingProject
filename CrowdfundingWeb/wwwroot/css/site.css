@@ -60,16 +60,31 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 0px;
+    /* Margin bottom by footer height */
+    margin-bottom: 30px;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+    height:100%;
 }
+
+.container{
+    min-height:100%
+}
+
 .footer {
-  position: center;
-  margin-top:30px;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: relative;
+    height: 40px;
+    width: 100%;
+    line-height: 30px; /* Vertically center the text there */
+}
+
+.footer .footer-cont {
+    position: absolute;
+    bottom: 0;
+    padding-top:0;
+    text-align:center;
+
 }
 
 
