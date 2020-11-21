@@ -16,7 +16,7 @@ namespace CrowdfundingWeb.Controllers
     public class CreatorController : ControllerBase
     {
         private readonly ILogger<CreatorController> _logger;
-        private readonly ICreatorService creatorService = new CreatorService();
+        private readonly ICreatorService creatorService; // = new CreatorService();
 
         public CreatorController(ILogger<CreatorController> logger)
         {
