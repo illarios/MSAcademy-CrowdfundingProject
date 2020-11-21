@@ -12,10 +12,11 @@ namespace CrowdfundingWeb.Controllers
     public class BackerController : ControllerBase
     {
         private readonly ILogger<BackerController> _logger;
-        private readonly IBackerService backerService = new BackerService();
+        private readonly IBackerService backerService;
 
-        public BackerController(ILogger<BackerController> logger)
+        public BackerController(IBackerService _backerService, ILogger<BackerController> logger)
         {
+            backerService = _backerService;
             _logger = logger;
         }
 
