@@ -1,4 +1,6 @@
-﻿/* Extra css */
+﻿/*-----------------------------------TILES--------------------------------*/
+
+/* Extra css */
 
 @import "compass/css3";
 
@@ -55,6 +57,47 @@ i {
     line-height: 1;
 }
 
+/*-----GRID-----*/
+.container {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    display: grid;
+    min-height: 100vh;
+    min-width: 100%;
+    grid-template-columns: 8fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-areas: "h1" "board1" "buttons";
+    grid-gap: 0.2rem;
+}
+
+.board {
+    grid-area: board1;
+    width: 100%;
+    min-height: 100%;
+    justify-content: center;
+}
+
+#buttons {
+    grid-area: buttons;
+    justify-content: center;
+}
+
+a {
+    color: #e7dfc6;
+}
+
+h1 {
+    grid-area: h1;
+    position: center;
+    text-align: center;
+}
+
+h4 {
+    padding-top: 20px;
+}
+/*-----GRID END-----*/
+
 h5 {
     font-family: $h;
     font-weight: 700;
@@ -67,53 +110,30 @@ h5 {
 }
 
 .index-body {
-    background-image: url("../images/index-bg2.png");
-    background-color: #E7DFC6;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity: 0.9;
 }
 
-html {
-    height: 100%
-}
-
-body {
-    background: $grey;
-    color: $t;
-    text-align: center;
-    padding: 2em 0 0;
-    font-family: $h;
-    font-weight: 400;
-}
-
-.board {
-    width: 860px;
-    margin: 4em auto;
-    @extend %clearfix;
-}
-
-
 section {
-    width: 33.333333333333333%;
+    width: 33.33%;
     display: block;
     float: left;
     position: relative;
     height: 12em;
     overflow: hidden;
+    justify-content: center;
 }
 
 .tile {
     padding: 2em .8em;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     border: 1px solid grey;
     border-radius: 10px 10px;
     @include transition(top .55s ease-in);
-    &:hover
-
-{
+    &:hover;
     cursor: pointer;
 }
 
@@ -122,9 +142,7 @@ section {
 .desc {
     top: 100%;
     padding-top: 4em;
-    background: darken($wht, 3%) span
-
-{
+    background: darken($wht, 3%);
     display: block;
     margin: 0 0 .75em;
 }
