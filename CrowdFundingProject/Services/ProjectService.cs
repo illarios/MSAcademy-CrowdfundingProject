@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CrowdFundingProject.Services
 {
-    public class ProjectSerive : IProjectService
+    public class ProjectService : IProjectService
     {
         private readonly AppDbContext dbContext = new AppDbContext();
 

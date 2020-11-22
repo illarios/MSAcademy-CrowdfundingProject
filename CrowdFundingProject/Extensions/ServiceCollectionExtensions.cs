@@ -14,6 +14,8 @@ namespace CrowdFundingProject.Extensions
 
             services.AddScoped<IBackerService, BackerService>();
             services.AddScoped<ICreatorService, CreatorService>();
+            services.AddScoped<IBundleService, BundleService>();
+            services.AddScoped<IProjectService, ProjectService>();
         }
     }
 }
