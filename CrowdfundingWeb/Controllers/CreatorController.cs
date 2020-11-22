@@ -31,8 +31,8 @@ namespace CrowdfundingWeb.Controllers
             return creator;
         }
 
-        [HttpGet("{username}")]
-        public Creator GetCreatorByUsername(string username)
+        [HttpGet("user")]
+        public Creator GetCreatorByUsername([FromQuery]string username)
         {
             Creator creator = creatorService.GetCreatorByUsername(username);
             return creator;

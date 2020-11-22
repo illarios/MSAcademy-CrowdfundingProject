@@ -27,8 +27,8 @@ namespace CrowdfundingWeb.Controllers
             return backer;
         }
 
-        [HttpGet("{username}")]
-        public Backer GetBackerByUsername(string username)
+        [HttpGet("user")]
+        public Backer GetBackerByUsername([FromQuery]string username)
         {
             Backer backer = backerService.GetBackerByUsername(username);
             return backer;

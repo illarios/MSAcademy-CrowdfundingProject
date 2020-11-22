@@ -66,7 +66,7 @@ namespace CrowdFundingProject.Services
 
         public Backer GetBackerByUsername(string username)
         {
-            Backer backer = dbContext.Backers.Find(username);
+            Backer backer = dbContext.Backers.ToList().Find(c => c.Username == username);
             return backer;
         }
     }

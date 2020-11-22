@@ -16,9 +16,12 @@ namespace CrowdfundingWeb.Controllers
         private readonly IBackerService backerService;
         private readonly IBundleService bundleService;
 
-        public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger)
+        public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger,
+            IBackerService _backerService, IBundleService _bundleService)
         {
             projectService = _projectService;
+            bundleService = _bundleService;
+            backerService = _backerService;
             _logger = logger;
         }
 
