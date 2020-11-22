@@ -55,24 +55,28 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background-color: #e7dfc6;
 }
 
 body {
     /* Margin bottom by footer height */
+    background-color: #e7dfc6;
     margin-bottom: 30px;
     min-height: 100%;
     position: relative;
     padding-bottom: 50px;
-    height:100%;
+    height: 100%;
 }
 
-.container{
-    min-height:100%
+.container {
+    min-height: 100%;
+    background-color: #e7dfc6;
 }
 
 .footer {
+    background-color: #e7dfc6;
     position: relative;
     height: 40px;
     width: 100%;

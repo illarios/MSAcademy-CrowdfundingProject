@@ -1,0 +1,109 @@
+﻿
+html
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #e7dfc6;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    min-width: 100%;
+    grid-template-columns: 0.8fr 5fr;
+    grid-template-rows: 5fr;
+    grid-template-areas: "sidebar main";
+    grid-gap: 0.2rem;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: white;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #e7dfc6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+h1 {
+    position: center;
+    text-align: center;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+nav {
+    height: 50px;
+}
+
+main {
+    flex: 1 0 auto;
+    grid-area: main;
+    min-height: 100%;
+}
+
+#sidebar {
+    border-radius: 10px;
+    background-color: #2c4a58;
+    color: #E7DFC6;
+    text-align: center;
+    grid-area: sidebar;
+}
+
+footer {
+    height: auto;
+    margin: 0.2rem;
+    margin-right: 15px;
+    margin-left: 15px;
+    grid-area: footer;
+    bottom: 0;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    margin: 10px;
+    max-height: auto;
+    background-color: #e9f1f7;
+}
+
+.progress {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
