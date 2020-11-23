@@ -84,24 +84,21 @@ function updateBacker() {
 
 //====================== C R E A T O R S========================
 function addCreator() {
-    actionUrl = "/api/Creator/create"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
+    actionUrl = "/api/Creator/create"    //<------------    
+    var formData = new FormData();
 
-    sendData = {
-        "Username": $("#Username").val(),
-        "Email": $("#Email").val(),
-        "Bio": $("#Bio").val(),
-    }
+    
+    formData.append("username", $('#Username').val());
+    formData.append("email", $('#Email').val);
+    formData.append("bio", $('#Bio').val());
+    
     $.ajax({
-        url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
-        contentType: 'application/json',
+        url: actionUrl,     
+        data: formData,
+        contentType: false,
+        type: "POST",
         processData: false,
-
-        success: function (data, textStatus, jQxhr) {
+        success: function (data) {
             alert(JSON.stringify(data))
             window.open("/home/Creator", "_self")
         },
