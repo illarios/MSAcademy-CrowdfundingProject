@@ -1,3 +1,6 @@
 # Ignore Binary Outputs
-bin/
-obj/
+/CrowdFundingProject/bin/
+/CrowdFundingProject/obj/
+/CrowdFundingProject/Migrations
+/CrowdFundingWeb/bin
+/CrowdFundingWeb/obj
