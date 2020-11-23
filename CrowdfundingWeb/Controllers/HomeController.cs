@@ -30,6 +30,11 @@ namespace CrowdfundingWeb.Controllers
             return View();
         }
 
+        public IActionResult CreateProfile()
+        {
+            return View();
+        }
+
         public IActionResult AboutUs()
         {
             return View();
