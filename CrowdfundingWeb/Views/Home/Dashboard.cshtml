@@ -36,24 +36,20 @@
             </div>
         </div>
     </main>
-    <div id="sidebar">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile"><h4>My Profile</h4></a>
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Create New Project</h4></a>
-            <h4>My Projects</h4>
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>   <!-- Edit the right controllers -->
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Project 1</a>
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Project 2</a>
-            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile">Project 3</a>
-
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" asp-action="CreateProfile" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-        </div>
+    <div class="navbar" id="sidebar">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dashboard"><h4>Dashboard</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile"><h4>My Profile</h4></a>
+            </li>
+            <li class="nav-item">
+                <h4>My Projects</h4>
+            </li>
+        </ul>
     </div>
 </div>
