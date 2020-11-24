@@ -83,23 +83,31 @@ function updateBacker() {
 }
 
 //====================== C R E A T O R S========================
-async function addCreator() {
-    actionUrl = await "/api/creator"    //<------------    
-    var formData = await new FormData();
+// by ID -> Selector # $('#create-profile')
+// by class name -> Selector . $('.js-create-profile')
+// by attribute name -> selector [] $('[type="submit"]')
+$('#create-profile').on('click', () => {
+    addCreator();
+});
 
-    formData.append("username", $('#username').val());
-    formData.append("email", $('#email').val());
-    formData.append("bio", $('#bio').val());
+function addCreator() {
+    let actionUrl = '/api/creator';
+    let $successAlert = $('#create-profile-success');
 
-     await $.ajax({
+    let formData = {
+        username: $('#username').val(),
+        email: $('#email').val(),
+        bio: $('#bio').val()
+    };
+
+    $.ajax({
         url: actionUrl,
-        data: formData,
-        contentType: false,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
         type: "POST",
-        processData: false,
         success: function (data) {
-            alert(JSON.stringify(data))
-            window.open("/home/Creator", "_self")
+            $successAlert.fadeIn(500);
+            $('#CreateProfileForm').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);

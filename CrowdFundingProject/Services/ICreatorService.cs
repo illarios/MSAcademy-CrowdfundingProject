@@ -8,7 +8,7 @@ namespace CrowdFundingProject.Services
 {
     public interface ICreatorService
     {
-        Creator CreateCreator(CreatorOptions creatorOptions);
+        CreatorOptions CreateCreator(CreatorOptions creatorOptions);
         Creator UpdateCreator(CreatorOptions creatorOptions, int creatorId);
         List<Creator> GetCreators();
         List<Project> GetAllProjects(int creatorId);

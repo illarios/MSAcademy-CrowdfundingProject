@@ -16,8 +16,8 @@
     <main>
         <h1>
             Create New Profile
-        </h1>     
-        <form class='card p-3 md-light' id="CreateProfileForm">
+        </h1>
+        <form method="post" class="card p-3 md-light" id="CreateProfileForm">
             <div class="form-group">
                 <label for="username">Username*</label>
                 <input type="text" id="username" placeholder="UserName" />
@@ -36,13 +36,16 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
             </div>
-            <button type="submit" class="btn btn-dark" onclick="addCreator()">Create Profile</button>
+            <button id="create-profile" type="button" class="btn btn-dark">Create Profile</button>
         </form>
-        
+
+        <div id="create-profile-success" class="alert alert-success" role="alert" style="display: none">
+            A simple success alert—check it out!
+        </div>
 
 
         <!-- Progress -->
-        
+
     </main>
 
    

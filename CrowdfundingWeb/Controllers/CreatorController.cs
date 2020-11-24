@@ -54,7 +54,7 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpPost]
-        public Creator CreateCreator([FromForm] CreatorWithFileModel creatormodelOptWithFileModel)
+        public CreatorOptions CreateCreator([FromBody] CreatorWithFileModel creatormodelOptWithFileModel)
         {
             CreatorOptions creatoropt = new CreatorOptions
             {
@@ -63,7 +63,7 @@ namespace CrowdfundingWeb.Controllers
                 Bio = creatormodelOptWithFileModel.Bio
             };
 
-            Creator creator = creatorService.CreateCreator(creatoropt);
+            CreatorOptions creator = creatorService.CreateCreator(creatoropt);
             return creator;
         }
 

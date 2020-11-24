@@ -11,7 +11,7 @@ namespace CrowdFundingProject.Services
     public class CreatorService : ICreatorService
     {
         private readonly AppDbContext dbContext = new AppDbContext();
-        public Creator CreateCreator(CreatorOptions creatorOptions)
+        public CreatorOptions CreateCreator(CreatorOptions creatorOptions)
         {          
             Creator creator = new Creator 
             {
@@ -23,7 +23,13 @@ namespace CrowdFundingProject.Services
             
             dbContext.Creators.Add(creator);
             dbContext.SaveChanges();
-            return creator;
+
+
+            return new CreatorOptions {
+                Username = creator.Username,
+                Email = creator.Email,
+                Bio = creator.Bio
+            };
         }
 
         public bool DeleteCreator(int creatorId)
