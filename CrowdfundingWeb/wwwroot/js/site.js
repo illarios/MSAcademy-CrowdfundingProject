@@ -115,6 +115,31 @@ function addCreator() {
     });
 }
 
+function getCreator() {
+    let actionUrl = '/home/DisplayCreators';
+    //let $successAlert = $('#create-profile-success');
+
+    let formData = {
+        username: $('#username').val(),
+        email: $('#email').val(),
+        bio: $('#bio').val()
+    };
+
+    $.ajax({
+        url: actionUrl,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        type: "GET",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProfileForm').hide();
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
 function updateCreator() {
     actionUrl = "/api/Creator/update" + id    //<------------
     actiontype = "PUT"
@@ -143,7 +168,7 @@ function updateCreator() {
         }
     });
 }
-function updateCreator() {
+function deleteCreator() {
     id = $("#Id").val()
 
     actionUrl = "/api/Creator/delete/" + id    //<----------

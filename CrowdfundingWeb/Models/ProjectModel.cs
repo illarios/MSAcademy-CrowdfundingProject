@@ -8,7 +8,10 @@ namespace CrowdfundingWeb.Models
 {
     public class ProjectModel
     {
-        public List<Project> Projects { get; set; }
         public Project Project { get; set; }
+    }
+    public class ProjectListModel
+    {
+        public List<Project> Projects { get; set; }
     }
 }
