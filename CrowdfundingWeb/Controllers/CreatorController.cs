@@ -53,7 +53,7 @@ namespace CrowdfundingWeb.Controllers
             return projects;
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         public Creator CreateCreator([FromForm] CreatorWithFileModel creatormodelOptWithFileModel)
         {
             CreatorOptions creatoropt = new CreatorOptions

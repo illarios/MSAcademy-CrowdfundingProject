@@ -83,17 +83,16 @@ function updateBacker() {
 }
 
 //====================== C R E A T O R S========================
-function addCreator() {
-    actionUrl = "/api/Creator/create"    //<------------    
-    var formData = new FormData();
+async function addCreator() {
+    actionUrl = await "/api/creator"    //<------------    
+    var formData = await new FormData();
 
-    
-    formData.append("username", $('#Username').val());
-    formData.append("email", $('#Email').val);
-    formData.append("bio", $('#Bio').val());
-    
-    $.ajax({
-        url: actionUrl,     
+    formData.append("username", $('#username').val());
+    formData.append("email", $('#email').val());
+    formData.append("bio", $('#bio').val());
+
+     await $.ajax({
+        url: actionUrl,
         data: formData,
         contentType: false,
         type: "POST",
@@ -107,6 +106,7 @@ function addCreator() {
         }
     });
 }
+
 function updateCreator() {
     actionUrl = "/api/Creator/update" + id    //<------------
     actiontype = "PUT"
