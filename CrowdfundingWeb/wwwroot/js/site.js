@@ -83,33 +83,38 @@ function updateBacker() {
 }
 
 //====================== C R E A T O R S========================
-function addCreator() {
-    actionUrl = "/api/Creator/create"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
+// by ID -> Selector # $('#create-profile')
+// by class name -> Selector . $('.js-create-profile')
+// by attribute name -> selector [] $('[type="submit"]')
+$('#create-profile').on('click', () => {
+    addCreator();
+});
 
-    sendData = {
-        "Username": $("#Username").val(),
-        "Email": $("#Email").val(),
-        "Bio": $("#Bio").val(),
-    }
+function addCreator() {
+    let actionUrl = '/api/creator';
+    let $successAlert = $('#create-profile-success');
+
+    let formData = {
+        username: $('#username').val(),
+        email: $('#email').val(),
+        bio: $('#bio').val()
+    };
+
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/Creator", "_self")
+        type: "POST",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProfileForm').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
+
 function updateCreator() {
     actionUrl = "/api/Creator/update" + id    //<------------
     actiontype = "PUT"

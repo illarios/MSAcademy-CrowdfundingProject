@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
+using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -52,10 +53,17 @@ namespace CrowdfundingWeb.Controllers
             return projects;
         }
 
-        [HttpPost("create")]
-        public Creator CreateCreator(CreatorOptions creatorOptions)
+        [HttpPost]
+        public CreatorOptions CreateCreator([FromBody] CreatorWithFileModel creatormodelOptWithFileModel)
         {
-            Creator creator = creatorService.CreateCreator(creatorOptions);
+            CreatorOptions creatoropt = new CreatorOptions
+            {
+                Username = creatormodelOptWithFileModel.Username,
+                Email = creatormodelOptWithFileModel.Email,
+                Bio = creatormodelOptWithFileModel.Bio
+            };
+
+            CreatorOptions creator = creatorService.CreateCreator(creatoropt);
             return creator;
         }
 
