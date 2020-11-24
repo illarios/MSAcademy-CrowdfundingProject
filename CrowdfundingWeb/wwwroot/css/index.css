@@ -2,41 +2,6 @@
 
 /* Extra css */
 
-@import "compass/css3";
-
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-@import "Mods/base";
-@import "Mods/mixins";
-@import "Mods/headerAndNav";
-@import "Mods/mainContent";
-
-@mixin animate($name, $duration, $delay, $function: ease, $mode: both) {
-    animation: $name $duration $delay $function $mode;
-    -moz-animation: $name $duration $delay $function $mode;
-    -webkit-animation: $name $duration $delay $function $mode;
-}
-
-$h: "Montserrat Alternates";
-$wht: #fff;
-$grey: #fafafa;
-$t: #a5a5a5;
-
-%clearfix {
-    &:after
-
-{
-    clear: both;
-    content: "";
-    display: table;
-}
-
-&:before {
-    content: "";
-    display: table;
-}
-
-}
-
 .content {
     align-content: center;
     vertical-align: middle;
@@ -58,6 +23,16 @@ i {
 }
 
 /*-----GRID-----*/
+.header
+{
+    background-color:#FDFBF8;
+}
+
+.footer
+{
+    background-color:#FDFBF8;
+}
+
 .container {
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -99,7 +74,6 @@ h4 {
 /*-----GRID END-----*/
 
 h5 {
-    font-family: $h;
     font-weight: 700;
     font-size: 1.5em;
     line-height: 1;
@@ -133,21 +107,16 @@ section {
     border: 1px solid grey;
     border-radius: 10px 10px;
     @include transition(top .55s ease-in);
-    &:hover;
     cursor: pointer;
-}
-
 }
 
 .desc {
     top: 100%;
     padding-top: 4em;
-    background: darken($wht, 3%);
     display: block;
     margin: 0 0 .75em;
 }
 
-}
 
 /*** Animations ***/
 @keyframes spinOut {
