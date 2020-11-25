@@ -140,28 +140,28 @@ function getCreator() {
     });
 }
 
-function updateCreator() {
-    actionUrl = "/api/Creator/update" + id    //<------------
-    actiontype = "PUT"
-    actionDataType = "json"
+$('#edit-profile').on('click', () => {
+    updateCreator();
+});
 
-    sendData = {
-        "Username": $("#Username").val(),
-        "Email": $("#Email").val(),
-        "Bio": $("#Bio").val(),
-    }
+function updateCreator() {
+    let id = $('#Id').val()
+    let actionUrl = '/api/creator/update/'+ id
+    let $successAlert = $('#edit-profile-success');
+
+    let formData = {       
+        email: $('#email').val(),
+        bio: $('#bio').val()
+    };
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/Creator", "_self")
+        type: "PUT",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#EditProfileForm').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);

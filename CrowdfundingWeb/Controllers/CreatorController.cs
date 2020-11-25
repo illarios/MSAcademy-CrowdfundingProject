@@ -46,7 +46,7 @@ namespace CrowdfundingWeb.Controllers
             return creators;
         }
 
-        [HttpGet("my/projects")]
+        [HttpGet("myprojects")]
         public List<Project> GetAllProjects(int id)
         {
             List<Project> projects = creatorService.GetAllProjects(id);
@@ -68,10 +68,10 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpPut("update/{id}")]
-        public Creator UpdateCreator(CreatorOptions creatorOptions, int id)
+        public CreatorOptions UpdateCreator([FromBody] CreatorOptions creatorOptions, int id)
         {
-            Creator creator = creatorService.UpdateCreator(creatorOptions, id);
-            return creator;
+            return creatorService.UpdateCreator(creatorOptions, id);
+           
         }
 
         [HttpDelete("delete/{id}")]

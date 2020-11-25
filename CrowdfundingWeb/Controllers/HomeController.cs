@@ -27,11 +27,8 @@ namespace CrowdfundingWeb.Controllers
         {
             return View();
         }
+   
 
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
         public IActionResult DisplayCreators()
         {
             List<Creator> creators = creatorService.GetCreators();

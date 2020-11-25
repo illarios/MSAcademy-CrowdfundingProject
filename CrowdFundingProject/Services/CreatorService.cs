@@ -53,7 +53,7 @@ namespace CrowdFundingProject.Services
             return creator;
         }
 
-        public Creator UpdateCreator(CreatorOptions creatorOptions, int creatorId)
+        public CreatorOptions UpdateCreator(CreatorOptions creatorOptions, int creatorId)
         {
             Creator creator = dbContext.Creators.Find(creatorId);
 
@@ -61,7 +61,12 @@ namespace CrowdFundingProject.Services
             creator.Email = creatorOptions.Email;
             dbContext.SaveChanges();
 
-            return creator;
+            return new CreatorOptions
+            {
+                Username = creator.Username,
+                Bio = creator.Bio,
+                Email = creator.Email
+            };
         }
 
         public List<Project> GetAllProjects(int creatorId)
