@@ -13,7 +13,7 @@ namespace CrowdFundingProject.Services
     public class BackerService : IBackerService
     { 
         private readonly AppDbContext dbContext = new AppDbContext();
-        public Backer CreateBacker(BackerOptions backerOptions)
+        public BackerOptions CreateBacker(BackerOptions backerOptions)
         {
             Backer backer = new Backer
             {
@@ -25,7 +25,12 @@ namespace CrowdFundingProject.Services
             };
             dbContext.Backers.Add(backer);
             dbContext.SaveChanges();
-            return backer;
+            return new BackerOptions
+            {
+                Username = backer.Username,
+                Email = backer.Email,
+                Wallet = backer.Wallet
+            }; ;
 
         }
 

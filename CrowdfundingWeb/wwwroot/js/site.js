@@ -2,28 +2,28 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 //======================B A C K E R S===========================
+$('#create-profile-backer').on('click', () => {
+    addBacker();
+});
+
 function addBacker()
 {
-    actionUrl = "/api/Backer/create"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
+    let actionUrl = "/api/backer"    //<------------
+    let $successAlert = $('#create-profile-success1');
 
-    sendData = {
-        "Username": $("#Username").val(),
-        "Email": $("#Email").val(),
-        "Wallet": $("#Wallet").val(),
+    let formData = {
+        "Username": $("#username").val(),
+        "Email": $("#email").val(),
+        "Wallet": $("#wallet").val(),
     }
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/Backer", "_self")
+        type: "POST",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProfileForm').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -434,4 +434,12 @@ function getUserId() {
     return localStorage.getItem('userId');
 }
 
+// Sign-up button-Creator & backer
 
+$('#creator-sign-up').on('click', function () {
+    window.open("/home/CreateProfile", "_self");
+});
+
+$('#backer-sign-up').on('click', function () {
+    window.open("/home/CreateProfileBacker", "_self");
+});

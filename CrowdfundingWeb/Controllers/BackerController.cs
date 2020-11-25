@@ -1,6 +1,7 @@
 ﻿using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
+using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -41,17 +42,23 @@ namespace CrowdfundingWeb.Controllers
             return backers;
         }
 
-        [HttpGet("my/projects")]
+        [HttpGet("myprojects")]
         public List<Project> GetSupportingProjects(int id)
         {
             List<Project> projects = backerService.GetSupportingProjects(id);
             return projects;
         }
 
-        [HttpPost("create")]
-        public Backer CreateBacker(BackerOptions backerOptions)
+        [HttpPost]
+        public BackerOptions CreateBacker([FromBody] BackerWithFileModel backerOptWithFileModel)
         {
-            Backer backer = backerService.CreateBacker(backerOptions);
+            BackerOptions backeropt = new BackerOptions
+            {
+                Username = backerOptWithFileModel.Username,
+                Email = backerOptWithFileModel.Email,
+                Wallet = backerOptWithFileModel.Wallet
+            };
+            BackerOptions backer = backerService.CreateBacker(backeropt);
             return backer;
         }
 

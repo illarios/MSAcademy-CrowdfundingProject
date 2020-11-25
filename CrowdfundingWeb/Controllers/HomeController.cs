@@ -84,6 +84,11 @@ namespace CrowdfundingWeb.Controllers
             return View();
         }
 
+        public IActionResult CreateProfileBacker()
+        {
+            return View();
+        }
+
         public IActionResult AboutUs()
         {
             return View();
