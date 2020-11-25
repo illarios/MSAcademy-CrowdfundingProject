@@ -7,8 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <link rel="stylesheet" href="~/css/login-creator.css" />
-    <script src="~/js/login-creator.js"></script>
     <script src="~/js/index.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form method="post" class="login100-form validate-form">
                     <span class="login100-form-title p-b-26">
                         Hey, Welcome!
                     </span>
@@ -42,9 +42,7 @@
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <button id="creator-login-btn" type="submit" onclick="CheckCreatorLogin()" class="login100-form-btn">
-                                Login
-                            </button>
+                            <button id="creator-login" type="button" class="login100-form-btn"> Login </button>
                         </div>
                         <button class="btn-sm">
                             Sign up?
@@ -59,4 +57,3 @@
     </div>
 
 </body>
-

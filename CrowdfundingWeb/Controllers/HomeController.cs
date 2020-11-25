@@ -15,6 +15,9 @@ namespace CrowdfundingWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICreatorService creatorService;
+        
+ 
+
 
         public HomeController(ICreatorService _creatorService, ILogger<HomeController> logger)
 
@@ -24,7 +27,7 @@ namespace CrowdfundingWeb.Controllers
         }
         
         [HttpPost]
-        public IActionResult Login([FromBody] LoginModel options)
+        public IActionResult FunctionL([FromBody] LoginModel options)
         {
             var id = creatorService.CheckIfEmailExists(options.Email);
             if (id != -1) 
