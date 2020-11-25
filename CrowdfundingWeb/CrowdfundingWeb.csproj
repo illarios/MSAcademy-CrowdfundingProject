@@ -9,8 +9,4 @@
     <ProjectReference Include="..\CrowdFundingProject\CrowdFundingProject.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\BackerMenu\" />
-  </ItemGroup>
-
 </Project>

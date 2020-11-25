@@ -8,13 +8,13 @@ $('#create-profile-backer').on('click', () => {
 
 function addBacker()
 {
-    let actionUrl = "/api/backer"    //<------------
+    let actionUrl = '/api/backer'   //<------------
     let $successAlert = $('#create-profile-success1');
 
     let formData = {
         "Username": $("#username").val(),
         "Email": $("#email").val(),
-        "Wallet": $("#wallet").val(),
+        "Wallet": parseInt($("#wallet").val()), 
     }
     $.ajax({
         url: actionUrl,
@@ -23,7 +23,7 @@ function addBacker()
         type: "POST",
         success: function (data) {
             $successAlert.fadeIn(500);
-            $('#CreateProfileForm').hide();
+            $('#CreateBackerProfileForm').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -394,7 +394,7 @@ async function CheckCreatorLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
-            window.open("/home/DisplayCreators", "_self")
+            window.open("/home/CreatorMenu/CDashboard", "_self")
         },
         error: function () {
             alert('Login denied');
@@ -422,7 +422,7 @@ async function CheckBackerLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
-            window.open("/home/DisplayCreators", "_self")
+            window.open("/home/BackerMenu/BDashboard", "_self")
         },
         error: function () {
             alert('Login denied');

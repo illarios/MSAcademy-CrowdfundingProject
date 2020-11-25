@@ -8,7 +8,7 @@ namespace CrowdfundingWeb.Controllers
 {
     public class CreatorMenu : Controller
     {
-        public IActionResult Dashboard()
+        public IActionResult CDashboard()
         {
             return View();
         }

@@ -8,9 +8,9 @@ namespace CrowdfundingWeb.Controllers
 {
     public class BackerMenu : Controller
     {
-        //public IActionResult Dashboard()
-        //{
-        //    return View();
-        //}
+        public IActionResult BDashboard()
+        {
+            return View();
+        }
     }
 }
