@@ -93,7 +93,7 @@ $('#create-profile').on('click', () => {
 function addCreator() {
     let actionUrl = '/api/creator';
     let $successAlert = $('#create-profile-success');
-
+    
     let formData = {
         username: $('#username').val(),
         email: $('#email').val(),
@@ -368,6 +368,36 @@ function deleteBundle() {
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
+        }
+    });
+}
+
+// Login Event
+
+$('#creator-login').on('click', () => {
+    CheckCreatorLogin();
+});
+
+async function CheckCreatorLogin() {
+    let userEmail = $('#user-email').val();
+    let password = $('#user-password').val();
+    
+    let loginOptions = {
+        email: userEmail,
+        password: password
+    };
+debugger;
+    $.ajax({
+        url: '/home/functionl',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify(loginOptions),
+        success: function (data) {
+            localStorage.setItem('userId', data.userId);
+            window.open("/home/DisplayCreators", "_self")
+        },
+        error: function () {
+            alert('Login denied');
         }
     });
 }

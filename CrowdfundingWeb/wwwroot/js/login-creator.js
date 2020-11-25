@@ -1,12 +1,11 @@
 // Login Event
-$('#creator-login-btn').on('click', () => {
+$('#creator-login').on('click', () => {
     CheckCreatorLogin();
 });
 
 function CheckCreatorLogin() {
     let userEmail = $('#user-email').val();
     let password = $('#user-password').val();
-
     let loginOptions = {
         email: userEmail,
         password: password
