@@ -15,5 +15,6 @@ namespace CrowdFundingProject.Services
         Backer UpdateBacker(BackerOptions backerOptions, int backerId);
         bool DeleteBacker(int backerId);
         Backer GetBackerByUsername(string username);
+        public int CheckIfEmailExists(string email);
     }
 }

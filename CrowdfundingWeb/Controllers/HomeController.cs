@@ -15,14 +15,13 @@ namespace CrowdfundingWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICreatorService creatorService;
-        
+        private readonly IBackerService backerService; 
  
-
-
-        public HomeController(ICreatorService _creatorService, ILogger<HomeController> logger)
+        public HomeController(ICreatorService _creatorService, IBackerService _backerService, ILogger<HomeController> logger)
 
         {
             creatorService = _creatorService;
+            backerService = _backerService;
             _logger = logger;
         }
         
@@ -30,6 +29,20 @@ namespace CrowdfundingWeb.Controllers
         public IActionResult FunctionL([FromBody] LoginModel options)
         {
             var id = creatorService.CheckIfEmailExists(options.Email);
+            if (id != -1) 
+            {
+                return Ok(new {
+                    userId = id
+                });
+            }
+
+            return Forbid();
+        }
+        
+        [HttpPost]
+        public IActionResult FunctionLbk([FromBody] LoginModel options)
+        {
+            var id = backerService.CheckIfEmailExists(options.Email);
             if (id != -1) 
             {
                 return Ok(new {
