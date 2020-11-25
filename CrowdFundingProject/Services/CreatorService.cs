@@ -40,6 +40,12 @@ namespace CrowdFundingProject.Services
             dbContext.SaveChanges();
             return true;
         }
+        public int CheckIfEmailExists(string email)
+        {
+            Creator creator = dbContext.Creators.Find(email);
+            if (creator == null) return -1;
+            return creator.Id;
+        }
 
         public List<Creator> GetCreators()
         {
