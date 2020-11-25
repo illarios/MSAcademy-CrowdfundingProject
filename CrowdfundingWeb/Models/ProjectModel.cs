@@ -10,6 +10,15 @@ namespace CrowdfundingWeb.Models
     {
         public Project Project { get; set; }
     }
+    public class ProjectfromFormModel
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Category { get; set; }
+        public decimal Goal { get; set; }
+        public string EndDate { get; set; }
+    }
     public class ProjectListModel
     {
         public List<Project> Projects { get; set; }

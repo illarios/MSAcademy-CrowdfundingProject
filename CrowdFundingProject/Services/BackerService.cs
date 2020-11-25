@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
+using CrowdFundingProject.Options;
 
 namespace CrowdFundingProject.Services
 {
@@ -19,9 +20,8 @@ namespace CrowdFundingProject.Services
             {
                 Username = backerOptions.Username,
                 Email = backerOptions.Email,
-                IsActive = true,
-                Wallet = backerOptions.Wallet,
-                Tags = backerOptions.Tags
+                IsBackerActive = true,
+                Wallet = backerOptions.Wallet
             };
             dbContext.Backers.Add(backer);
             dbContext.SaveChanges();
@@ -33,7 +33,7 @@ namespace CrowdFundingProject.Services
         {
             Backer backer = dbContext.Backers.Find(backerid);
             if (backer == null) return false;
-            backer.IsActive = false;
+            backer.IsBackerActive = false;
             dbContext.SaveChanges();
             return true;
 

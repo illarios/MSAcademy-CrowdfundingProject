@@ -50,12 +50,11 @@ namespace CrowdfundingWeb.Controllers
                 Description = projectModel.Description,
                 Goal = projectModel.Goal,
                 CurrentAmount = 0,
-                Created = DateTime.Today.ToString(),
                 EndDate = projectModel.EndDate.ToString(),
                 Category = projectModel.Category
             };
 
-            Project project = projectService.CreateProject(projectOpt);
+            Project project = projectService.CreateProject(projectModel.Id, projectOpt);
             return project;
         }
 

@@ -12,7 +12,6 @@ namespace CrowdFundingProject.Data
         public DbSet<Bundle> Bundles { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Backer> Backers { get; set; }
-        public DbSet<Tag> Tags { get; set; }
         public DbSet<Image> Images { get; set; }
 
 

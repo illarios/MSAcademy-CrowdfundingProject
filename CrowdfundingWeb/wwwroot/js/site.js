@@ -201,12 +201,13 @@ $('#create-project').on('click', () => {
 function addProject() {
     let actionUrl = '/api/project/create';
     let $successAlert = $('#create-project-success');
-
+    let id = getUserId();
 
     let formData = {
+        id: parseInt(id),
         title: $('#title').val(),
         description: $('#description').val(),
-        goal: $('#goal').val(),
+        goal: parseInt($('#goal').val()),
         endDate: $('#endDate').val().toString(),
         category: $(".categoryOptions:checked").val()
     };
@@ -215,7 +216,7 @@ function addProject() {
         url: actionUrl,
         data: JSON.stringify(formData),
         contentType: 'application/json',
-        type: "POST",
+        type: 'POST',
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#CreateProjectForm').hide();

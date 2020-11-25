@@ -8,7 +8,7 @@ namespace CrowdFundingProject.Services
 {
     public interface IProjectService
     {
-        Project CreateProject(ProjectOptions projectOptions);
+        Project CreateProject(int UserId, ProjectOptions projectOptions);
         Project UpdateProject(ProjectOptions projectOptions, int projectId);
         bool DeleteProject(int projectId);
         Project GetProjectById(int projectId);
