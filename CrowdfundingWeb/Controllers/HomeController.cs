@@ -86,6 +86,10 @@ namespace CrowdfundingWeb.Controllers
         {
             return View();
         }
+        public IActionResult CreateProject()
+        {
+            return View();
+        }
 
         public IActionResult AboutUs()
         {

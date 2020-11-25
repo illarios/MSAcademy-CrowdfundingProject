@@ -1,8 +1,10 @@
 ﻿using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
+using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 
 namespace CrowdfundingWeb.Controllers
@@ -40,9 +42,20 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpPost("create")]
-        public Project CreateProject(ProjectOptions projectOptions)
+        public Project CreateProject([FromBody] ProjectfromFormModel projectModel)
         {
-            Project project = projectService.CreateProject(projectOptions);
+            ProjectOptions projectOpt = new ProjectOptions
+            {
+                Title = projectModel.Title,
+                Description = projectModel.Description,
+                Goal = projectModel.Goal,
+                CurrentAmount = 0,
+                Created = DateTime.Today.ToString(),
+                EndDate = projectModel.EndDate.ToString(),
+                Category = projectModel.Category
+            };
+
+            Project project = projectService.CreateProject(projectOpt);
             return project;
         }
 

@@ -25,7 +25,6 @@ namespace CrowdFundingProject.Services
                 CurrentAmount = projectOptions.CurrentAmount,
                 //Media = projectOptions.Media,
                 IsTrending = projectOptions.IsTrending,
-                Created = projectOptions.Created,
                 EndDate = projectOptions.EndDate,
                 Tags = projectOptions.Tags
             };
@@ -71,7 +70,6 @@ namespace CrowdFundingProject.Services
             project.CurrentAmount = projectOptions.CurrentAmount;
             //project.Media = projectOptions.Media;
             project.IsTrending = projectOptions.IsTrending;
-            project.Created = projectOptions.Created;
             project.EndDate = projectOptions.EndDate;
             project.Tags = projectOptions.Tags;
             dbContext.SaveChanges();

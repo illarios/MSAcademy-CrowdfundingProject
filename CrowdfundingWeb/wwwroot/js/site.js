@@ -194,30 +194,33 @@ function deleteCreator() {
 
 //====================== P R O J E C T S =======================
 
-function addProject() {
-    actionUrl = "/api/project/create"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
+$('#create-project').on('click', () => {
+    addProject();
+});
 
-    sendData = {
-        "title": $("#Title").val(),
-        "description": $("#Description").val(),
-        "category": $("#Category").val(),
-        "goal": $("#Goal").val(),
-        "endDate": $("#EndDate").val()
-    }
+function addProject() {
+    let actionUrl = '/api/project/create';
+    let $successAlert = $('#create-project-success');
+
+
+    let formData = {
+        title: $('#title').val(),
+        description: $('#description').val(),
+        goal: $('#goal').val(),
+        endDate: $('#endDate').val().toString(),
+        category: $(".categoryOptions:checked").val()
+    };
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/customers", "_self")
+        type: "POST",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProjectForm').hide();
+            $('#create-project-success').show();
+            $('#CreateBundlesForm').show();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
