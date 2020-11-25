@@ -15,5 +15,6 @@ namespace CrowdFundingProject.Services
         Creator GetCreatorById(int creatorId);
         bool DeleteCreator(int creatorId);
         Creator GetCreatorByUsername(string username);
+        int CheckIfEmailExists(string email);
     }
 }

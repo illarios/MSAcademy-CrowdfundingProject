@@ -23,6 +23,20 @@ namespace CrowdfundingWeb.Controllers
             _logger = logger;
         }
         
+        [HttpPost]
+        public IActionResult Login([FromBody] LoginModel options)
+        {
+            var id = creatorService.CheckIfEmailExists(options.Email);
+            if (id != -1) 
+            {
+                return Ok(new {
+                    userId = id
+                });
+            }
+
+            return Forbid();
+        }
+        
         public IActionResult Index()
         {
             return View();
@@ -39,7 +53,7 @@ namespace CrowdfundingWeb.Controllers
             return View(creatorsListModel);
         }
 
-        public IActionResult DisplayCreatorProjects()
+       /* public IActionResult DisplayCreatorProjects()
         {
             Creator creator = creatorService.GetCreatorById(1);  //TODO Get the creatorID by the login session and HIS projects to display
             ProjectListModel projectListModel = new ProjectListModel
@@ -47,7 +61,7 @@ namespace CrowdfundingWeb.Controllers
                 Projects = creator.Projects //.ToList();
             };
             return View(projectListModel);
-        }
+        }*/
 
         public IActionResult CreateProfile()
         {
