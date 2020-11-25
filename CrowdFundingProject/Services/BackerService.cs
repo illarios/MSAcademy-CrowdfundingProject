@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.Immutable;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrowdFundingProject.Services
@@ -68,6 +69,14 @@ namespace CrowdFundingProject.Services
         {
             Backer backer = dbContext.Backers.ToList().Find(c => c.Username == username);
             return backer;
+        }
+        
+        public int CheckIfEmailExists(string email)
+        {
+            Backer bk = new Backer();
+            bk = dbContext.Backers.FirstOrDefault(i => i.Email == email);
+            if (bk == null) return -1;
+            return bk.Id;
         }
     }
 }
