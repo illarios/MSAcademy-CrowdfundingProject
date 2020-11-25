@@ -3,6 +3,7 @@ using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
@@ -39,6 +40,13 @@ namespace CrowdFundingProject.Services
             creator.IsActive = false;
             dbContext.SaveChanges();
             return true;
+        }
+        public int CheckIfEmailExists(string email)
+        {
+            Creator cr = new Creator();
+            cr = dbContext.Creators.FirstOrDefault(i => i.Email == email);
+            if (cr == null) return -1;
+            return cr.Id;
         }
 
         public List<Creator> GetCreators()

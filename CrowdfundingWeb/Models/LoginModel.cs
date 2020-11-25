@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace CrowdfundingWeb.Models
 {
-    public class ProjectModel
+    public class LoginModel
     {
-        public Project Project { get; set; }
-    }
-    public class ProjectListModel
-    {
-        public List<Project> Projects { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

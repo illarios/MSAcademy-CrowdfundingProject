@@ -1,0 +1,120 @@
+﻿@model CrowdfundingWeb.Models.ProjectListModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Home";
+}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+</head>
+
+<div class="container">
+    <main>
+        <h1>
+            Create New Project
+        </h1>
+        <form method="post" class="card p-3 md-light" id="CreateProjectForm">
+            <div class="form-group">
+                <label for="title">Title*</label>
+                <input type="text" id="title" placeholder="Project Title" />
+                <div class="valid-feedback"> Looks good! </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description*</label>
+                <input type="text" id="description" rows="5" placeholder="Project Description" />
+            </div>
+            <div class="form-group input-with-post-icon datepicker">
+                <label for="endDate">Deadline Date*</label>
+                <input placeholder="Select date" type="date" id="endDate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="goal"> Goal (€)*</label>
+                <input type="number" id="goal" />
+            </div>
+            <label> Choose a category: </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="categoryOptions" id="category1" value="1">
+                <label class="form-check-label" for="option1">Technology</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="categoryOptions" id="category2" value="2">
+                <label class="form-check-label" for="option2">Fashion</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="categoryOptions" id="category3" value="3">
+                <label class="form-check-label" for="option3">Lifestyle</label>
+            </div>
+            <div class="form-check" style="padding-bottom: 15px;padding-top: 30px;">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
+            </div>
+
+            <button id="create-project" type="button" class="btn btn-dark">Create Project and Proceed to Bundle Creation</button>
+        </form>
+
+        <div id="create-project-success" class="alert alert-success" role="alert" style="display: none">
+            Successfully Created Project !
+        </div>
+        <!-----------------Bundle Form----------------->
+        <form method="post" class="card p-3 md-light" id="CreateBundlesForm" style="display: none">
+            <h3 style="text-align: center;">Add Bundles</h3>
+            <label for="bundle1">1st Bundle</label>
+            <div class="row" style="padding-bottom: 15px;">
+                <div class="col">
+                    <input type="text" id="prize1" class="form-control" placeholder="Prize*">
+                </div>
+                <div class="col">
+                    <input type="text" id="bundledescription1" class="form-control" placeholder="Description*">
+                </div>
+            </div>
+            <label for="bundle2">2nd Bundle</label>
+            <div class="row" style="padding-bottom: 15px;">
+                <div class="col">
+                    <input type="text" id="prize2" class="form-control" placeholder="Prize*">
+                </div>
+                <div class="col">
+                    <input type="text" id="bundledescription2" class="form-control" placeholder="Description*">
+                </div>
+            </div>
+            <label for="bundle3">3rd Bundle</label>
+            <div class="row" style="padding-bottom: 15px;">
+                <div class="col">
+                    <input type="text" id="prize3" class="form-control" placeholder="Prize*">
+                </div>
+                <div class="col">
+                    <input type="text" id="bundledescription3" class="form-control" placeholder="Description*">
+                </div>
+            </div>
+            <button id="create-bundles" type="button" class="btn btn-dark">Add Bundle(s)</button>
+        </form>
+
+
+        <div id="create-profile-success" class="alert alert-success" role="alert" style="display: none">
+            Successfully Added Bundle !
+        </div>
+    </main>
+    <div class="navbar" id="sidebar">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dashboard"><h4>Dashboard</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile"><h4>My Profile</h4></a>
+            </li>
+            <li class="nav-item">
+                <h4>My Projects</h4>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="CreateProject"><h4>Create New Project</h4></a>
+            </li>
+        </ul>
+    </div>
+</div>

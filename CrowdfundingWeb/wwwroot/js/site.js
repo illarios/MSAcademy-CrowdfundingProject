@@ -93,7 +93,7 @@ $('#create-profile').on('click', () => {
 function addCreator() {
     let actionUrl = '/api/creator';
     let $successAlert = $('#create-profile-success');
-
+    
     let formData = {
         username: $('#username').val(),
         email: $('#email').val(),
@@ -105,6 +105,31 @@ function addCreator() {
         data: JSON.stringify(formData),
         contentType: 'application/json',
         type: "POST",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProfileForm').hide();
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
+function getCreator() {
+    let actionUrl = '/home/DisplayCreators';
+    //let $successAlert = $('#create-profile-success');
+
+    let formData = {
+        username: $('#username').val(),
+        email: $('#email').val(),
+        bio: $('#bio').val()
+    };
+
+    $.ajax({
+        url: actionUrl,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        type: "GET",
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#CreateProfileForm').hide();
@@ -143,7 +168,7 @@ function updateCreator() {
         }
     });
 }
-function updateCreator() {
+function deleteCreator() {
     id = $("#Id").val()
 
     actionUrl = "/api/Creator/delete/" + id    //<----------
@@ -169,30 +194,33 @@ function updateCreator() {
 
 //====================== P R O J E C T S =======================
 
-function addProject() {
-    actionUrl = "/api/project/create"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
+$('#create-project').on('click', () => {
+    addProject();
+});
 
-    sendData = {
-        "title": $("#Title").val(),
-        "description": $("#Description").val(),
-        "category": $("#Category").val(),
-        "goal": $("#Goal").val(),
-        "endDate": $("#EndDate").val()
-    }
+function addProject() {
+    let actionUrl = '/api/project/create';
+    let $successAlert = $('#create-project-success');
+
+
+    let formData = {
+        title: $('#title').val(),
+        description: $('#description').val(),
+        goal: $('#goal').val(),
+        endDate: $('#endDate').val().toString(),
+        category: $(".categoryOptions:checked").val()
+    };
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/customers", "_self")
+        type: "POST",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#CreateProjectForm').hide();
+            $('#create-project-success').show();
+            $('#CreateBundlesForm').show();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -346,3 +374,67 @@ function deleteBundle() {
         }
     });
 }
+
+// Login Event
+
+$('#creator-login').on('click', () => {
+    CheckCreatorLogin();
+});
+
+async function CheckCreatorLogin() {
+    let userEmail = $('#user-email').val();
+    let password = $('#user-password').val();
+    
+    let loginOptions = {
+        email: userEmail,
+        password: password
+    };
+
+    $.ajax({
+        url: '/home/functionl',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify(loginOptions),
+        success: function (data) {
+            localStorage.setItem('userId', data.userId);
+            window.open("/home/DisplayCreators", "_self")
+        },
+        error: function () {
+            alert('Login denied');
+        }
+    });
+}
+
+$('#backer-login').on('click', () => {
+    CheckBackerLogin();
+});
+
+async function CheckBackerLogin() {
+    let userEmail = $('#user-email').val();
+    let password = $('#user-password').val();
+
+    let loginOptions = {
+        email: userEmail,
+        password: password
+    };
+
+    $.ajax({
+        url: '/home/functionlbk',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify(loginOptions),
+        success: function (data) {
+            localStorage.setItem('userId', data.userId);
+            window.open("/home/DisplayCreators", "_self")
+        },
+        error: function () {
+            alert('Login denied');
+        }
+    });
+}
+
+function getUserId() {
+    return localStorage.getItem('userId');
+}
+
+

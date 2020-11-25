@@ -1,12 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
-html
-
 body {
     margin: 0px;
     padding: 0px;
-    background-color: #e7dfc6;
+    background-color: #FDFBF8;
     display: flex;
     height: 100%;
     flex-direction: column;
