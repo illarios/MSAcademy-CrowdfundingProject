@@ -145,7 +145,7 @@ $('#edit-profile').on('click', () => {
 });
 
 function updateCreator() {
-    let id = $('#Id').val()
+    let id = getUserId();
     let actionUrl = '/api/creator/update/'+ id
     let $successAlert = $('#edit-profile-success');
 
