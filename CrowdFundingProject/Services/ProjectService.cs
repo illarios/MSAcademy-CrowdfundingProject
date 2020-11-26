@@ -7,30 +7,38 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace CrowdFundingProject.Services
 {
     public class ProjectService : IProjectService
     {
         private readonly AppDbContext dbContext = new AppDbContext();
-
-        public Project CreateProject(ProjectOptions projectOptions)
+        
+        public Project CreateProject(int UserId, ProjectOptions projectOptions)
         {
+            Creator creator = dbContext.Creators.Find(UserId);
             Project project = new Project
             {
                 Title = projectOptions.Title,
                 Description = projectOptions.Description,
                 Category = projectOptions.Category,
-                NotifyStatus = projectOptions.NotifyStatus,
                 Goal = projectOptions.Goal,
                 CurrentAmount = projectOptions.CurrentAmount,
-                //Media = projectOptions.Media,
                 IsTrending = projectOptions.IsTrending,
                 EndDate = projectOptions.EndDate,
-                Tags = projectOptions.Tags
+                Creator = creator,
             };
 
             dbContext.Projects.Add(project);
+            ////   quantic expression
+            creator.Projects.Add(project);
+
+            ////
             dbContext.SaveChanges();
+
+            //string script = string.Format("sessionStorage.projectId= '{​​​​0}​​​​';", project.Id);
+            //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "key", script, true);
+
             return project;
         }
 
@@ -48,11 +56,7 @@ namespace CrowdFundingProject.Services
             List<Project> projects = dbContext.Projects.ToList();
             return projects;
         }
-        //public List<Project> GetAllProjectsbyTag(string tag)
-        //{
-        //    List<Project> projects = dbContext.Projects.ToList();   //   Where(c => c.Tags).Find(c => c.Name == tag).ToList();
-        //    return projects;
-        //}
+
         public Project GetProjectById(int projectId)
         {
             Project project = dbContext.Projects.Find(projectId);
@@ -65,13 +69,10 @@ namespace CrowdFundingProject.Services
             project.Title = projectOptions.Title;
             project.Description = projectOptions.Description;
             project.Category = projectOptions.Category;
-            project.NotifyStatus = projectOptions.NotifyStatus;
             project.Goal = projectOptions.Goal;
             project.CurrentAmount = projectOptions.CurrentAmount;
-            //project.Media = projectOptions.Media;
             project.IsTrending = projectOptions.IsTrending;
             project.EndDate = projectOptions.EndDate;
-            project.Tags = projectOptions.Tags;
             dbContext.SaveChanges();
             return project;
         }

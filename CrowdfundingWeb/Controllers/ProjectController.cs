@@ -1,4 +1,5 @@
-﻿using CrowdFundingProject.Models;
+﻿using CrowdFundingProject.Data;
+using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
 using CrowdfundingWeb.Models;
@@ -17,6 +18,7 @@ namespace CrowdfundingWeb.Controllers
         private readonly IProjectService projectService;
         private readonly IBackerService backerService;
         private readonly IBundleService bundleService;
+        private readonly AppDbContext dbContext = new AppDbContext();
 
         public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger,
             IBackerService _backerService, IBundleService _bundleService)
@@ -50,12 +52,12 @@ namespace CrowdfundingWeb.Controllers
                 Description = projectModel.Description,
                 Goal = projectModel.Goal,
                 CurrentAmount = 0,
-                Created = DateTime.Today.ToString(),
                 EndDate = projectModel.EndDate.ToString(),
                 Category = projectModel.Category
             };
 
-            Project project = projectService.CreateProject(projectOpt);
+            Project project = projectService.CreateProject(projectModel.Id, projectOpt);
+
             return project;
         }
 
@@ -79,10 +81,17 @@ namespace CrowdfundingWeb.Controllers
             return backers;
         }
 
-        [HttpGet("my/bundles")]
-        public List<Bundle> GetBundles()
+        [HttpGet("{id}/bundles")]
+        public List<Bundle> GetBundles(int id)
         {
-            List<Bundle> bundles = bundleService.GetBundles();
+
+            List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
+            return bundles;
+        }
+        [HttpPost("bundles")]
+        public List<Bundle> AddBundles(int userid)
+        {
+            List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
             return bundles;
         }
     }

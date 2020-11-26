@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrowdFundingProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201119181116_add-Initial-Model")]
-    partial class addInitialModel
+    [Migration("20201125223449_init-change-structggg")]
+    partial class initchangestructggg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace CrowdFundingProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsBackerActive")
                         .HasColumnType("bit");
 
                     b.Property<int?>("ProjectId")
@@ -89,6 +89,9 @@ namespace CrowdFundingProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,8 +132,8 @@ namespace CrowdFundingProject.Migrations
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("Created")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<string>("Created")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CreatorId")
                         .HasColumnType("int");
@@ -141,16 +144,13 @@ namespace CrowdFundingProject.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("EndDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<string>("EndDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Goal")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("IsTrending")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NotifyStatus")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
@@ -178,16 +178,11 @@ namespace CrowdFundingProject.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BackerId");
 
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("Tags");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("CrowdFundingProject.Models.Backer", b =>
@@ -220,10 +215,6 @@ namespace CrowdFundingProject.Migrations
                     b.HasOne("CrowdFundingProject.Models.Backer", null)
                         .WithMany("Tags")
                         .HasForeignKey("BackerId");
-
-                    b.HasOne("CrowdFundingProject.Models.Project", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("ProjectId");
                 });
 #pragma warning restore 612, 618
         }
