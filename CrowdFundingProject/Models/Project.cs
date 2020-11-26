@@ -14,7 +14,7 @@ namespace CrowdFundingProject.Models
         public decimal Goal { get; set; }
         public decimal CurrentAmount { get; set; }
         public bool IsTrending { get; set; }
-        public string Created { get; set; }
+        public decimal Progress => CurrentAmount / Goal;
         public string EndDate { get; set; }
 
          //Foreign Key

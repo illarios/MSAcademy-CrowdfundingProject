@@ -15,13 +15,15 @@ namespace CrowdfundingWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICreatorService creatorService;
-        private readonly IBackerService backerService; 
- 
-        public HomeController(ICreatorService _creatorService, IBackerService _backerService, ILogger<HomeController> logger)
+        private readonly IBackerService backerService;
+        private readonly IProjectService projectService;
+
+        public HomeController(ICreatorService _creatorService, IBackerService _backerService, ILogger<HomeController> logger, IProjectService _projectService)
 
         {
             creatorService = _creatorService;
             backerService = _backerService;
+            projectService = _projectService;
             _logger = logger;
         }
         
@@ -60,7 +62,12 @@ namespace CrowdfundingWeb.Controllers
 
         public IActionResult Dashboard()
         {
-            return View();
+            List<Project> projects = projectService.GetAllProjects();
+            ProjectListModel projectListModel = new ProjectListModel
+            {
+                Projects = projects
+            };
+            return View(projectListModel);
         }
         public IActionResult DisplayCreators()
         {
