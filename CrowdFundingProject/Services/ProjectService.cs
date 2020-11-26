@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace CrowdFundingProject.Services
 {
     public class ProjectService : IProjectService
@@ -29,7 +30,15 @@ namespace CrowdFundingProject.Services
             };
 
             dbContext.Projects.Add(project);
+            ////   quantic expression
+            creator.Projects.Add(project);
+
+            ////
             dbContext.SaveChanges();
+
+            //string script = string.Format("sessionStorage.projectId= '{​​​​0}​​​​';", project.Id);
+            //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "key", script, true);
+
             return project;
         }
 

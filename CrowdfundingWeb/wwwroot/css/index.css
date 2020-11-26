@@ -23,14 +23,12 @@ i {
 }
 
 /*-----GRID-----*/
-.header
-{
-    background-color:#FDFBF8;
+.header {
+    background-color: #F8EEDF;
 }
 
-.footer
-{
-    background-color:#FDFBF8;
+.footer {
+    background-color: #F8EEDF;
 }
 
 .container {

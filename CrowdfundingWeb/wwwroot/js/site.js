@@ -438,4 +438,9 @@ function getUserId() {
     return localStorage.getItem('userId');
 }
 
+function getProjectId() {
+    return localStorage.getItem('projectId');
+}
+
+
 
