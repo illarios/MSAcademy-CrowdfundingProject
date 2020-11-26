@@ -12,5 +12,16 @@ namespace CrowdfundingWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Supportedprojects()
+        {
+            return View();
+        }
+
+        public IActionResult BrowseProjects()
+        {
+            return View();
+        }
     }
 }
+

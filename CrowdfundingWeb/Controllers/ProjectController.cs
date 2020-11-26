@@ -81,18 +81,17 @@ namespace CrowdfundingWeb.Controllers
             return backers;
         }
 
-        [HttpGet("{id}/bundles")]
-        public List<Bundle> GetBundles(int id)
-        {
-
-            List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
-            return bundles;
-        }
-        [HttpPost("bundles")]
-        public List<Bundle> AddBundles(int userid)
-        {
-            List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
-            return bundles;
-        }
+        //[HttpGet("{id}/bundles")]
+        //public List<Bundle> GetBundles(int id)
+        //{
+        //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
+        //    return bundles;
+        //}
+        //[HttpPost("bundles")]
+        //public List<Bundle> AddBundles(int userid)
+        //{
+        //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
+        //    return bundles;
+        //}
     }
 }

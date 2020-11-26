@@ -33,7 +33,7 @@
                 <label for="bio">Bio</label>
                 <input type="text" id="bio" rows="3" />
             </div>
-            
+
             <button id="edit-profile" type="button" class="btn btn-dark">Edit Profile</button>
         </form>
 
@@ -44,13 +44,20 @@
     </main>
 
 
-    <div id="sidebar">
-        <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile"><h4>My Profile</h4></a>
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Create New Project</h4></a>
-        <h4>My Projects</h4>
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>   <!-- Edit the right controllers -->
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Project 1</a>
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Project 2</a>
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Project 3</a>
+    <div class="navbar" id="sidebar">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CDashboard"><h4>Dashboard</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="EditProfile"><h4>My Profile</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CreatorProjects"><h4>Create New Project</h4></a>
+            </li>
+        </ul>
     </div>
 </div>

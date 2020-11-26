@@ -398,7 +398,7 @@ async function CheckCreatorLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
-            window.open("/home/CreatorMenu/CDashboard", "_self")
+            window.open("/CreatorMenu/CDashboard", "_self")
         },
         error: function () {
             alert('Login denied');
@@ -426,7 +426,7 @@ async function CheckBackerLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
-            window.open("/home/BackerMenu/BDashboard", "_self")
+            window.open("/BackerMenu/BDashboard", "_self")
         },
         error: function () {
             alert('Login denied');

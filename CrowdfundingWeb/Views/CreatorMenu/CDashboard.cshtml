@@ -16,7 +16,7 @@
 <div class="container">
     <main>
         <h1>
-            Dashboard
+            Dashboard <!-- Show my projects  -->
         </h1>
         @{
             foreach (var project in Model.Projects)
@@ -49,13 +49,13 @@
                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dashboard"><h4>Dashboard</h4></a>
+                <a class="nav-link text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CDashboard"><h4>Dashboard</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="Home" asp-action="CreateProfile"><h4>My Profile</h4></a>
+                <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="EditProfile"><h4>My Profile</h4></a>
             </li>
             <li class="nav-item">
-                <h4>My Projects</h4>
+                <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CreatorProjects"><h4>Create New Project</h4></a>
             </li>
         </ul>
     </div>
