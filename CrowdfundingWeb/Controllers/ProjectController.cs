@@ -84,6 +84,7 @@ namespace CrowdfundingWeb.Controllers
         //[HttpGet("{id}/bundles")]
         //public List<Bundle> GetBundles(int id)
         //{
+
         //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
         //    return bundles;
         //}
