@@ -526,9 +526,8 @@ $('#my-profile').on('click', () => {
 });
 
 async function EditProfile() {
-    let profileUserId = localStorage.getItem('userId');
+    let profileUserId = localStorage.getItem('userId');  
     
-    debugger;
     $.ajax({
         url: '/CreatorMenu/EditProfile',        
         type: 'POST',
