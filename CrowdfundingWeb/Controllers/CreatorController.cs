@@ -26,10 +26,10 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpGet("{id}")]
-        public Creator GetCreatorById(int id)
+        public CreatorOptions GetCreatorById(int id)
         {
-            Creator creator = creatorService.GetCreatorById(id);
-            return creator;
+            CreatorOptions creatorOpt = creatorService.GetCreatorById(id);
+            return creatorOpt;
         }
 
         [HttpGet("user")]

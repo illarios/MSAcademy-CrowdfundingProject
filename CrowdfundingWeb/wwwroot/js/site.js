@@ -521,6 +521,30 @@ $('#backer-sign-up').on('click', function () {
     window.open("/home/CreateProfileBacker", "_self");
 });
 
+$('#my-profile').on('click', () => {
+    EditProfile();
+});
+
+async function EditProfile() {
+    let profileUserId = localStorage.getItem('userId');
+    
+    debugger;
+    $.ajax({
+        url: '/CreatorMenu/EditProfile',        
+        type: 'POST',
+        data: JSON.stringify({ x: profileUserId }),
+        dataType: 'text',
+        contentType: "application/json; charset=utf-8",
+        
+        success: function (data) {
+            alert('Success');
+        },
+        error: function () {
+            alert('Login denied');
+        }
+    });
+}
+
 if(getUserId() || getBackerId() || getCreatorId())
 {
     $('#logout-btn').show();

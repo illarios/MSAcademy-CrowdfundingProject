@@ -12,7 +12,7 @@ namespace CrowdFundingProject.Services
         CreatorOptions UpdateCreator(CreatorOptions creatorOptions, int creatorId);
         List<Creator> GetCreators();
         List<Project> GetAllProjects(int creatorId);
-        Creator GetCreatorById(int creatorId);
+        CreatorOptions GetCreatorById(int creatorId);
         bool DeleteCreator(int creatorId);
         Creator GetCreatorByUsername(string username);
         int CheckIfEmailExists(string email);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CrowdFundingProject.Models;
+using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
 using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +35,13 @@ namespace CrowdfundingWeb.Controllers
             return View(projectListModel);
         }
 
-        public IActionResult EditProfile()
+        [HttpPost]
+        public IActionResult EditProfile(string x)
         {
-            return View();
+            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(x));
+            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
+
+            return View(model);
         }
 
         public IActionResult CreatorProjects()
