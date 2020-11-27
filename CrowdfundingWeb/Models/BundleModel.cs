@@ -8,7 +8,12 @@ namespace CrowdfundingWeb.Models
 {
     public class BundleModel
     {
-        public List<Bundle> Bundles { get; set; }
         public Bundle Bundle { get; set; }
     }
+    public class BundleListModel
+    {
+        public int projectId { get; set; }
+        public List<Bundle> Bundles { get; set; }
+    }
+    
 }

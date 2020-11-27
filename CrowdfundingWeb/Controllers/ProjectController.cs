@@ -59,7 +59,7 @@ namespace CrowdfundingWeb.Controllers
         //}
 
         [HttpPost("create")]
-        public Project CreateProject([FromBody] ProjectfromFormModel projectModel)
+        public int CreateProject([FromBody] ProjectfromFormModel projectModel)
         {
             ProjectOptions projectOpt = new ProjectOptions
             {
@@ -73,7 +73,7 @@ namespace CrowdfundingWeb.Controllers
 
             Project project = projectService.CreateProject(projectModel.Id, projectOpt);
 
-            return project;
+            return project.Id;
         }
 
         [HttpPut("update/{id}")]
@@ -103,11 +103,26 @@ namespace CrowdfundingWeb.Controllers
         //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
         //    return bundles;
         //}
-        //[HttpPost("bundles")]
-        //public List<Bundle> AddBundles(int userid)
-        //{
-        //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
-        //    return bundles;
-        //}
+
+        [HttpPost("bundles")]
+        public bool AddBundleS([FromBody] BundleListModel bundleList)
+        {
+            int projectId = bundleList.projectId;
+            List<Bundle> bundles = bundleList.Bundles;
+            foreach(var bundle in bundles)
+            {
+                if (bundle != null)
+                {
+                    BundleOptions bundleOpt = new BundleOptions
+                    {
+                        Prize = bundle.Prize,
+                        Description = bundle.Description
+                    };
+                    Bundle addedBundle = bundleService.AddBundle(bundleOpt, projectId);
+                }
+            }
+            
+            return true;
+        }
     }
 }

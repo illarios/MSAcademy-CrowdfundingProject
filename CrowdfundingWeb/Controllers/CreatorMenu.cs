@@ -36,9 +36,9 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditProfile(string x)
+        public IActionResult EditProfile(int x)
         {
-            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(x));
+            CreatorOptions creatorOpt = creatorService.GetCreatorById(x);
             CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
 
             return View(model);
