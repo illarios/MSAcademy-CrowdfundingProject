@@ -2,6 +2,7 @@
 using CrowdFundingProject.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CrowdFundingProject.Services
@@ -12,6 +13,7 @@ namespace CrowdFundingProject.Services
         Project UpdateProject(ProjectOptions projectOptions, int projectId);
         bool DeleteProject(int projectId);
         Project GetProjectById(int projectId);
-        List<Project> GetAllProjects();
+        List<Project> GetAllProjects();    
+        public IQueryable<Project> GetProject(GetProjectOptions opt);
     }
 }

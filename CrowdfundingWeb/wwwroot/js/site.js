@@ -288,6 +288,39 @@ function updateProject() {
     });
 }
 
+$('#btn-search').on('click', function () {
+    let title = $('#txt-search-title').val();
+    let description = $('#txt-search-description').val();    
+
+    let requestData = {
+        title: title,
+        description: description
+    }       
+
+    $.ajax({
+        url: '/BackerMenu/GetProjects',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(requestData),
+        success: function (projects)
+        {
+            $('#projects-list tbody').html('');
+
+            for (let i = 0; i < projects.length; i++) {
+                $('#projects-list tbody').append(`
+                    <tr>
+                        <td>${projects[i].title}</td>
+                        <td>${projects[i].description}</td>
+                        <td>${projects[i].goal}</td>
+                        <td>${projects[i].currentAmount}</td>
+                        <td>${projects[i].endDate}</td>
+                    </tr>
+                `);
+            }
+        }
+    });
+});
+
 //====================== B U N D L E S =======================
 
 function addBundle() {

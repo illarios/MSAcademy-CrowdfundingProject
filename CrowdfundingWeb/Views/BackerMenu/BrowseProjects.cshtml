@@ -1,0 +1,71 @@
+﻿@model List<CrowdFundingProject.Models.Project>
+@{
+    ViewData["Title"] = "Browse Projects";
+}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+</head>
+<div class="container">
+    <main>
+        <!-- Search form -->
+        <form>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="txt-search-title" class="form-control" placeholder="By Title">
+                </div>
+                <div class="col">
+                    <input type="text" id="txt-search-description" class="form-control" placeholder="By Description">
+                </div>
+                <div class="col">
+                    <button id="btn-search" type="button" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- Project list -->
+        <table class="table" id="projects-list">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Goal</th>
+                    <th scope="col">CurrentAmount</th>
+                    <th scope="col">EndDate</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in Model)
+                {
+                    <tr>
+                        <td>@project.Title</td>
+                        <td>@project.Description</td>
+                        <td>@project.Goal</td>
+                        <td>@project.CurrentAmount</td>
+                        <td>@project.EndDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </main>
+    <div class="navbar" id="sidebar">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-ligh" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="BackerMenu" asp-action="BDashboard"><h4>Dashboard</h4></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
+            </li>
+        </ul>
+    </div>
+</div>

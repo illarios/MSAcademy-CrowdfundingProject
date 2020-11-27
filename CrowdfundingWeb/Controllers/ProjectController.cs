@@ -43,6 +43,21 @@ namespace CrowdfundingWeb.Controllers
             return projects;
         }
 
+        //[HttpGet]
+        //public IActionResult Index()
+        //{
+        //    var opt = new GetProjectOptions()
+        //    {
+        //        MaxResults = 3
+        //    };
+
+        //    var customers = customers_
+        //        .GetCustomers(options)
+        //        .ToList();
+
+        //    return View(customers);
+        //}
+
         [HttpPost("create")]
         public Project CreateProject([FromBody] ProjectfromFormModel projectModel)
         {

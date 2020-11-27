@@ -57,6 +57,31 @@ namespace CrowdFundingProject.Services
             return projects;
         }
 
+        public IQueryable<Project> GetProject(GetProjectOptions opt)
+        {
+           var query = dbContext.Projects.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(opt.Title))
+            {
+                query = query.Where(c => c.Title.Contains(opt.Title));
+            }
+
+            if (!string.IsNullOrWhiteSpace(opt.Description))
+            {
+                query = query.Where(c => c.Description.Contains(opt.Description));
+            }
+
+            if (opt.MaxResults == null)
+            {
+                query = query.Take(5);
+            }
+            else
+            {
+                query = query.Take(opt.MaxResults.Value);
+            }
+            return query;
+        }
+
         public Project GetProjectById(int projectId)
         {
             Project project = dbContext.Projects.Find(projectId);
