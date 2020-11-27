@@ -1,6 +1,31 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+
+//======================HOME NAVIGATION===========================
+$('#b1').on('click', () => {
+    if(getBackerId())
+    {
+        window.location.href = "/backermenu/bdashboard";
+    }
+    else
+    {
+        window.location.href = "/home/loginbacker"; 
+    }
+});
+
+$('#b2').on('click', () => {
+    if(getCreatorId())
+    {
+        window.location.href = "/creatormenu/cdashboard";
+    }
+    else
+    {
+        window.location.href = "/home/logincreator";
+    }
+});
+
+
 //======================B A C K E R S===========================
 $('#create-profile-backer').on('click', () => {
     addBacker();
@@ -431,6 +456,7 @@ async function CheckCreatorLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
+            localStorage.setItem('creatorId', data.userId);
             window.open("/CreatorMenu/CDashboard", "_self")
         },
         error: function () {
@@ -447,6 +473,7 @@ async function CheckBackerLogin() {
     let userEmail = $('#user-email').val();
     let password = $('#user-password').val();
 
+    
     let loginOptions = {
         email: userEmail,
         password: password
@@ -459,6 +486,7 @@ async function CheckBackerLogin() {
         data: JSON.stringify(loginOptions),
         success: function (data) {
             localStorage.setItem('userId', data.userId);
+            localStorage.setItem('backerId', data.userId);
             window.open("/BackerMenu/BDashboard", "_self")
         },
         error: function () {
@@ -469,6 +497,14 @@ async function CheckBackerLogin() {
 
 function getUserId() {
     return localStorage.getItem('userId');
+}
+
+function getBackerId() {
+    return localStorage.getItem('backerId');
+}
+
+function getCreatorId() {
+    return localStorage.getItem('creatorId');
 }
 
 function getProjectId() {
@@ -484,3 +520,17 @@ $('#creator-sign-up').on('click', function () {
 $('#backer-sign-up').on('click', function () {
     window.open("/home/CreateProfileBacker", "_self");
 });
+
+if(getUserId() || getBackerId() || getCreatorId())
+{
+    $('#logout-btn').show();
+}
+
+$('#logout-btn').on('click', function () {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('backerId');
+    localStorage.removeItem('creatorId');
+    $('#logout-btn').hide();
+    window.location.href = "/home";
+});
+
