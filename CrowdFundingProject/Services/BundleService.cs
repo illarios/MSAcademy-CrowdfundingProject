@@ -23,6 +23,9 @@ namespace CrowdFundingProject.Services
                 Project = project
             };
             dbContext.Bundles.Add(bundle);
+            ////////////////
+            project.Bundles.Add(bundle);
+            ////////////////
             dbContext.SaveChanges();
             return bundle;
         }

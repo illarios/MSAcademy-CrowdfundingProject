@@ -7,6 +7,7 @@ using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
 using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Web;
 
 namespace CrowdfundingWeb.Controllers
 {
@@ -18,6 +19,7 @@ namespace CrowdfundingWeb.Controllers
         private readonly IProjectService projectService;
 
         public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService _projectService)
+        
 
         {
             creatorService = _creatorService;
@@ -34,16 +36,26 @@ namespace CrowdfundingWeb.Controllers
             };
             return View(projectListModel);
         }
-
+        
         [HttpPost]
-        public IActionResult EditProfile(int x)
+        public IActionResult EditProfile()
         {
-            CreatorOptions creatorOpt = creatorService.GetCreatorById(x);
-            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
+//            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(options.UserId));
+//            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
 
-            return View(model);
+            return Ok();
         }
+        
+        [HttpGet]
+        public IActionResult EditProfileNew(int id)
+        {
+            var creatorOpt = creatorService.GetCreatorById(id);
+            var model = new CreatorOptionModel { Creatoroptions = creatorOpt };
 
+            return View("EditProfile", model);
+        }
+        
+        
         public IActionResult CreatorProjects()
         {
             return View();
