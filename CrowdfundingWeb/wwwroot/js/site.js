@@ -247,6 +247,7 @@ function addProject() {
             $('#CreateProjectForm').hide();
             $('#create-project-success').show();
             $('#CreateBundlesForm').show();
+            localStorage.setItem('projectId', data);
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -289,7 +290,7 @@ function updateProject() {
     });
 }
 
-function updateProject() {
+function deleteProject() {
     id = $("#Id").val()
 
     actionUrl = "/api/project/delete/" + id    //<----------
@@ -347,36 +348,49 @@ $('#btn-search').on('click', function () {
 });
 
 //====================== B U N D L E S =======================
+$('#create-bundles').on('click', () => {
+    addBundle();
+});
 
 function addBundle() {
     id = $("#Id").val()
+    let actionUrl = '/api/project/bundles';
+    let $successAlert = $('#create-bundle-success');
+    let projectId = getProjectId();
 
-    actionUrl = "/api/project/"+ id +"/bundle/add"    //<------------
-    actiontype = "POST"
-    actionDataType = "json"
-
-    sendData = {
-        "description": $("#Description").val(),
-        "prize": $("#Prize").val(),
-        "goal": $("#Goal").val(),
-    }
+    let formData = {
+        projectId: projectId,
+        bundles: [{
+            prize: $('#prize1').val(),
+            description: $('#bundledescription1').val()
+        },
+        {
+            prize: $('#prize2').val(),
+            description: $('#bundledescription2').val()
+        },
+        {
+            prize: $('#prize3').val(),
+            description: $('#bundledescription3').val()
+        }
+        ]
+    };
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
         processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/customers", "_self")
+        type: 'POST',
+        success: function (bundles) {
+            $successAlert.fadeIn(500);
+            $('#CreateBundlesForm').hide();
+            $('#create-bundle-success').show();
+            localStorage.removeItem('projectId');
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
-        }
-    });
+            }
+        });
 }
 
 function updateBundle() {
