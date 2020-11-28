@@ -29,6 +29,10 @@ a.navbar-brand {
     border-color: #1861ac;
 }
 
+.nav-item a:hover {
+    cursor: pointer
+}
+
 nav {
     height: 50px;
 }

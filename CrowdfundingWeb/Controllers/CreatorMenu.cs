@@ -37,17 +37,17 @@ namespace CrowdfundingWeb.Controllers
             return View(projectListModel);
         }
         
-        [HttpPost]
-        public IActionResult EditProfile()
-        {
-//            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(options.UserId));
-//            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
+//        [HttpPost]
+//        public IActionResult EditProfile()
+//        {
+////            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(options.UserId));
+////            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
 
-            return Ok();
-        }
+//            return Ok();
+//        }
         
         [HttpGet]
-        public IActionResult EditProfileNew(int id)
+        public IActionResult EditProfileNew([FromQuery]int id)
         {
             var creatorOpt = creatorService.GetCreatorById(id);
             var model = new CreatorOptionModel { Creatoroptions = creatorOpt };

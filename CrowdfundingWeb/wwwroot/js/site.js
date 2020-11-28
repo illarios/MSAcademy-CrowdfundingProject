@@ -528,21 +528,21 @@ $('#my-profile').on('click', () => {
 function GetEditProfile() {
     var profileUserId = localStorage.getItem('userId');  
     let params = { UserId: profileUserId }; 
-    
-    $.ajax({
-        url: "/CreatorMenu/EditProfile",
-        contentType: "application/json",
-        Accept: "application/json",
-        type: "POST",
-        data: JSON.stringify(params),
+    window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
+    //$.ajax({
+    //    url: "/CreatorMenu/EditProfile",
+    //    contentType: "application/json",
+    //    Accept: "application/json",
+    //    type: "POST",
+    //    data: JSON.stringify(params),
         
-        success: function (data) {
-            window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
-        },
-        error: function () {
-            alert('Login denied');
-        }
-    });
+    //    success: function (data) {
+    //        window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
+    //    },
+    //    error: function () {
+    //        alert('Login denied');
+    //    }
+    //});
 }
 
 if(getUserId() || getBackerId() || getCreatorId())
