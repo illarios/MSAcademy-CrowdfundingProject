@@ -22,10 +22,10 @@ namespace CrowdfundingWeb.Controllers
         }
 
         [HttpGet("{id}")]
-        public Backer GetBackerById(int id)
+        public BackerOptions GetBackerById(int id)
         {
-            Backer backer = backerService.GetBackerById(id);
-            return backer;
+            BackerOptions backerOpt = backerService.GetBackerById(id);
+            return backerOpt;
         }
 
         [HttpGet("user")]

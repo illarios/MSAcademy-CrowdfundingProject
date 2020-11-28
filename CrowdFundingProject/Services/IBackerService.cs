@@ -9,7 +9,7 @@ namespace CrowdFundingProject.Services
     public interface IBackerService
     {
         BackerOptions CreateBacker(BackerOptions backerOptions);
-        Backer GetBackerById(int backerId);
+        BackerOptions GetBackerById(int backerId);
         List<Backer> GetBackers();
         List<Project> GetSupportingProjects(int backerId);
         Backer UpdateBacker(BackerOptions backerOptions, int backerId);

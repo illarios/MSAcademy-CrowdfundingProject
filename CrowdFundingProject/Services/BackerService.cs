@@ -49,10 +49,17 @@ namespace CrowdFundingProject.Services
             return backers;
         }
 
-        public Backer GetBackerById(int backerId)
+        public BackerOptions GetBackerById(int backerId)
         {
             Backer backer = dbContext.Backers.Find(backerId);
-            return backer;
+            return new BackerOptions 
+            { 
+                Id = backerId,
+                Username = backer.Username,
+                Email = backer.Email,
+                Wallet = backer.Wallet,
+                IsBackerActive = backer.IsBackerActive
+            };
         }
 
         public Backer UpdateBacker(BackerOptions backerOptions, int backerId)

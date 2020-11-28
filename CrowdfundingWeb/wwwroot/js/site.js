@@ -55,35 +55,45 @@ function addBacker()
         }
     });
 }
-function updateBacker() {
-    actionUrl = "/api/Backer/update" + id    //<------------
-    actiontype = "PUT"
-    actionDataType = "json"
 
-    sendData = {
-        "Username": $("#Username").val(),
-        "Email": $("#Email").val(),
-        "Wallet": $("#Wallet").val(),
-    }
+$('#edit-profile-backer').on('click', () => {
+    updateBacker();
+});
+
+function updateBacker() {
+    let id = getUserId();
+    let actionUrl ='/api/Backer/update/'+ id    //<------------   
+    let $successAlert = $('#edit-profile-backer-success');
+    
+    let formData = {
+        "email": $('#email').val(),
+        "wallet": parseInt($("#wallet").val()), 
+    };
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
-        data: JSON.stringify(sendData),
+        data: JSON.stringify(formData),
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-            alert(JSON.stringify(data))
-            window.open("/home/Backer", "_self")
+        type: "PUT",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#EditProfileForm-Backer').hide();
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
-function updateBacker() {
+$('#my-profile-backer').on('click', () => {
+    GetEditProfileBacker();
+});
+
+function GetEditProfileBacker() {
+    var profileUserId = localStorage.getItem('userId');
+    let params = { UserId: profileUserId };
+    window.location.href = window.location.origin + '/backermenu' + '/editprofilenew?id=' + profileUserId;
+}   
+function deleteBacker() {
     id = $("#Id").val()
 
     actionUrl = "/api/Backer/delete/" + id    //<----------
@@ -171,10 +181,10 @@ $('#edit-profile').on('click', () => {
 
 function updateCreator() {
     let id = getUserId();
-    let actionUrl = '/api/creator/update/'+ id
+    let actionUrl = '/api/creator/update/' + id
     let $successAlert = $('#edit-profile-success');
 
-    let formData = {       
+    let formData = {
         email: $('#email').val(),
         bio: $('#bio').val()
     };
@@ -192,7 +202,8 @@ function updateCreator() {
             alert(errorThrown);
         }
     });
-}
+}      
+
 function deleteCreator() {
     id = $("#Id").val()
 
@@ -234,7 +245,7 @@ function addProject() {
         description: $('#description').val(),
         goal: parseInt($('#goal').val()),
         endDate: $('#endDate').val().toString(),
-        category: $(".categoryOptions:checked").val()
+        category: $("input[name='categoryOptions']:checked").val()
     };
 
     $.ajax({

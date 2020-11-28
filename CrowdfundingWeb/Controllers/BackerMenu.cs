@@ -12,16 +12,25 @@ namespace CrowdfundingWeb.Controllers
 {
     public class BackerMenu : Controller
     {
+        private readonly ICreatorService creatorService;
+        private readonly IBackerService backerService;
         private readonly IProjectService projects_;
-        public BackerMenu(IProjectService projects)
+        public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects)
         {
+            creatorService = _creatorService;
+            backerService = _backerService;
             projects_ = projects;
         }
 
         public IActionResult BDashboard()
         {
             return View();
-        }  
+        }
+
+        public IActionResult EditProfileBacker()
+        {
+            return View();
+        }
 
         public IActionResult ProjectView([FromRoute]int id)
         {
@@ -62,6 +71,16 @@ namespace CrowdfundingWeb.Controllers
 
             return Ok(results);
         }
+
+        [HttpGet]
+        public IActionResult EditProfileNew([FromQuery] int id)
+        {
+            var backerOpt = backerService.GetBackerById(id);
+            var model = new BackerOptionModel { Backeroptions = backerOpt };
+
+            return View("EditProfileBacker", model);
+        }
+
     }
 }
 

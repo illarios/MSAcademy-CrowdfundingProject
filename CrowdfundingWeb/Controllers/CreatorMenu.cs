@@ -37,15 +37,6 @@ namespace CrowdfundingWeb.Controllers
             return View(projectListModel);
         }
         
-//        [HttpPost]
-//        public IActionResult EditProfile()
-//        {
-////            CreatorOptions creatorOpt = creatorService.GetCreatorById(Int32.Parse(options.UserId));
-////            CreatorOptionModel model = new CreatorOptionModel { Creatoroptions = creatorOpt };
-
-//            return Ok();
-//        }
-        
         [HttpGet]
         public IActionResult EditProfileNew([FromQuery]int id)
         {
