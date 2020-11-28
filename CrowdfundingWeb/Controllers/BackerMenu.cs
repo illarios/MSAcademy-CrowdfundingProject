@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
+using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrowdfundingWeb.Controllers
@@ -21,9 +23,19 @@ namespace CrowdfundingWeb.Controllers
             return View();
         }  
 
-        public IActionResult ProjectView()
+        public IActionResult ProjectView([FromRoute]int id)
         {
-            return View();
+            Project project = projects_.GetProjectById(id);
+            ProjectfromFormModel model = new ProjectfromFormModel { 
+                Id = project.Id,
+                Title = project.Title,
+                Description = project.Description,
+                Goal = project.Goal,
+                Category = project.Category,
+                EndDate = project.EndDate
+            };
+
+            return View(model);
         }
 
         [HttpGet]

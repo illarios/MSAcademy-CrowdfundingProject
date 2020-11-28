@@ -254,8 +254,16 @@ function addProject() {
         }
     });
 }
+$('#project-link').on('click', () => {
+    ShowProject();
+});
 
+function ShowProject() {
+    //let $successAlert = $('#create-bundle-success');
+    let projectId = getProjectId();
 
+    window.location.href = window.location.origin + '/backermenu' + '/projectview?id=' + profileUserId;
+}
 
 
 function updateProject() {
@@ -385,7 +393,8 @@ function addBundle() {
             $successAlert.fadeIn(500);
             $('#CreateBundlesForm').hide();
             $('#create-bundle-success').show();
-            localStorage.removeItem('projectId');
+            localStorage.removeItem('projectId');  //**************************************
+            window.open("/CreatorMenu/CDashboard", "_self")
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -543,20 +552,7 @@ function GetEditProfile() {
     var profileUserId = localStorage.getItem('userId');  
     let params = { UserId: profileUserId }; 
     window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
-    //$.ajax({
-    //    url: "/CreatorMenu/EditProfile",
-    //    contentType: "application/json",
-    //    Accept: "application/json",
-    //    type: "POST",
-    //    data: JSON.stringify(params),
-        
-    //    success: function (data) {
-    //        window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
-    //    },
-    //    error: function () {
-    //        alert('Login denied');
-    //    }
-    //});
+    
 }
 
 if(getUserId() || getBackerId() || getCreatorId())
