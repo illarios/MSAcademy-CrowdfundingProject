@@ -247,7 +247,6 @@ function addProject() {
             $('#CreateProjectForm').hide();
             $('#create-project-success').show();
             $('#CreateBundlesForm').show();
-            localStorage.setItem('projectId', data); 
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -290,7 +289,7 @@ function updateProject() {
     });
 }
 
-function deleteProject() {
+function updateProject() {
     id = $("#Id").val()
 
     actionUrl = "/api/project/delete/" + id    //<----------
@@ -348,50 +347,37 @@ $('#btn-search').on('click', function () {
 });
 
 //====================== B U N D L E S =======================
-$('#create-bundles').on('click', () => {
-    addBundle();
-});
 
 function addBundle() {
-    let actionUrl = '/api/project/bundles';
-    let $successAlert = $('#create-bundle-success');
+    id = $("#Id").val()
 
-    let projectId = getProjectId();
-    
-    let formData = {
-        projectId: projectId,
-        bundles: [{              
-                prize: $('#prize1').val(),
-                description: $('#bundledescription1').val()
-                },
-                {
-                prize: $('#prize2').val(),
-                description: $('#bundledescription2').val()
-                },
-                {
-                prize: $('#prize3').val(),
-                description: $('#bundledescription3').val()
-                }
-        ]
-    };
+    actionUrl = "/api/project/"+ id +"/bundle/add"    //<------------
+    actiontype = "POST"
+    actionDataType = "json"
+
+    sendData = {
+        "description": $("#Description").val(),
+        "prize": $("#Prize").val(),
+        "goal": $("#Goal").val(),
+    }
 
     $.ajax({
         url: actionUrl,
-        data: JSON.stringify(formData),
+        dataType: actionDataType,
+        type: actiontype,
+        data: JSON.stringify(sendData),
         contentType: 'application/json',
-        type: 'POST',
-        success: function (bundles) {
-            $successAlert.fadeIn(500);
-            $('#CreateBundlesForm').hide();
-            $('#create-bundle-success').show();           
-            localStorage.removeItem('projectId');
+        processData: false,
+
+        success: function (data, textStatus, jQxhr) {
+            alert(JSON.stringify(data))
+            window.open("/home/customers", "_self")
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
-
 
 function updateBundle() {
     id = $("#Id").val()
@@ -536,21 +522,22 @@ $('#backer-sign-up').on('click', function () {
 });
 
 $('#my-profile').on('click', () => {
-    EditProfile();
+    GetEditProfile();
 });
 
-function EditProfile() {
-    let profileUserId = localStorage.getItem('userId');  
-    debugger;    
+function GetEditProfile() {
+    var profileUserId = localStorage.getItem('userId');  
+    let params = { UserId: profileUserId }; 
+    
     $.ajax({
-        url: '/CreatorMenu/EditProfile',        
-        type: 'POST',
-        data: JSON.stringify({ userid: profileUserId }),
-        dataType: 'text',
-        contentType: "application/json; charset=utf-8",
+        url: "/CreatorMenu/EditProfile",
+        contentType: "application/json",
+        Accept: "application/json",
+        type: "POST",
+        data: JSON.stringify(params),
         
         success: function (data) {
-            alert('Success');
+            window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
         },
         error: function () {
             alert('Login denied');
