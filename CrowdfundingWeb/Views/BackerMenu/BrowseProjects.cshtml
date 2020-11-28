@@ -36,7 +36,7 @@
                         <div class="card-body">
 
                             <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                                <a class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">@project.Title </a> <span class="badge badge-success">New</span>
+                                <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">@project.Title </a> <span class="badge badge-success">New</span>
                             </div>  <!-- Make it pop up only for new ones -->
                             <!-- Progress -->
                             <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: @project.Progress %</div>

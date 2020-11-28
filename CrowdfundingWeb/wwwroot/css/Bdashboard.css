@@ -39,7 +39,11 @@ main {
     grid-area: main;
     min-height: 100%;
 }
-
+#proj-titles {
+    color: #43444d;
+    background-color: #43444E;
+    border-radius: 10px;
+}
 #sidebar {
     border-radius: 10px;
     background-color: #2c4a58;
