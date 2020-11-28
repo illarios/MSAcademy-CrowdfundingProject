@@ -43,7 +43,7 @@ namespace CrowdfundingWeb.Controllers
         {
             var options = new GetProjectOptions()
             {
-                MaxResults = 3
+                MaxResults = 100
             };
 
             var projects = projects_

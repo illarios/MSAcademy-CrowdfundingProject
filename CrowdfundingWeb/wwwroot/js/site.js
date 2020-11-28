@@ -338,18 +338,30 @@ $('#btn-search').on('click', function () {
         data: JSON.stringify(requestData),
         success: function (projects)
         {
-            $('#projects-list tbody').html('');
+            $('#projects-list-card').html('');
 
             for (let i = 0; i < projects.length; i++) {
-                $('#projects-list tbody').append(`
-                    <tr>
-                        <td>${projects[i].title}</td>
-                        <td>${projects[i].description}</td>
-                        <td>${projects[i].goal}</td>
-                        <td>${projects[i].currentAmount}</td>
-                        <td>${projects[i].endDate}</td>
-                    </tr>
+                $('#projects-list-card').append(`
+                    <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
+                    <div class="card-body">
+
+                        <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
+                            <a class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">${projects[i].title}</a> <span class="badge badge-success">New</span>
+                        </div>  <!-- Make it pop up only for new ones -->
+                            <!-- Progress -->
+                            <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion:${projects[i].progress} %</div>
+
+                        <div class="progress">
+                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="${projects[i].progress}" aria-valuemin="0" aria-valuemax="100" style="width:${projects[i].progress};background-color:#2c4a58;">
+                            </div>
+                        </div>
+                      
+
+                        </div>
+                </div>
                 `);
+
+               
             }
         }
     });
