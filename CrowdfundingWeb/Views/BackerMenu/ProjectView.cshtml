@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
 @{
     ViewData["Title"] = "Browse projects";
 }
@@ -24,13 +25,13 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="back" src="~/images/LampSpeaker-2.jpg" alt="First Image">
+                    <img class="back" src="~/images/LampSpeaker-2.jpg" width="850" height="400" alt="First Image">
                     <div class="carousel-caption d-md-block">
                         <h5>First Image</h5>
                     </div>
                 </div>
                 <div class="carousel-item activte">
-                    <img class="back" src="~/images/LampSpeaker.jpg" alt="Second Image">
+                    <img class="back" src="~/images/LampSpeaker.jpg" width="850" height="400" alt="Second Image">
                     <div class="carousel-caption d-md-block">
                         <h5>Second Image</h5>
                     </div>
@@ -47,7 +48,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
+        <!--description & buttons-->>
         <div class="container">
             <div class="position-absolute" style="margin-top: 5%;">
                 <div class="col-md-4">
@@ -57,7 +58,32 @@
                         ................................................................................................................
                         ................................................................................................................
                     </p>
-                    <button id="amount" type="button" class="btn btn-dark">Support The Project</button>
+                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: js %</div>
+
+                    <div class="progress">
+                        <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-color:#2c4a58;">
+                        </div>
+                    </div>
+                    <label> Choose a Bundle </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="amountOptions" id="first" value="1">
+                        <label class="form-check-label" for="option1">10 €</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="amountOptions" id="second" value="2">
+                        <label class="form-check-label" for="option2">50 €</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="amountOptions" id="third" value="3">
+                        <label class="form-check-label" for="option3">100 €</label>
+                    </div>
+                    <div class="form-check" style="padding-bottom: 15px;padding-top: 30px;">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
+                    </div>
+
+                    <button id="amount12-btn" type="submit" class="btn btn-dark">Support The Project</button>
+
                 </div>
             </div>
         </div>
@@ -71,8 +97,12 @@
                 <a class="nav-link text-light" asp-area="" asp-controller="BackerMenu" asp-action="BDashboard"><h4>Dashboard</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
+                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="ProjectView"><h4>----</h4></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="SupportedProjects"><h4>Backed Projects</h4></a>
+            </li>
+
         </ul>
     </div>
 </div>

@@ -13,7 +13,9 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 55%;
+    width: 850px;
+    height: 400px;
+    background-size: 50%, 50%;
 }
 
 .carousel-control-prev-icon {
