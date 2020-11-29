@@ -274,25 +274,25 @@ iframe {
         background: linear-gradient(left,#43444d, #e7dfc6);
     }
 
-    .focus-input100::after {
-        font-size: 15px;
-        color: #999999;
-        line-height: 1.2;
-        content: attr(data-placeholder);
-        display: block;
-        width: 100%;
-        position: absolute;
-        top: 16px;
-        left: 0px;
-        padding-left: 5px;
-        -webkit-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        transition: all 0.4s;
-    }
+.focus-input100::after {
+    font-size: 15px;
+    color: #999999;
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding-left: 5px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
 
 .input100:focus + .focus-input100::after {
-    top: -15px;
+    top: -16px;
 }
 
 .input100:focus + .focus-input100::before {
@@ -300,13 +300,12 @@ iframe {
 }
 
 .has-val.input100 + .focus-input100::after {
-    top: -15px;
+    top: -16px;
 }
 
 .has-val.input100 + .focus-input100::before {
     width: 100%;
 }
-
 /*---------------------------------------------*/
 .btn-show-pass {
     font-size: 15px;

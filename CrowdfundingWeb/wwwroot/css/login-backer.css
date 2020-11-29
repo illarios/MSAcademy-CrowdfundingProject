@@ -283,7 +283,7 @@ iframe {
         display: block;
         width: 100%;
         position: absolute;
-        top: 16px;
+        top: -1px;
         left: 0px;
         padding-left: 5px;
         -webkit-transition: all 0.4s;
@@ -293,7 +293,7 @@ iframe {
     }
 
 .input100:focus + .focus-input100::after {
-    top: -15px;
+    top: -16px;
 }
 
 .input100:focus + .focus-input100::before {
@@ -301,7 +301,7 @@ iframe {
 }
 
 .has-val.input100 + .focus-input100::after {
-    top: -15px;
+    top: -16px;
 }
 
 .has-val.input100 + .focus-input100::before {

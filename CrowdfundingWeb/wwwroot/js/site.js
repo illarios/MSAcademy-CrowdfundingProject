@@ -636,12 +636,26 @@ function GetEditProfile() {
 if (getUserId() || getBackerId() || getCreatorId()) {
     $('#logout-btn').show();
 }
+if (getBackerId() ){
+    $('#b1').hide();
+    $('#b2').hide();
+    $('#bDashBacker').show();
+    $('#bDashCreator').hide();
+}
+
+if (getCreatorId() ){
+    $('#b1').hide();
+    $('#b2').hide();
+    $('#bDashBacker').hide();
+    $('#bDashCreator').show();
+}
+
 
 $('#logout-btn').on('click', function () {
     localStorage.removeItem('userId');
     localStorage.removeItem('backerId');
     localStorage.removeItem('creatorId');
-    $('#logout-btn').hide();
     window.location.href = "/home";
+    $('#logout-btn').hide();
 });
 
