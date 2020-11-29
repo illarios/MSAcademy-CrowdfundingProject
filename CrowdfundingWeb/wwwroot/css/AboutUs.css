@@ -1,0 +1,143 @@
+﻿body {
+    font-family: 'Roboto';
+    font-size: 14px;
+    background-color: #E7DFC6;
+}
+
+
+
+.aboutus-section {
+    padding: 90px 0;
+}
+
+
+
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+}
+
+
+
+    .aboutus-title::after {
+        background: #43444D none repeat scroll 0 0;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 150px;
+    }
+
+
+
+.aboutus-text {
+    color: #606060;
+    padding-right: 100px;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 35px;
+}
+
+
+
+a:hover, a:active {
+    color: #ffb901;
+    text-decoration: none;
+    outline: 0;
+}
+
+
+
+.aboutus-more {
+    border: 1px solid #fdb801;
+    border-radius: 25px;
+    color: #fdb801;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+
+
+
+.feature .feature-box .iconset {
+    // background: #fff none repeat scroll 0 0;
+    float: right;
+    position: relative;
+    width: 25%;
+}
+
+
+
+    .feature .feature-box .iconset::after {
+        background: #43444D none repeat scroll 0 0;
+        content: "";
+        height: 103%;
+        left: 66%;
+        position: absolute;
+        top: 100%;
+        width: 2px;
+    }
+
+
+
+.feature .feature-box .feature-content h3 {
+    color: #0f0f0f;
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 8px;
+}
+
+
+
+
+
+.feature .feature-box .feature-content {
+    float: left;
+    padding-left: 36px;
+    width: 78%;
+}
+
+
+
+    .feature .feature-box .feature-content h3 {
+        color: #0f0f0f;
+        font-size: 30px;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin: 0 0 5px;
+    }
+
+
+
+    .feature .feature-box .feature-content p {
+        color: #606060;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+
+
+.icon {
+    color: #f4b841;
+    padding-right: 0px;
+    font-size: 40px;
+    border: 2px solid #43444D;
+    border-radius: 20px;
+    color: #43444D;
+    font-size: 50px;
+    height: 80px;
+    line-height: 70px;
+    text-align: center;
+    width: 120px;
+}
