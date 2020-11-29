@@ -15,11 +15,13 @@ namespace CrowdfundingWeb.Controllers
         private readonly ICreatorService creatorService;
         private readonly IBackerService backerService;
         private readonly IProjectService projects_;
-        public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects)
+        private readonly IBundleService bundles_;
+        public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects, IBundleService bundles)
         {
             creatorService = _creatorService;
             backerService = _backerService;
             projects_ = projects;
+            bundles_ = bundles;
         }
 
         public IActionResult BDashboard()
@@ -35,13 +37,16 @@ namespace CrowdfundingWeb.Controllers
         public IActionResult ProjectView([FromRoute]int id)
         {
             Project project = projects_.GetProjectById(id);
-            ProjectfromFormModel model = new ProjectfromFormModel { 
+            List<Bundle> bundles = bundles_.GetBundlesOfProjects(id);       
+            ProjectWithBundlesModel model = new ProjectWithBundlesModel
+            {               
                 Id = project.Id,
                 Title = project.Title,
                 Description = project.Description,
                 Goal = project.Goal,
                 Category = project.Category,
-                EndDate = project.EndDate
+                EndDate = project.EndDate,
+                Bundles = bundles
             };
 
             return View(model);

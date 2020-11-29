@@ -14,6 +14,5 @@ namespace CrowdfundingWeb.Models
     {
         public int projectId { get; set; }
         public List<Bundle> Bundles { get; set; }
-    }
-    
+    }       
 }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace CrowdfundingWeb.Controllers
 {
@@ -19,13 +21,18 @@ namespace CrowdfundingWeb.Controllers
         private readonly IBackerService backerService;
         private readonly IBundleService bundleService;
         private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly ITagService tagService;
+        private readonly IWebHostEnvironment hostingEnvironment;
+
 
         public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger,
-            IBackerService _backerService, IBundleService _bundleService)
+            IBackerService _backerService, IBundleService _bundleService, ITagService _tagService, IWebHostEnvironment _hostingEnvironment)
         {
             projectService = _projectService;
             bundleService = _bundleService;
             backerService = _backerService;
+            tagService = _tagService;
+            hostingEnvironment = _hostingEnvironment;
             _logger = logger;
         }
 
@@ -43,24 +50,24 @@ namespace CrowdfundingWeb.Controllers
             return projects;
         }
 
-        //[HttpGet]
-        //public IActionResult Index()
-        //{
-        //    var opt = new GetProjectOptions()
-        //    {
-        //        MaxResults = 3
-        //    };
-
-        //    var customers = customers_
-        //        .GetCustomers(options)
-        //        .ToList();
-
-        //    return View(customers);
-        //}
-
         [HttpPost("create")]
-        public int CreateProject([FromBody] ProjectfromFormModel projectModel)
+        public int CreateProject([FromForm] ProjectfromFormModel projectModel)
         {
+
+            /////////////////
+            var formFile = projectModel.Picture;
+            var filename = projectModel.Picture.FileName;
+            if (formFile.Length > 0)
+            {
+                var filePath = Path.Combine(hostingEnvironment.WebRootPath, "uploadedimages", filename);
+                using (var stream = System.IO.File.Create(filePath))
+                {
+                    formFile.CopyTo(stream);
+                }
+            }
+            ///////////////////////
+
+            Tag tag = tagService.GetTagbyId(projectModel.Category);
             ProjectOptions projectOpt = new ProjectOptions
             {
                 Title = projectModel.Title,
@@ -68,10 +75,22 @@ namespace CrowdfundingWeb.Controllers
                 Goal = projectModel.Goal,
                 CurrentAmount = 0,
                 EndDate = projectModel.EndDate.ToString(),
-                Category = projectModel.Category
+                Category = projectModel.Category,
+                PicturePath = filename,
+                Tag = tag
             };
 
+            projectModel.PicturePath = filename;
+
             Project project = projectService.CreateProject(projectModel.Id, projectOpt);
+            //var taglist = projectModel.Tags;
+            //for(var i=0;i<taglist.Count; i++)
+            //{
+            //    Tag tag = tagService.GetTagbyId(taglist[i]);
+            //    dbContext.Projects.Find(project).Tags.Add(tag);
+            //}
+
+            dbContext.SaveChanges();
 
             return project.Id;
         }
@@ -80,6 +99,13 @@ namespace CrowdfundingWeb.Controllers
         public Project UpdateProject(ProjectOptions projectOptions, int id)
         {
             Project project = projectService.UpdateProject(projectOptions, id);
+            return project;
+        }
+        //chech from query
+        [HttpPut("support")]
+        public Project SupportProject([FromBody] ProjectSupportModel supportModel)
+        {
+            Project project = projectService.SupportProject(supportModel.Amount, supportModel.Id, supportModel.BackerId);
             return project;
         }
 

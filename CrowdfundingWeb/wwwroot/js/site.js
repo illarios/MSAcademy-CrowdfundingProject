@@ -67,10 +67,12 @@ function updateBacker() {
     $.ajax({
         url: actionUrl,
         data: JSON.stringify(formData),
+        contentType: 'application/json',
         type: "PUT",
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#EditProfileForm-Backer').hide();
+            window.location.href = "/backermenu/bdashboard";
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -87,30 +89,66 @@ function GetEditProfileBacker() {
     let params = { UserId: profileUserId };
     window.location.href = window.location.origin + '/backermenu' + '/editprofilenew?id=' + profileUserId;
 }
+$('#delete-profile-backer').on('click', () => {
+    deleteBacker();
+});
 
 function deleteBacker() {
-    id = $("#Id").val()
-
-    actionUrl = "/api/Backer/delete/" + id    //<----------
-    actiontype = "DELETE"
-    actionDataType = "json"
-
+    let id = getUserId();
+    let actionUrl = "/api/Backer/delete/" + id    //<----------
+    let $successAlert = $('#delete-profile-backer-success');
+    
     $.ajax({
-        url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
+        url: actionUrl,             
         contentType: 'application/json',
-        processData: false,
-
-        success: function (data, textStatus, jQxhr) {
-
-            alert(JSON.stringify(data))
+        type:"PUT",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#delete-profile-backer-success').hide();
+            window.location.href = "/home"; 
+            
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
+
+$('#amount12-btn').on('click', () => {
+    supportProject();
+});
+
+function supportProject() {
+   
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1); 
+    let backerId = getUserId();
+    let actionUrl = '/api/project/support';  
+    let $successAlert = $('#support-project-success');
+    
+    let formData = {
+        id: id,       
+        amount: parseFloat($("input[name='amountOptions']:checked").val()),
+        backerId: backerId
+    };
+
+    $.ajax({
+        url: actionUrl,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        type: "PUT",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#support-project-success').show();
+            window.location.href = "/backermenu/bdashboard"
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+
+ }
+
 
 //====================== C R E A T O R S========================
 // by ID -> Selector # $('#create-profile')
@@ -228,6 +266,7 @@ $('#create-project').on('click', () => {
 });
 
 function addProject() {
+    debugger
     let actionUrl = '/api/project/create';
     let $successAlert = $('#create-project-success');
     let id = getUserId();
@@ -252,18 +291,9 @@ function addProject() {
         }
     }
 
-    formData.append("category", parseInt(v));
 
-    //let categorylist = new Array();
-    //for (var i = 0; i < checkboxes.length; i++) {
-    //    var cat = i + 1;
-    //    if (checkboxes[i].checked) {
-    //        categorylist.push(checkboxes[i].value);
-    //    }
-    //}
-    //formData.append('tags', categorylist.serialize);
-    //formData.append('checkboxes', checkboxes);
-    $.ajax({
+    formData.append("category", parseInt(v));
+     $.ajax({
         url: actionUrl,
         data: formData,
         processData: false,

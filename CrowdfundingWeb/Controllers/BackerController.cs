@@ -69,7 +69,7 @@ namespace CrowdfundingWeb.Controllers
             return backer;
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public bool DeleteBacker(int id)
         {
             return backerService.DeleteBacker(id);

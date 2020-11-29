@@ -89,6 +89,16 @@ namespace CrowdFundingProject.Services
             return project;
         }
 
+        public Project SupportProject(decimal amount, int id, int backerId)
+        {
+            var project = dbContext.Projects.Find(id);
+            project.CurrentAmount += amount;
+            Backer backer = dbContext.Backers.Find(backerId);
+            //project.Backers
+            dbContext.SaveChanges();
+            return project;
+        }
+
         public Project UpdateProject(ProjectOptions projectOptions, int projectId)
         {
             Project project = dbContext.Projects.Find(projectId);
@@ -103,5 +113,6 @@ namespace CrowdFundingProject.Services
             dbContext.SaveChanges();
             return project;
         }
+        
     }
 }

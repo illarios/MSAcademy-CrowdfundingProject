@@ -13,4 +13,8 @@
     <ProjectReference Include="..\CrowdFundingProject\CrowdFundingProject.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploadedimages\" />
+  </ItemGroup>
+
 </Project>

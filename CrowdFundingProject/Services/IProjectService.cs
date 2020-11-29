@@ -11,6 +11,7 @@ namespace CrowdFundingProject.Services
     {
         Project CreateProject(int UserId, ProjectOptions projectOptions);
         Project UpdateProject(ProjectOptions projectOptions, int projectId);
+        Project SupportProject(decimal amount, int id, int backerId);
         bool DeleteProject(int projectId);
         Project GetProjectById(int projectId);
         List<Project> GetAllProjects();    
