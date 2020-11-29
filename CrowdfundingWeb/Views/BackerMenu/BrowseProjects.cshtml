@@ -36,13 +36,13 @@
                         <div class="card-body">
 
                             <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                                <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">@project.Title </a> <span class="badge badge-success">New</span>
+                                <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">@project.Title <span class="badge badge-success" style="margin-left:10px;">New</span></a> 
                             </div>  <!-- Make it pop up only for new ones -->
                             <!-- Progress -->
                             <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: @project.Progress %</div>
 
                             <div class="progress">
-                                <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@project.Progress" aria-valuemin="0" aria-valuemax="100" style="width:@project.Progress;background-color:#2c4a58;">
+                                <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(project.Progress)%;background-color:#2c4a58;">
                                 </div>
                             </div>
                             <!-- Progress -->
