@@ -101,11 +101,11 @@ namespace CrowdfundingWeb.Controllers
             Project project = projectService.UpdateProject(projectOptions, id);
             return project;
         }
-        //chech from query
+        
         [HttpPut("support")]
         public Project SupportProject([FromBody] ProjectSupportModel supportModel)
         {
-            Project project = projectService.SupportProject(supportModel.Amount, supportModel.Id, supportModel.BackerId);
+            Project project = projectService.SupportProject(supportModel.Amount, supportModel.Id, supportModel.BackerId, supportModel.BundleId);
             return project;
         }
 

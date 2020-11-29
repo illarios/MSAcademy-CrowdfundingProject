@@ -1,4 +1,4 @@
-﻿@model CrowdfundingWeb.Models.ProjectfromFormModel;
+﻿@model CrowdfundingWeb.Models.ProjectWithBundlesModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -26,10 +26,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="back" src="~/images/LampSpeaker-2.jpg" width="850" height="400" alt="First Image">
-                </div>
-                <div class="carousel-item activte">
-                    <img class="back" src="~/images/LampSpeaker.jpg" width="850" height="400" alt="Second Image">
+                    <img class="back" src="/uploadedimages/@Model.PicturePath" width="850" height="400" alt="First Image">
                 </div>
             </div>
 
@@ -52,32 +49,32 @@
                 <div class="col-md-4">
                     <h2>Description</h2>
                     <p>@Model.Description</p>
-                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">@Model.Goal,%</div>
+                   <!-- <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Category: Model.Tag.Name </div> -->
+                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Deadline until: @Model.EndDate </div>
+                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Amount: @Model.Goal €</div>
+                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Progress So Far: @Model.Progress %</div>
 
                     <div class="progress">
-                        <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;background-color:#2c4a58;">
+                        <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Model.Progress" aria-valuemin="0" aria-valuemax="100" style="width:@Model.Progress;background-color:#2c4a58;">
                         </div>
                     </div>
-                    <label> Choose a Bundle </label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="amountOptions" id="first" value="1">
-                        <label class="form-check-label" for="option1">10 €</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="amountOptions" id="second" value="2">
-                        <label class="form-check-label" for="option2">50 €</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="amountOptions" id="third" value="3">
-                        <label class="form-check-label" for="option3">100 €</label>
-                    </div>
+                    <label> Choose a Bundle :</label>
+                    @foreach (var item in Model.Bundles)
+                    {
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="amountOptions" id="first" value="@item.Prize">
+                            <label class="form-check-label" for="option1">@item.Prize € - @item.Description</label>
+                        </div>
+                    }
                     <div class="form-check" style="padding-bottom: 15px;padding-top: 30px;">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
                     </div>
 
-                    <button id="amount12-btn" type="submit" class="btn btn-dark">Support The Project</button>
-
+                    <button id="amount12-btn" type="button" class="btn btn-dark">Support The Project</button>
+                    <div id="support-project-success" class="alert alert-success" role="alert" style="display: none">
+                        Congratulations you are now funding this project !
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,12 +89,11 @@
                 <a class="nav-link text-light" asp-area="" asp-controller="BackerMenu" asp-action="BDashboard"><h4>Dashboard</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="ProjectView"><h4>----</h4></a>
+                <a class="nav-link active text-light" id="my-profile-backer"><h4>My Profile</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" ><h4>Backed Projects</h4></a>
+                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
             </li>
-
         </ul>
     </div>
 </div>

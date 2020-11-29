@@ -71,9 +71,9 @@ namespace CrowdFundingProject.Services
             return backer;
         }
 
-        public List<Project> GetSupportingProjects(int backerId)
+        public List<BackerBundle> GetSupportingProjects(int backerId)
         {
-            List<Project> projects = dbContext.Backers.Find(backerId).SupportingProjects.ToList();
+            List<BackerBundle> projects = dbContext.Backers.Find(backerId).SupportingBundles.ToList();
             return projects;
         }
 

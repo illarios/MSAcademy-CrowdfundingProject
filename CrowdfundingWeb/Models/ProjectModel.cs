@@ -32,5 +32,6 @@ namespace CrowdfundingWeb.Models
         public int Id { get; set; }
         public decimal Amount { get; set; }
         public int BackerId { get; set; }
+        public int BundleId { get; set; }
     }
 }

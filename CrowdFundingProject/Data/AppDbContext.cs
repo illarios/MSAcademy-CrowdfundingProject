@@ -13,11 +13,14 @@ namespace CrowdFundingProject.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<Backer> Backers { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        
         public DbSet<Image> Images { get; set; }
+        
+        public DbSet<BackerBundle> BackerBundles { get; set; }
 
 
         private readonly string connectionString =
-            "Server = tcp:team4.database.windows.net,1433;Initial Catalog = Project; Persist Security Info=False;User ID = team4;" +
+            "Server = tcp:team4.database.windows.net,1433;Initial Catalog = Project1; Persist Security Info=False;User ID = team4;" +
             "Password=Project4; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,7 +44,6 @@ namespace CrowdFundingProject.Data
                 .IsRequired();
 
             modelBuilder.Entity<Backer>();
-            modelBuilder.Entity<Backer>().HasMany(c => c.SupportingProjects);
             modelBuilder.Entity<Backer>().HasMany(c => c.Tags);
             modelBuilder.Entity<Backer>()
                 .Property(c => c.Username)
@@ -57,11 +59,12 @@ namespace CrowdFundingProject.Data
 
             modelBuilder.Entity<Project>();
             modelBuilder.Entity<Project>().HasOne(c => c.Creator);
-            modelBuilder.Entity<Project>().HasMany(c => c.Backers);
             modelBuilder.Entity<Project>().HasMany(c => c.Bundles);
             modelBuilder.Entity<Project>().HasOne(c => c.Tag);
             modelBuilder.Entity<Tag>();
             modelBuilder.Entity<Image>();
+
+            modelBuilder.Entity<BackerBundle>().HasKey(op => new {op.BundleId, op.BackerId});
         }
     }
 }

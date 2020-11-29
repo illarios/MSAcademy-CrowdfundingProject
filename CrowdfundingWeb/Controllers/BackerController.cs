@@ -42,13 +42,6 @@ namespace CrowdfundingWeb.Controllers
             return backers;
         }
 
-        [HttpGet("myprojects")]
-        public List<Project> GetSupportingProjects(int id)
-        {
-            List<Project> projects = backerService.GetSupportingProjects(id);
-            return projects;
-        }
-
         [HttpPost]
         public BackerOptions CreateBacker([FromBody] BackerWithFileModel backerOptWithFileModel)
         {

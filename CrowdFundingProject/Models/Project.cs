@@ -21,7 +21,8 @@ namespace CrowdFundingProject.Models
         //Foreign Key
         public Creator Creator { get; set; }
         public List<Bundle> Bundles { get; set; }
-        public List<Backer> Backers { get; set; }
+        
+        public List<BackerBundle> BackerBundle { get; set; }
         public Tag Tag { get; set; }
     }
 }

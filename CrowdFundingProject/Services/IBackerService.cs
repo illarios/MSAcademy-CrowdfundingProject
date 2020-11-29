@@ -11,7 +11,7 @@ namespace CrowdFundingProject.Services
         BackerOptions CreateBacker(BackerOptions backerOptions);
         BackerOptions GetBackerById(int backerId);
         List<Backer> GetBackers();
-        List<Project> GetSupportingProjects(int backerId);
+        List<BackerBundle> GetSupportingProjects(int backerId);
         Backer UpdateBacker(BackerOptions backerOptions, int backerId);
         bool DeleteBacker(int backerId);
         Backer GetBackerByUsername(string username);

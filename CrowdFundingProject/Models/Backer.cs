@@ -11,7 +11,8 @@ namespace CrowdFundingProject.Models
         public decimal Wallet { get; set; }
         public string Email { get; set; }
         public bool IsBackerActive { get; set; }
-        public List<Project> SupportingProjects { get; set; }
+        
+        public List<BackerBundle> SupportingBundles { get; set; }
         public List<Tag> Tags { get; set; }
     }
 }
