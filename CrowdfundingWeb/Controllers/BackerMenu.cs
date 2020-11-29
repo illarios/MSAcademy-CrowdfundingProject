@@ -46,7 +46,8 @@ namespace CrowdfundingWeb.Controllers
                 Goal = project.Goal,
                 Category = project.Category,
                 EndDate = project.EndDate,
-                Bundles = bundles
+                Bundles = bundles,
+                PicturePath = project.PicturePath
             };
 
             return View(model);

@@ -14,6 +14,8 @@ namespace CrowdfundingWeb.Models
         public int Category { get; set; }
         public decimal Goal { get; set; }
         public string EndDate { get; set; }
-        public List<Bundle> Bundles { get; set; }          
+        public List<Bundle> Bundles { get; set; }
+        
+        public string PicturePath { get; set; }
     }
 }
