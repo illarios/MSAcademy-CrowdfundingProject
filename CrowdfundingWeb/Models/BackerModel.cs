@@ -28,5 +28,10 @@ namespace CrowdfundingWeb.Models
         public string Email { get; set; }
         public decimal Wallet { get; set; }
     }
-        
+    public class BackerWalletModel
+    {
+        public int BackerId { get; set; }
+        public decimal AmountGiven { get; set; }
+    }
+
 }

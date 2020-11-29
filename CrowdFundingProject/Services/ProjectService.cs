@@ -94,6 +94,9 @@ namespace CrowdFundingProject.Services
         {
             var project = dbContext.Projects.Find(id);
             project.CurrentAmount += amount;
+            var backer = dbContext.Backers.Find(backerId);
+            backer.Wallet -= amount;
+
             BackerBundle backerbundle = new BackerBundle()
             {
                 BackerId = backerId,

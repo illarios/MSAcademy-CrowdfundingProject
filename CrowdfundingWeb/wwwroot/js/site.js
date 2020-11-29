@@ -122,18 +122,66 @@ $('#amount12-btn').on('click', () => {
     supportProject();
 });
 
+function checkWallet(amountGiven) {
+    
+    let backerId = getUserId();
+    let actionUrl = '/api/backer/checkwallet';
+    let formData = {
+        backerId: backerId,
+        amountGiven: amountGiven
+    };
+    $.ajax({
+        url: actionUrl,
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        type: "POST",
+        success: function (data) {
+            return data;
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert('error !');
+        }
+    });
+
+}
+
 function supportProject() {
-   
+    
     var url = window.location.pathname;
     var id = url.substring(url.lastIndexOf('/') + 1); 
     let backerId = getUserId();
     let actionUrl = '/api/project/support';  
     let $successAlert = $('#support-project-success');
-    
+
+    let bundleid = -1;
+    var checkboxes = document.getElementsByName("amountOptions");
+    let bool = false;
+    for (var i = 0; i != checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            bool = true;
+        }
+    }
+    if (bool) {
+        bundleid = $("input[name='bundleid']").val();
+    }
+
+    let requiredamount = -1;
+    requiredamount = parseFloat($("input[name='amountOptions']").val());
+    let amountGiven = $('#sup-amount').val();
+    if (requiredamount > amountGiven) {
+        alert('The given Donation must be higher than the selected bundle !');
+        return 0;
+    }
+
+    if (checkWallet(amountGiven)== false) {
+        alert('Not enough money in wallet !');
+        return 0;
+    }
     let formData = {
         id: id,       
-        amount: parseFloat($("input[name='amountOptions']:checked").val()),
-        backerId: backerId
+        amount: amountGiven,
+        backerId: backerId,
+        bundleId: bundleid,       
     };
 
     $.ajax({

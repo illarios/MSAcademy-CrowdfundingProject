@@ -33,7 +33,16 @@ namespace CrowdfundingWeb.Controllers
         {
             Backer backer = backerService.GetBackerByUsername(username);
             return backer;
-        }        
+        }
+        [HttpPost("checkwallet")]
+        public bool CheckWallet([FromBody] BackerWalletModel backerWalletModel)
+        {
+            BackerOptions backer = backerService.GetBackerById(backerWalletModel.BackerId);
+            if (backer.Wallet >= backerWalletModel.AmountGiven)
+                return true;
+            else
+                return false;
+        }
 
         [HttpGet("all")]
         public List<Backer> GetBackers()
