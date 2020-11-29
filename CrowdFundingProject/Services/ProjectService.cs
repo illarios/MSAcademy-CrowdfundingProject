@@ -103,6 +103,8 @@ namespace CrowdFundingProject.Services
                 BundleId = bundleId,
                 DonateAmount = amount
             };
+
+            dbContext.BackerBundles.Add(backerbundle);
             //project.Backers
             dbContext.SaveChanges();
             return project;
