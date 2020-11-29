@@ -59,7 +59,6 @@ namespace CrowdFundingProject.Data
             modelBuilder.Entity<Project>();
             modelBuilder.Entity<Project>().HasOne(c => c.Creator);
             modelBuilder.Entity<Project>().HasMany(c => c.Bundles);
-            modelBuilder.Entity<Project>().HasOne(c => c.Tag);
             modelBuilder.Entity<Tag>();
             modelBuilder.Entity<Image>();
 

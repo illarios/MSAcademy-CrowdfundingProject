@@ -50,7 +50,8 @@ namespace CrowdfundingWeb.Controllers
                 PicturePath = project.PicturePath,
                 Progress = project.Progress,
                 IsTrending = project.IsTrending,
-                Tag = project.Tag
+                Tag = project.Tag,
+                TagName = project.TagName,
             };
 
             return View(model);

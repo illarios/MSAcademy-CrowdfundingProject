@@ -15,6 +15,7 @@ namespace CrowdFundingProject.Options
         public bool IsTrending { get; set; }
         public string EndDate { get; set; }
         public string PicturePath { get; set; }
+        public string TagName { get; set; }
         public Tag Tag { get; set; }
     }
 }

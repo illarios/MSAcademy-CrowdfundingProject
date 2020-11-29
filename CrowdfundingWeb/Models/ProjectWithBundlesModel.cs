@@ -18,6 +18,7 @@ namespace CrowdfundingWeb.Models
         public bool IsTrending { get; set; }
         public decimal Progress { get; set; }
         public Tag Tag { get; set; }
+        public string TagName { get; set; }
         public string PicturePath { get; set; }
     }
 }

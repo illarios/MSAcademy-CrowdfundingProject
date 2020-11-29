@@ -28,6 +28,7 @@ namespace CrowdFundingProject.Services
                 EndDate = projectOptions.EndDate,
                 Creator = creator,
                 PicturePath = projectOptions.PicturePath,
+                TagName = projectOptions.TagName
             };
 
             dbContext.Projects.Add(project);

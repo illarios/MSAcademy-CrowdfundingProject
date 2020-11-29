@@ -77,7 +77,8 @@ namespace CrowdfundingWeb.Controllers
                 EndDate = projectModel.EndDate.ToString(),
                 Category = projectModel.Category,
                 PicturePath = filename,
-                Tag = tag
+                Tag = tag,
+                TagName = tag.Name
             };
 
             projectModel.PicturePath = filename;
