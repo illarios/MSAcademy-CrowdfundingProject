@@ -12,7 +12,6 @@ namespace CrowdFundingProject.Models
         public string Email { get; set; }
         public bool IsBackerActive { get; set; }
         
-        public List<BackerBundle> SupportingBundles { get; set; }
-        public List<Tag> Tags { get; set; }
+        public List<BackerBundle> SupportingBundles { get; set; }        
     }
 }

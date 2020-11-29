@@ -43,8 +43,7 @@ namespace CrowdFundingProject.Data
                 .Property(c => c.Email)
                 .IsRequired();
 
-            modelBuilder.Entity<Backer>();
-            modelBuilder.Entity<Backer>().HasMany(c => c.Tags);
+            modelBuilder.Entity<Backer>();            
             modelBuilder.Entity<Backer>()
                 .Property(c => c.Username)
                 .IsRequired();

@@ -105,6 +105,10 @@ function deleteBacker() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#delete-profile-backer-success').hide();
+            localStorage.removeItem('userId');
+            localStorage.removeItem('backerId');
+            localStorage.removeItem('creatorId');
+            $('#logout-btn').hide();    
             window.location.href = "/home"; 
             
         },
@@ -229,29 +233,35 @@ function updateCreator() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#EditProfileForm').hide();
+            window.location.href = "/creatormenu/cdashboard";
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
         }
     });
 }
-function deleteCreator() {
-    id = $("#Id").val()
+$('#delete-profile-creator').on('click', () => {
+    deleteCreator();
+});
 
-    actionUrl = "/api/Creator/delete/" + id    //<----------
-    actiontype = "DELETE"
-    actionDataType = "json"
+function deleteCreator() {
+    let id = getUserId();
+    let actionUrl = "/api/Creator/delete/" + id    //<----------
+    let $successAlert = $('#delete-profile-creator-success');
 
     $.ajax({
         url: actionUrl,
-        dataType: actionDataType,
-        type: actiontype,
         contentType: 'application/json',
-        processData: false,
+        type: "PUT",
+        success: function (data) {
+            $successAlert.fadeIn(500);
+            $('#delete-profile-creator-success').hide();
+            localStorage.removeItem('userId');
+            localStorage.removeItem('backerId');
+            localStorage.removeItem('creatorId');
+            $('#logout-btn').hide();          
+            window.location.href = "/home";
 
-        success: function (data, textStatus, jQxhr) {
-
-            alert(JSON.stringify(data))
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -265,8 +275,7 @@ $('#create-project').on('click', () => {
     addProject();
 });
 
-function addProject() {
-    debugger
+function addProject() {    
     let actionUrl = '/api/project/create';
     let $successAlert = $('#create-project-success');
     let id = getUserId();

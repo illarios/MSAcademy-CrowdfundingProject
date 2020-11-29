@@ -45,7 +45,7 @@ namespace CrowdFundingProject.Services
         }
         public List<Backer> GetBackers()
         {
-            List<Backer> backers = dbContext.Backers.Include(c => c.Tags).ToList();
+            List<Backer> backers = dbContext.Backers.ToList();
             return backers;
         }
 

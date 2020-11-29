@@ -74,7 +74,7 @@ namespace CrowdfundingWeb.Controllers
            
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpPut("delete/{id}")]
         public bool DeleteCreator(int id)
         {
             return creatorService.DeleteCreator(id);
