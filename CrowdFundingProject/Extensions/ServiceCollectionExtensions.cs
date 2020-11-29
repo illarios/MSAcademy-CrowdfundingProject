@@ -8,7 +8,7 @@ namespace CrowdFundingProject.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddCrowdFundingProject( this IServiceCollection services)
+        public static void AddCrowdFundingProject(this IServiceCollection services)
         {
             //services.AddDbContext<Data.AppDbContext>;  //TODO
 
@@ -16,6 +16,7 @@ namespace CrowdFundingProject.Extensions
             services.AddScoped<ICreatorService, CreatorService>();
             services.AddScoped<IBundleService, BundleService>();
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ITagService, TagService>();
         }
     }
 }

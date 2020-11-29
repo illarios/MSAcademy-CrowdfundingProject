@@ -1,4 +1,4 @@
-﻿@model CrowdfundingWeb.Models.ProjectListModel;
+﻿@model CrowdfundingWeb.Models.CategoryModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -37,26 +37,57 @@
                 <input type="number" id="goal" />
             </div>
             <label> Choose a category: </label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="categoryOptions" id="category1" value="1">
-                <label class="form-check-label" for="option1">Technology</label>
+            <div class="row" style="margin-left: 10px;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category1" value="1">
+                    <label class="form-check-label" for="option1">Technology</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category2" value="2">
+                    <label class="form-check-label" for="option2">Fashion</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category3" value="3">
+                    <label class="form-check-label" for="option3">Travel</label>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="categoryOptions" id="category2" value="2">
-                <label class="form-check-label" for="option2">Fashion</label>
+            <div class="row" style="margin-left: 10px;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category4" value="4">
+                    <label class="form-check-label" for="option4">Music</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category5" value="5">
+                    <label class="form-check-label" for="option5">Arts</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category6" value="6">
+                    <label class="form-check-label" for="option6">Sports</label>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="categoryOptions" id="category3" value="3">
-                <label class="form-check-label" for="option3">Lifestyle</label>
+            <div class="row" style="margin-left: 10px;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category7" value="7">
+                    <label class="form-check-label" for="option7">Food</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category8" value="8">
+                    <label class="form-check-label" for="option8">Games</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="categoryOptions" id="category9" value="9">
+                    <label class="form-check-label" for="option9">Movies</label>
+                </div>
             </div>
             <div class="form-group" style="margin-top:20px;">
                 <label for="exampleFormControlFile1">Upload Project Image(s)</label>
-                <input type="file" class="form-control-file" id="projectphotoss">
+                <input type="file" class="form-control-file" name="Picture" id="Picture">
             </div>
             <div class="form-check" style="padding-bottom: 15px;padding-top: 30px;">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
             </div>
+
 
             <button id="create-project" type="button" class="btn btn-dark">Create Project and Proceed to Bundle Creation</button>
         </form>
@@ -112,7 +143,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="EditProfile"><h4>My Profile</h4></a>
-            </li>   
+            </li>
             <li class="nav-item">
                 <a class="nav-link active text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CreatorProjects"><h4>Create New Project</h4></a>
             </li>

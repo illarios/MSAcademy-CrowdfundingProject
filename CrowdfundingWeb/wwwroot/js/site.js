@@ -4,23 +4,19 @@
 
 //======================HOME NAVIGATION===========================
 $('#b1').on('click', () => {
-    if(getBackerId())
-    {
+    if (getBackerId()) {
         window.location.href = "/backermenu/bdashboard";
     }
-    else
-    {
-        window.location.href = "/home/loginbacker"; 
+    else {
+        window.location.href = "/home/loginbacker";
     }
 });
 
 $('#b2').on('click', () => {
-    if(getCreatorId())
-    {
+    if (getCreatorId()) {
         window.location.href = "/creatormenu/cdashboard";
     }
-    else
-    {
+    else {
         window.location.href = "/home/logincreator";
     }
 });
@@ -31,15 +27,14 @@ $('#create-profile-backer').on('click', () => {
     addBacker();
 });
 
-function addBacker()
-{
+function addBacker() {
     let actionUrl = '/api/backer'   //<------------
     let $successAlert = $('#create-profile-success1');
 
     let formData = {
         "Username": $("#username").val(),
         "Email": $("#email").val(),
-        "Wallet": parseInt($("#wallet").val()), 
+        "Wallet": parseInt($("#wallet").val()),
     }
     $.ajax({
         url: actionUrl,
@@ -55,25 +50,23 @@ function addBacker()
         }
     });
 }
-
 $('#edit-profile-backer').on('click', () => {
     updateBacker();
 });
 
 function updateBacker() {
     let id = getUserId();
-    let actionUrl ='/api/Backer/update/'+ id    //<------------   
+    let actionUrl = '/api/Backer/update/' + id    //<------------   
     let $successAlert = $('#edit-profile-backer-success');
-    
+
     let formData = {
         "email": $('#email').val(),
-        "wallet": parseInt($("#wallet").val()), 
+        "wallet": parseInt($("#wallet").val()),
     };
 
     $.ajax({
         url: actionUrl,
         data: JSON.stringify(formData),
-        contentType: 'application/json',
         type: "PUT",
         success: function (data) {
             $successAlert.fadeIn(500);
@@ -84,6 +77,7 @@ function updateBacker() {
         }
     });
 }
+
 $('#my-profile-backer').on('click', () => {
     GetEditProfileBacker();
 });
@@ -92,7 +86,8 @@ function GetEditProfileBacker() {
     var profileUserId = localStorage.getItem('userId');
     let params = { UserId: profileUserId };
     window.location.href = window.location.origin + '/backermenu' + '/editprofilenew?id=' + profileUserId;
-}   
+}
+
 function deleteBacker() {
     id = $("#Id").val()
 
@@ -128,7 +123,7 @@ $('#create-profile').on('click', () => {
 function addCreator() {
     let actionUrl = '/api/creator';
     let $successAlert = $('#create-profile-success');
-    
+
     let formData = {
         username: $('#username').val(),
         email: $('#email').val(),
@@ -178,7 +173,6 @@ function getCreator() {
 $('#edit-profile').on('click', () => {
     updateCreator();
 });
-
 function updateCreator() {
     let id = getUserId();
     let actionUrl = '/api/creator/update/' + id
@@ -202,8 +196,7 @@ function updateCreator() {
             alert(errorThrown);
         }
     });
-}      
-
+}
 function deleteCreator() {
     id = $("#Id").val()
 
@@ -238,20 +231,43 @@ function addProject() {
     let actionUrl = '/api/project/create';
     let $successAlert = $('#create-project-success');
     let id = getUserId();
+    /////-------------------------
+    var input = document.getElementById('Picture');
+    var files = input.files;
+    var formData = new FormData();
+    for (var i = 0; i != files.length; i++) {
+        formData.append("Picture", files[i]);
+    }
+    formData.append("id", parseInt(id));
+    formData.append("title", $('#title').val());
+    formData.append("description", $('#description').val());
+    formData.append("goal", $('#goal').val());
+    formData.append("endDate", $('#endDate').val().toString());
+    ///--------------------------------
 
-    let formData = {
-        id: parseInt(id),
-        title: $('#title').val(),
-        description: $('#description').val(),
-        goal: parseInt($('#goal').val()),
-        endDate: $('#endDate').val().toString(),
-        category: $("input[name='categoryOptions']:checked").val()
-    };
+    var checkboxes = document.getElementsByName("categoryOptions");
+    for (var i = 0; i != checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            var v = checkboxes[i].value;
+        }
+    }
 
+    formData.append("category", parseInt(v));
+
+    //let categorylist = new Array();
+    //for (var i = 0; i < checkboxes.length; i++) {
+    //    var cat = i + 1;
+    //    if (checkboxes[i].checked) {
+    //        categorylist.push(checkboxes[i].value);
+    //    }
+    //}
+    //formData.append('tags', categorylist.serialize);
+    //formData.append('checkboxes', checkboxes);
     $.ajax({
         url: actionUrl,
-        data: JSON.stringify(formData),
-        contentType: 'application/json',
+        data: formData,
+        processData: false,
+        contentType: false,
         type: 'POST',
         success: function (data) {
             $successAlert.fadeIn(500);
@@ -265,6 +281,7 @@ function addProject() {
         }
     });
 }
+
 $('#project-link').on('click', () => {
     ShowProject();
 });
@@ -279,7 +296,7 @@ function ShowProject() {
 
 function updateProject() {
     id = $("#Id").val()
-    actionUrl = "/api/project/update/"+id    //<----------
+    actionUrl = "/api/project/update/" + id    //<----------
     actiontype = "PUT"
     actionDataType = "json"
 
@@ -335,20 +352,19 @@ function deleteProject() {
 
 $('#btn-search').on('click', function () {
     let title = $('#txt-search-title').val();
-    let description = $('#txt-search-description').val();    
+    let description = $('#txt-search-description').val();
 
     let requestData = {
         title: title,
         description: description
-    }       
+    }
 
     $.ajax({
         url: '/BackerMenu/GetProjects',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(requestData),
-        success: function (projects)
-        {
+        success: function (projects) {
             $('#projects-list-card').html('');
 
             for (let i = 0; i < projects.length; i++) {
@@ -372,7 +388,7 @@ $('#btn-search').on('click', function () {
                 </div>
                 `);
 
-               
+
             }
         }
     });
@@ -421,8 +437,8 @@ function addBundle() {
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
-            }
-        });
+        }
+    });
 }
 
 function updateBundle() {
@@ -489,7 +505,7 @@ $('#creator-login').on('click', () => {
 async function CheckCreatorLogin() {
     let userEmail = $('#user-email').val();
     let password = $('#user-password').val();
-    
+
     let loginOptions = {
         email: userEmail,
         password: password
@@ -519,7 +535,7 @@ async function CheckBackerLogin() {
     let userEmail = $('#user-email').val();
     let password = $('#user-password').val();
 
-    
+
     let loginOptions = {
         email: userEmail,
         password: password
@@ -572,14 +588,13 @@ $('#my-profile').on('click', () => {
 });
 
 function GetEditProfile() {
-    var profileUserId = localStorage.getItem('userId');  
-    let params = { UserId: profileUserId }; 
+    var profileUserId = localStorage.getItem('userId');
+    let params = { UserId: profileUserId };
     window.location.href = window.location.origin + '/creatormenu' + '/editprofilenew?id=' + profileUserId;
-    
+
 }
 
-if(getUserId() || getBackerId() || getCreatorId())
-{
+if (getUserId() || getBackerId() || getCreatorId()) {
     $('#logout-btn').show();
 }
 

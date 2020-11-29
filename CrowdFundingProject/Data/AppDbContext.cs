@@ -12,6 +12,7 @@ namespace CrowdFundingProject.Data
         public DbSet<Bundle> Bundles { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Backer> Backers { get; set; }
+        public DbSet<Tag> Tags { get; set; }
         public DbSet<Image> Images { get; set; }
 
 
@@ -33,7 +34,7 @@ namespace CrowdFundingProject.Data
         {
             modelBuilder.Entity<Creator>();
             modelBuilder.Entity<Creator>()
-                .Property(c=> c.Username)
+                .Property(c => c.Username)
                 .IsRequired();
             modelBuilder.Entity<Creator>()
                 .Property(c => c.Email)
@@ -58,6 +59,7 @@ namespace CrowdFundingProject.Data
             modelBuilder.Entity<Project>().HasOne(c => c.Creator);
             modelBuilder.Entity<Project>().HasMany(c => c.Backers);
             modelBuilder.Entity<Project>().HasMany(c => c.Bundles);
+            modelBuilder.Entity<Project>().HasOne(c => c.Tag);
             modelBuilder.Entity<Tag>();
             modelBuilder.Entity<Image>();
         }

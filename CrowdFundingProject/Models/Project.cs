@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace CrowdFundingProject.Models
 {
     public class Project
-    {   
+    {
         //Primary key
         public int Id { get; set; }
         //Attributes
@@ -16,10 +16,12 @@ namespace CrowdFundingProject.Models
         public bool IsTrending { get; set; }
         public decimal Progress => CurrentAmount / Goal;
         public string EndDate { get; set; }
+        public string PicturePath { get; set; }
 
-         //Foreign Key
-         public Creator Creator { get; set; }
-         public List<Bundle> Bundles {get; set; }
-         public List<Backer> Backers { get; set; }
+        //Foreign Key
+        public Creator Creator { get; set; }
+        public List<Bundle> Bundles { get; set; }
+        public List<Backer> Backers { get; set; }
+        public Tag Tag { get; set; }
     }
 }

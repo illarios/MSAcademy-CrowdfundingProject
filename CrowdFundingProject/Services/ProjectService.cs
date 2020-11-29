@@ -13,7 +13,7 @@ namespace CrowdFundingProject.Services
     public class ProjectService : IProjectService
     {
         private readonly AppDbContext dbContext = new AppDbContext();
-        
+
         public Project CreateProject(int UserId, ProjectOptions projectOptions)
         {
             Creator creator = dbContext.Creators.Find(UserId);
@@ -27,17 +27,18 @@ namespace CrowdFundingProject.Services
                 IsTrending = projectOptions.IsTrending,
                 EndDate = projectOptions.EndDate,
                 Creator = creator,
+                PicturePath = projectOptions.PicturePath,
             };
 
             dbContext.Projects.Add(project);
+            project.Tag = projectOptions.Tag;
             ////   quantic expression
             creator.Projects.Add(project);
-
             ////
-            dbContext.SaveChanges();
+            ///
 
-            //string script = string.Format("sessionStorage.projectId= '{​​​​0}​​​​';", project.Id);
-            //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "key", script, true);
+
+            dbContext.SaveChanges();
 
             return project;
         }
@@ -59,7 +60,7 @@ namespace CrowdFundingProject.Services
 
         public IQueryable<Project> GetProject(GetProjectOptions opt)
         {
-           var query = dbContext.Projects.AsQueryable();
+            var query = dbContext.Projects.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(opt.Title))
             {
@@ -98,6 +99,7 @@ namespace CrowdFundingProject.Services
             project.CurrentAmount = projectOptions.CurrentAmount;
             project.IsTrending = projectOptions.IsTrending;
             project.EndDate = projectOptions.EndDate;
+            project.PicturePath = projectOptions.PicturePath;
             dbContext.SaveChanges();
             return project;
         }

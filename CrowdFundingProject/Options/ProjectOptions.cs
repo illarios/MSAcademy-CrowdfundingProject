@@ -12,7 +12,9 @@ namespace CrowdFundingProject.Options
         public int Category { get; set; }
         public decimal Goal { get; set; }
         public decimal CurrentAmount { get; set; }
-	    public bool IsTrending { get; set; }
-	    public string EndDate { get; set; }
+        public bool IsTrending { get; set; }
+        public string EndDate { get; set; }
+        public string PicturePath { get; set; }
+        public Tag Tag { get; set; }
     }
 }
