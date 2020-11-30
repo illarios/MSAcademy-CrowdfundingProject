@@ -55,7 +55,7 @@ namespace CrowdFundingProject.Services
 
         public List<Project> GetAllProjects()
         {
-            List<Project> projects = dbContext.Projects.ToList();
+            List<Project> projects = dbContext.Projects.Include(c => c.Creator).Include(c => c.Bundles).ToList();
             return projects;
         }
 
