@@ -44,6 +44,7 @@ function addBacker() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#CreateBackerProfileForm').hide();
+            window.location.href = "/backermenu/bdashboard"
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -242,6 +243,7 @@ function addCreator() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#CreateProfileForm').hide();
+            window.location.href = "/home"
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);

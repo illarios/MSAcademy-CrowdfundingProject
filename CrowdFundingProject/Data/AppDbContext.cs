@@ -59,11 +59,20 @@ namespace CrowdFundingProject.Data
             modelBuilder.Entity<Project>();
             modelBuilder.Entity<Project>().HasOne(c => c.Creator);
             modelBuilder.Entity<Project>().HasMany(c => c.Bundles);
-            modelBuilder.Entity<Tag>();
+            modelBuilder.Entity<Tag>().HasData(
+                new Tag{Id = 1,Name = "Technology"},
+                new Tag{Id = 2,Name = "Fashion"},
+                new Tag{Id = 3,Name = "Travel"},
+                new Tag{Id = 4,Name = "Music"},
+                new Tag{Id = 5,Name = "Arts"},
+                new Tag{Id = 6,Name = "Sports"},
+                new Tag{Id = 7,Name = "Food"},
+                new Tag{Id = 8,Name = "Games"},
+                new Tag{Id = 9,Name = "Movies"}                
+                );
             modelBuilder.Entity<Image>();
 
-           // modelBuilder.Entity<BackerBundle>().HasKey(op => new {op.BundleId, op.BackerId});
-           modelBuilder.Entity<BackerBundle>().HasKey(key => key.Id);
+            modelBuilder.Entity<BackerBundle>().HasKey(key => key.Id);
         }
     }
 }
