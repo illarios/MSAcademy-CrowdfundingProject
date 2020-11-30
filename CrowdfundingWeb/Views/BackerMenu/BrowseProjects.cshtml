@@ -12,6 +12,7 @@
 <div class="container">
     <main>
         <!-- Search form -->
+
         <form>
             <div class="row">
                 <div class="col">
@@ -19,61 +20,78 @@
                 </div>
                 <div class="col">
                     <input type="text" id="txt-search-description" class="form-control" placeholder="By Description">
-                </div>
+                </div>                             
+                <div class=col>
+                    <select class="form-control" id="txt-search-tag">
+                        <option value="" selected>Choose a Category</option>
+                        <option value="1">Technology</option>
+                        <option value="2">Fashion</option>
+                        <option value="3">Travel</option>
+                        <option value="4">Music</option>
+                        <option value="5">Arts</option>
+                        <option value="6">Sports</option>
+                        <option value="7">Food</option>
+                        <option value="8">Games</option>
+                        <option value="9">Movies</option>
+                    </select>                            
+                </div>                 
+                
                 <div class="col">
                     <button id="btn-search" type="button" class="btn btn-primary">
                         Search
                     </button>
                 </div>
-            </div>
-        </form>
+                </div>
+                </form>
 
-        <div id="projects-list-card">
-            @{
-                foreach (var project in Model)
-                {
-                    <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
-                        <div class="card-body">
 
-                            <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                                            <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">
-                                                @project.Title
-                                                @{
-                                                    if (@project.IsTrending == true){
-                                                        <span class="badge badge-pill badge-success" style="margin-left:10px;">Popular</span>
-                                                    }
+                <div id="projects-list-card">
+                    @{
+                        foreach (var project in Model)
+                        {
+                            <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
+                                <div class="card-body">
+
+                                    <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
+                                        <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">
+                                            @project.Title
+                                            @{
+                                                if (@project.IsTrending == true)
+                                                {
+                                                    <span class="badge badge-pill badge-success" style="margin-left:10px;">Popular</span>
                                                 }
-                                            </a>
-                            </div>  <!-- Make it pop up only for new ones -->
-                            <!-- Progress -->
-                            <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: @project.Progress %</div>
+                                            }
+                                        </a>
+                                    </div>  <!-- Make it pop up only for new ones -->
+                                    <!-- Progress -->
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: @project.Progress %</div>
 
-                            <div class="progress">
-                                <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(project.Progress)%;background-color:#2c4a58;">
+                                    <div class="progress">
+                                        <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(project.Progress)%;background-color:#2c4a58;">
+                                        </div>
+                                    </div>
+                                    <!-- Progress -->
+
                                 </div>
                             </div>
-                            <!-- Progress -->
-
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-    </main>
-    <div class="navbar" id="sidebar">
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-ligh" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
-            </li>
-            <li class="nav-item">
+                        }
+                    }
+                </div>
+                </main>
+                <div class="navbar" id="sidebar">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-ligh" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
+                        </li>
+                        <li class="nav-item">
                             <a id="my-projects" class="nav-link text-light"><h4>Dashboard</h4></a>
-             </li>
-            <li class="nav-item">
-                <a class="nav-link active text-light" id="my-profile-backer"><h4>My Profile</h4></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
-            </li>
-        </ul>
-    </div>
-</div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" id="my-profile-backer"><h4>My Profile</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
+                        </li>
+                    </ul>
+                </div>
+                </div>

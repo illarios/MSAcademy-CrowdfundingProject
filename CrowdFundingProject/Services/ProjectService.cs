@@ -68,9 +68,14 @@ namespace CrowdFundingProject.Services
                 query = query.Where(c => c.Title.Contains(opt.Title));
             }
 
-            if (!string.IsNullOrWhiteSpace(opt.Description))
+            else if (!string.IsNullOrWhiteSpace(opt.Description))
             {
                 query = query.Where(c => c.Description.Contains(opt.Description));
+            }
+
+            else if (opt.Category!=0)
+            {
+                query = query.Where(c => c.Category==opt.Category);
             }
 
             if (opt.MaxResults == null)

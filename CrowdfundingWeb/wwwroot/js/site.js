@@ -453,13 +453,16 @@ function deleteProject() {
     });
 }
 
-$('#btn-search').on('click', function () {
+$('#btn-search').on('click', function () {   
     let title = $('#txt-search-title').val();
     let description = $('#txt-search-description').val();
+    let category = $('#txt-search-tag').val();
+    
 
     let requestData = {
         title: title,
-        description: description
+        description: description,
+        category : category
     }
 
     $.ajax({
@@ -471,6 +474,7 @@ $('#btn-search').on('click', function () {
             $('#projects-list-card').html('');
 
             for (let i = 0; i < projects.length; i++) {
+                //if (${ projects[i].category }== category){
                 $('#projects-list-card').append(`
                     <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
                     <div class="card-body">
@@ -490,6 +494,7 @@ $('#btn-search').on('click', function () {
                         </div>
                 </div>
                 `);
+        //}
 
 
             }
