@@ -333,6 +333,19 @@ function deleteCreator() {
     });
 }
 
+$('#creator-dashboard').on('click', () => {
+    CreatorDashboard();
+});
+
+$('#bDashCreator').on('click', () => {
+    CreatorDashboard();
+});
+
+function CreatorDashboard() {
+    var profileUserId = localStorage.getItem('userId');
+    window.location.href = window.location.origin + '/creatormenu' + '/CDashBoard?id=' + profileUserId;
+}
+
 //====================== P R O J E C T S =======================
 
 $('#create-project').on('click', () => {

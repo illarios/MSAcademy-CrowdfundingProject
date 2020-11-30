@@ -8,6 +8,8 @@ using CrowdFundingProject.Services;
 using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
+using CrowdFundingProject.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrowdfundingWeb.Controllers
 {
@@ -17,6 +19,7 @@ namespace CrowdfundingWeb.Controllers
         private readonly ICreatorService creatorService;
         private readonly IBackerService backerService;
         private readonly IProjectService projectService;
+        private readonly AppDbContext dbContext = new AppDbContext();
 
         public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService _projectService)
         
@@ -26,15 +29,6 @@ namespace CrowdfundingWeb.Controllers
             backerService = _backerService;
             projectService = _projectService;
            
-        }
-        public IActionResult CDashboard()
-        {
-            List<Project> projects = projectService.GetAllProjects();
-            ProjectListModel projectListModel = new ProjectListModel
-            {
-                Projects = projects
-            };
-            return View(projectListModel);
         }
         
         [HttpGet]
@@ -50,6 +44,16 @@ namespace CrowdfundingWeb.Controllers
         public IActionResult CreatorProjects()
         {
             return View();
+        }
+        
+        public IActionResult CDashBoard([FromQuery]int id)
+        {
+            var projs = dbContext.Projects
+                .Where(pr => pr.Creator.Id == id)
+                .Include(pr => pr.Bundles)
+                .ToList();
+
+            return View(projs);
         }
     }
 }
