@@ -62,7 +62,8 @@ namespace CrowdFundingProject.Data
             modelBuilder.Entity<Tag>();
             modelBuilder.Entity<Image>();
 
-            modelBuilder.Entity<BackerBundle>().HasKey(op => new {op.BundleId, op.BackerId});
+           // modelBuilder.Entity<BackerBundle>().HasKey(op => new {op.BundleId, op.BackerId});
+           modelBuilder.Entity<BackerBundle>().HasKey(key => key.Id);
         }
     }
 }

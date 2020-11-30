@@ -84,9 +84,13 @@ $('#my-projects').on('click', () => {
     MyProjects();
 });
 
+$('#bDashBacker').on('click', () => {
+    MyProjects();
+});
+
 function MyProjects() {
     var profileUserId = localStorage.getItem('userId');
-    window.location.href = window.location.origin + '/backermenu' + '/browsemyprojects?id=' + profileUserId;
+    window.location.href = window.location.origin + '/backermenu' + '/BDashBoard?id=' + profileUserId;
 }
 
 $('#my-profile-backer').on('click', () => {

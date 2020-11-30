@@ -26,12 +26,6 @@ namespace CrowdfundingWeb.Controllers
             projects_ = projects;
             bundles_ = bundles;
         }
-
-        public IActionResult BDashboard()
-        {
-            return View();
-        }
-
         public IActionResult EditProfileBacker()
         {
             return View();
@@ -95,7 +89,7 @@ namespace CrowdfundingWeb.Controllers
         }
        
         [HttpGet]
-        public IActionResult BrowseMyProjects([FromQuery] int id)
+        public IActionResult BDashboard([FromQuery] int id)
         {
             var  projectIds = (from p in dbContext.BackerBundles
                 join e in dbContext.Bundles
