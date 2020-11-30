@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CrowdFundingProject.Data;
 using CrowdFundingProject.Models;
 using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
@@ -16,6 +17,8 @@ namespace CrowdfundingWeb.Controllers
         private readonly IBackerService backerService;
         private readonly IProjectService projects_;
         private readonly IBundleService bundles_;
+        private readonly AppDbContext dbContext = new AppDbContext();
+
         public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects, IBundleService bundles)
         {
             creatorService = _creatorService;
@@ -90,7 +93,31 @@ namespace CrowdfundingWeb.Controllers
 
             return View("EditProfileBacker", model);
         }
+       
+        [HttpGet]
+        public IActionResult BrowseMyProjects([FromQuery] int id)
+        {
+            var  projectIds = (from p in dbContext.BackerBundles
+                join e in dbContext.Bundles
+                    on p.BundleId equals e.Id
+                where p.BackerId == id
+                select new
+                {
+                    projId = e.Project.Id
+                }).Distinct().ToList();
 
+            var prids = new List<int>();
+            foreach ( var child in projectIds )
+            {
+                prids.Add(child.projId);
+            };
+
+            var projects = dbContext.Projects
+                .Where(l => prids.Any(id => id == l.Id))
+                .ToList();
+            
+            return View(projects);
+        }
     }
 }
 

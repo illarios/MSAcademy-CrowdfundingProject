@@ -80,6 +80,15 @@ function updateBacker() {
     });
 }
 
+$('#my-projects').on('click', () => {
+    MyProjects();
+});
+
+function MyProjects() {
+    var profileUserId = localStorage.getItem('userId');
+    window.location.href = window.location.origin + '/backermenu' + '/browsemyprojects?id=' + profileUserId;
+}
+
 $('#my-profile-backer').on('click', () => {
     GetEditProfileBacker();
 });
@@ -89,6 +98,7 @@ function GetEditProfileBacker() {
     let params = { UserId: profileUserId };
     window.location.href = window.location.origin + '/backermenu' + '/editprofilenew?id=' + profileUserId;
 }
+
 $('#delete-profile-backer').on('click', () => {
     deleteBacker();
 });
