@@ -49,22 +49,26 @@
         </div>
 
     </main>
-
-
-    <div class="navbar" id="sidebar">
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-ligh" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
-            </li>
-            <li class="nav-item">
-                            <a id="my-projects" class="nav-link text-light"><h4>Dashboard</h4></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-light" id="my-profile-backer"><h4>My Profile</h4></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h4>Browse New Projects</h4></a>
-            </li>
-        </ul>
-    </div>
+      <div class="navbar navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow" id="sidebar">
+      <ul class="navbar-nav flex-grow-1">
+         <li class="nav-item">
+              <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h5>Home</h5></a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="AboutUs"><h5>About Us</h5></a>
+         </li>   
+        <li class="nav-item">
+            <a id="my-projects" class="nav-link text-light"><h5>Dashboard</h5></a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link active text-light" id="my-profile-backer"><h5>My Profile</h5></a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link active text-light" asp-area="" asp-controller="BackerMenu" asp-action="Browseprojects"><h5>Browse New Projects</h5></a>
+         </li>
+         <li class="nav-item">
+             <a id="logout-btn"  class="nav-link text-light" style="display:none"><h5>Logout</h5></a> 
+         </li>
+       </ul>
+      </div>
 </div>
