@@ -8,6 +8,7 @@ using CrowdFundingProject.Options;
 using CrowdFundingProject.Services;
 using CrowdfundingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CrowdfundingWeb.Controllers
 {
@@ -108,6 +109,8 @@ namespace CrowdfundingWeb.Controllers
 
             var projects = dbContext.Projects
                 .Where(l => prids.Any(id => id == l.Id))
+                .Include(c => c.Bundles)
+                .Include(c => c.Creator)
                 .ToList();
             
             return View(projects);

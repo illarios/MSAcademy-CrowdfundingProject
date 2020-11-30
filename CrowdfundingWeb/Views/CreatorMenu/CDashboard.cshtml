@@ -1,4 +1,4 @@
-﻿@model CrowdfundingWeb.Models.ProjectListModel;
+﻿@model List<CrowdFundingProject.Models.Project>;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -19,7 +19,7 @@
             Dashboard <!-- Show my projects  -->
         </h1>
         @{
-            foreach (var project in Model.Projects)
+            foreach (var project in Model)
             {
                 <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
                     <div class="card-body">
@@ -38,16 +38,25 @@
                         <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">Current Amount : @project.CurrentAmount € </div>
                         <!-- Progress -->
                         <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion: @project.Progress %</div>
-
+                        
                         <div class="progress">
                             <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(project.Progress)% ;background-color:#2c4a58;">
                             </div>
                         </div>
                         <!-- Progress -->
-
+                      <div> 
+                       @{  
+                       foreach(var bundle in project.Bundles) 
+                       { 
+                       <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58"> @bundle.Description for @bundle.Prize € </div> 
+                           } 
+                        } 
+                       </div>
                     </div>
                 </div>
+                
             }
+           
         }
 
     </main>
@@ -57,7 +66,7 @@
                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="CreatorMenu" asp-action="CDashboard"><h4>Dashboard</h4></a>
+                <a class="nav-link text-light" id="creator-dashboard"><h4>Dashboard</h4></a>
             </li>
             <li class="nav-item">
                 <a id="my-profile" class="nav-link active text-light"  ><h4>My Profile</h4></a>
