@@ -25,15 +25,16 @@
                     <div class="card-body">
 
                         <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                            @project.Title
-                            @{
-                                if (@project.IsTrending == true)
-                                {
-                                    <span class="badge badge-pill badge-success" style="margin-left:10px;">Popular</span>
-                                }
-                            }
+                                    <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">
+                                        @project.Title
+                                        @{
+                                            if (@project.IsTrending == true)
+                                            {
+                                                <span class="badge badge-pill badge-success" style="margin-left:10px;">Popular</span>
+                                            }
+                                        }
+                                    </a>
                         </div>  <!-- Make it pop up only for new ones -->
-                        <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">People Backing You Up: @project.BackerBundle.Count </div>
                         <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">End Date : @project.EndDate </div>
                         <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">Current Amount : @project.CurrentAmount € </div>
                         <!-- Progress -->

@@ -58,13 +58,14 @@ namespace CrowdfundingWeb.Controllers
         [HttpGet]
         public IActionResult BrowseProjects()
         {
-            var options = new GetProjectOptions()
+            var options = new GetProjectsNoOptions()
             {
                 MaxResults = 100
             };
 
             var projects = projects_
-                .GetProject(options)
+                .GetAllProjects()
+                .Take(100)
                 .ToList();
 
             return View(projects);

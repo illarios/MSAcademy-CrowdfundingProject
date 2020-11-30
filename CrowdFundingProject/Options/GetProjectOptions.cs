@@ -11,4 +11,9 @@ namespace CrowdFundingProject.Options
         public int? Category { get; set; }
         public int? MaxResults { get; set; }
     }
+
+    public class GetProjectsNoOptions
+    {
+        public int? MaxResults { get; set; }
+    }
 }
