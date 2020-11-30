@@ -23,8 +23,7 @@ namespace CrowdFundingProject.Services
                 Description = projectOptions.Description,
                 Category = projectOptions.Category,
                 Goal = projectOptions.Goal,
-                CurrentAmount = projectOptions.CurrentAmount,
-                IsTrending = projectOptions.IsTrending,
+                CurrentAmount = projectOptions.CurrentAmount,                
                 EndDate = projectOptions.EndDate,
                 Creator = creator,
                 PicturePath = projectOptions.PicturePath,
@@ -32,13 +31,8 @@ namespace CrowdFundingProject.Services
             };
 
             dbContext.Projects.Add(project);
-            project.Tag = projectOptions.Tag;
-            ////   quantic expression
-            creator.Projects.Add(project);
-            ////
-            ///
-
-
+            project.Tag = projectOptions.Tag;            
+            creator.Projects.Add(project);  
             dbContext.SaveChanges();
 
             return project;
@@ -109,21 +103,19 @@ namespace CrowdFundingProject.Services
                 DonateAmount = amount
             };
 
-            dbContext.BackerBundles.Add(backerbundle);
-            //project.Backers
+            dbContext.BackerBundles.Add(backerbundle);            
             dbContext.SaveChanges();
             return project;
         }
 
         public Project UpdateProject(ProjectOptions projectOptions, int projectId)
         {
-            Project project = dbContext.Projects.Find(projectId);
+            var project = dbContext.Projects.Find(projectId);                  
             project.Title = projectOptions.Title;
             project.Description = projectOptions.Description;
             project.Category = projectOptions.Category;
             project.Goal = projectOptions.Goal;
-            project.CurrentAmount = projectOptions.CurrentAmount;
-            project.IsTrending = projectOptions.IsTrending;
+            project.CurrentAmount = projectOptions.CurrentAmount;           
             project.EndDate = projectOptions.EndDate;
             project.PicturePath = projectOptions.PicturePath;
             dbContext.SaveChanges();

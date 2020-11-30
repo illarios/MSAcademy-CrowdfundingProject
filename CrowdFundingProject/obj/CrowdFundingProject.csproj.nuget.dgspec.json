@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj": {}
+    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\CrowdFundingProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj": {
+    "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\CrowdFundingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj",
+        "projectUniqueName": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\CrowdFundingProject.csproj",
         "projectName": "CrowdFundingProject",
-        "projectPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj",
+        "projectPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\CrowdFundingProject.csproj",
         "packagesPath": "C:\\Users\\Κωνσταντίνος\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\obj\\",
+        "outputPath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Κωνσταντίνος\\AppData\\Roaming\\NuGet\\NuGet.Config",

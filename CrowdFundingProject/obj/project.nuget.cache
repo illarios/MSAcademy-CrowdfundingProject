@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pwRJFIKnQ6+1YU/zEkvrl8FiStwTJv9gOEeNbP6/vRQvjN0i6LJbNNGM3NDLhFtquZB4zZQqnkTxWdraKd9SkQ==",
+  "dgSpecHash": "n69eCchbhkJf3HXYyH12gWP0mIK2pNQHZ8ocZNSpUMt/ZsqnTDU3HJbboXVgu1PG6zk1Po8TW180nrJMxqvbuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Crowdfund - Team 4\\main proj\\CrowdFundingProject\\CrowdFundingProject.csproj",
+  "projectFilePath": "C:\\Users\\Κωνσταντίνος\\Desktop\\CodeHub\\Project Final\\CrowdFundingProject\\CrowdFundingProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Κωνσταντίνος\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",
     "C:\\Users\\Κωνσταντίνος\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.9\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.9.nupkg.sha512",

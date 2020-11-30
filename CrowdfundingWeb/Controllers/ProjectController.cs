@@ -54,7 +54,6 @@ namespace CrowdfundingWeb.Controllers
         public int CreateProject([FromForm] ProjectfromFormModel projectModel)
         {
 
-            /////////////////
             var formFile = projectModel.Picture;
             var filename = projectModel.Picture.FileName;
             if (formFile.Length > 0)
@@ -65,7 +64,6 @@ namespace CrowdfundingWeb.Controllers
                     formFile.CopyTo(stream);
                 }
             }
-            ///////////////////////
 
             Tag tag = tagService.GetTagbyId(projectModel.Category);
             ProjectOptions projectOpt = new ProjectOptions
@@ -83,14 +81,7 @@ namespace CrowdfundingWeb.Controllers
 
             projectModel.PicturePath = filename;
 
-            Project project = projectService.CreateProject(projectModel.Id, projectOpt);
-            //var taglist = projectModel.Tags;
-            //for(var i=0;i<taglist.Count; i++)
-            //{
-            //    Tag tag = tagService.GetTagbyId(taglist[i]);
-            //    dbContext.Projects.Find(project).Tags.Add(tag);
-            //}
-
+            Project project = projectService.CreateProject(projectModel.Id, projectOpt); 
             dbContext.SaveChanges();
 
             return project.Id;
@@ -122,14 +113,6 @@ namespace CrowdfundingWeb.Controllers
             List<Backer> backers = backerService.GetBackers();
             return backers;
         }
-
-        //[HttpGet("{id}/bundles")]
-        //public List<Bundle> GetBundles(int id)
-        //{
-
-        //    List<Bundle> bundles = bundleService.GetBundlesOfProjects(int projectId)();
-        //    return bundles;
-        //}
 
         [HttpPost("bundles")]
         public bool AddBundleS([FromBody] BundleListModel bundleList)

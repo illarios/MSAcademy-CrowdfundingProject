@@ -13,7 +13,7 @@ namespace CrowdFundingProject.Models
         public int Category { get; set; }
         public decimal Goal { get; set; }
         public decimal CurrentAmount { get; set; }
-        public bool IsTrending { get; set; }
+        public bool IsTrending => (Progress > 50);
         public decimal Progress => Math.Round((CurrentAmount / Goal)*100);
         public string EndDate { get; set; }
         public string PicturePath { get; set; }
