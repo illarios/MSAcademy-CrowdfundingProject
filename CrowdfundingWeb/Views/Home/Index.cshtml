@@ -9,91 +9,65 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="~/js/index.js"></script>
-    <link rel="stylesheet" href="~/css/index.css" />
+    <meta charset="UTF-8">
+    <title>CodePen - Home Page Design</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'><link rel="stylesheet" href="~/css/style.css">
+
 </head>
 
+<body>
+<!-- partial:index.partial.html -->
 
-<div class="container" style="background-image:url(./images/index-bg2.png)">
-    <h1>Collaborative projects rise through collaborative actions!</h1>
-    <div class="board">
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-spotify"></i>
-                <h5>Spotify</h5>
+  <div id="wrapper">
+    <div class="content-holder">
+      <div class="hero-wrap fl-wrap full-height scroll-con-sec">
+        
+        <div class="impulse-wrap">
+          <div class="mm-par-wrap">
+            <div class="mm-parallax" data-tilt data-tilt-max="4" >
+              <div class="overlay"></div>
+              <div class="bg" data-bg="https://images.unsplash.com/photo-1499018658500-b21c72d7172b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" 
+                   style="background-image: url(/images/bg_icon.jpg);">
+              <div class="hero-wrap-item fl-wrap">
+                <div class="container"><div class="fl-wrap section-entry hiddec-anim" style="opacity: 1; ">
+                  <h2 class="BoardName">Great projects</h2>
+                  <h2 class="BoardName">rise through </h2>
+                  <h2 class="BoardName">collaborative actions!</h2>
+                  
+                  </div></div></div>
+              
             </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibus?</span>
-                <a href="">View Project</a>
-            </div>
-        </section>
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-dropbox"></i>
-                <h5>Dropbox</h5>
-            </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibus.</span>
-                <a href="">View Project</a>
-            </div>
-        </section>
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-evernote"></i>
-                <h5>Evernote</h5>
-            </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibus.</span>
-                <a href="">View Project</a>
-            </div>
-        </section>
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-github"></i>
-                <h5>Github</h5>
-            </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibus?</span>
-                <a href="">View Project</a>
-            </div>
-        </section>
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-smashing"></i>
-                <h5>Smashing</h5>
-            </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibu?</span>
-                <a href="">View Project</a>
-            </div>
-        </section>
-
-
-        <section>
-            <div class="tile cover">
-                <i class="entypo-twitter"></i>
-                <h5>Twitter</h5>
-            </div>
-            <div class="tile desc">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ab ipsa commodi quas voluptatibus!</span>
-                <a href="">View Project</a>
-            </div>
-
-        </section>
+            
+          </div>
+        </div>
+        
+        <div class="hero-corner hiddec-anim" style="opacity: 1; transform: translate3d(0px, 0px, 0px);"></div>
+        
+        <div class="hero-corner2 hiddec-anim" style="opacity: 1; transform: translate3d(0px, 0px, 0px);"></div>
+        
+        <div class="hero-corner3 hiddec-anim" style="opacity: 1; transform: translate3d(0px, 0px, 0px);"></div>
+        
+        <div class="hero-corner4 hiddec-anim" style="opacity: 1; transform: translate3d(0px, 0px, 0px);"></div>
+        <div id="buttons" class="row">
+               <a id="b1" type="button" class="btn3d btn btn-default btn-lg"  style="margin-right:5px;max-height:50px;">Backer</a>
+               <a id="b2" type="button" class="btn3d btn btn-default btn-lg"  style="margin-left:5px;max-height:50px;">Creator</a>
+               <a id="bDashBacker" type="button" class="btn3d btn btn-default btn-lg"  style="display:none; max-height:50px;">DashBoard</a>
+               <a id="bDashCreator" type="button" class="btn3d btn btn-default btn-lg"  style="display:none; max-height:50px;">DashBoard</a>
+               <a id="logout-btn"  class="btn3d btn btn-warning btn-lg" style="display:none">Logout</a> 
+        </div>
+           <footer style="background-color: #F8EEDF;"></footer> 
+        
+      </div>
     </div>
-
-    <div id="buttons" class="row">
-        <a id="b1" type="button" class="button btn btn-light btn-lg" style="margin-right:5px;max-height:50px;">Backer</a>
-        <a id="b2" type="button" class="button btn btn-light btn-lg" style="margin-left:5px;max-height:50px;">Creator</a>
-        <a id="bDashBacker" type="button" class="button btn btn-light btn-lg" style="display:none; max-height:50px;">DashBoard</a>
-        <a id="bDashCreator" type="button" class="button btn btn-light btn-lg" style="display:none; max-height:50px;">DashBoard</a>
-
-    </div>
-    <footer style="background-color: #F8EEDF;"></footer>
+  </div>
+  
 </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="~/js/script.js"></script>
+
+</body>
+
+   
 
 
