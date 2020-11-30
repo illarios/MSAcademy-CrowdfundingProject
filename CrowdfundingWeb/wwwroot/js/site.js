@@ -476,13 +476,13 @@ $('#btn-search').on('click', function () {
                     <div class="card-body">
 
                         <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                            <a class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">${projects[i].title}</a> <span class="badge badge-success">New</span>
+                            <a id="proj-titles" class="nav-link active text-light" href="/BackerMenu/ProjectView/${projects[i].id}" style="background-color:#43444d;border-radius:10px" >${projects[i].title} <span class="badge badge-success">Matching</span></a> 
                         </div>  <!-- Make it pop up only for new ones -->
                             <!-- Progress -->
                             <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion:${projects[i].progress} %</div>
 
                         <div class="progress">
-                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="${projects[i].progress}" aria-valuemin="0" aria-valuemax="100" style="width:${projects[i].progress};background-color:#2c4a58;">
+                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(${projects[i].progress})" aria-valuemin="0" aria-valuemax="100" style="width:"@Math.Round(${projects[i].progress})%";background-color:#2c4a58;">
                             </div>
                         </div>
                       
