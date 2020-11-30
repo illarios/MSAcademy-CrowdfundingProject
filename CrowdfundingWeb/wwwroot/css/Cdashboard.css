@@ -23,6 +23,12 @@ body {
     grid-gap: 0.2rem;
 }
 
+#proj-titles {
+    color: #43444d;
+    background-color: #43444E;
+    border-radius: 10px;
+}
+
 .card {
     margin: 10px;
     max-height: auto;
