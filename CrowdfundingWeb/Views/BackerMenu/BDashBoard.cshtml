@@ -10,24 +10,8 @@
     <link rel="stylesheet" href="~/css/Bdashboard.css" />
 </head>
 <div class="container">
-    <main>
-        <!-- Search form -->
-        <form>
-            <div class="row">
-                <div class="col">
-                    <input type="text" id="txt-search-title" class="form-control" placeholder="By Title">
-                </div>
-                <div class="col">
-                    <input type="text" id="txt-search-description" class="form-control" placeholder="By Description">
-                </div>
-                <div class="col">
-                    <button id="btn-search" type="button" class="btn btn-primary">
-                        Search
-                    </button>
-                </div>
-            </div>
-        </form>
-
+    <main>       
+        <h2>Projects that I Support</h2>
         <div id="projects-list-card">
             @{
                 foreach (var project in Model)
