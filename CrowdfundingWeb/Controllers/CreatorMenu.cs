@@ -51,6 +51,7 @@ namespace CrowdfundingWeb.Controllers
             var projs = dbContext.Projects
                 .Where(pr => pr.Creator.Id == id)
                 .Include(pr => pr.Bundles)
+                .Include(pr => pr.BackerBundle)   //<----
                 .ToList();
 
             return View(projs);

@@ -33,7 +33,7 @@
                                 }
                             }
                         </div>  <!-- Make it pop up only for new ones -->
-                        <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">People Backing You Up: project.Backers.Count() </div>
+                        <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">People Backing You Up: @project.BackerBundle.Count </div>
                         <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">End Date : @project.EndDate </div>
                         <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">Current Amount : @project.CurrentAmount € </div>
                         <!-- Progress -->
@@ -44,14 +44,15 @@
                             </div>
                         </div>
                         <!-- Progress -->
-                      <div> 
-                       @{  
-                       foreach(var bundle in project.Bundles) 
-                       { 
-                       <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58"> @bundle.Description for @bundle.Prize € </div> 
-                           } 
-                        } 
-                       </div>
+                        <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58">Bundle Packages: </div>
+                         <div> 
+                               @{  
+                                   foreach(var bundle in project.Bundles) 
+                                   { 
+                                        <div class="h5 mb-0 font-weight-bold text" style="color:#2c4a58"> @bundle.Description for @bundle.Prize € </div> 
+                                    } 
+                                 } 
+                          </div>
                     </div>
                 </div>
                 
