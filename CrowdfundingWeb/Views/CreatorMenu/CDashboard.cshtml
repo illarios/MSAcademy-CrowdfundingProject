@@ -25,7 +25,7 @@
                     <div class="card-body">
 
                         <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                                    <a id="proj-titles" class="nav-link active text-light" asp-controller="BackerMenu" asp-action="ProjectView" asp-route-id="@project.Id">
+                                    <a id="proj-titles" class="nav-link active text-light" asp-controller="CreatorMenu" asp-action="ProjectView" asp-route-id="@project.Id">
                                         @project.Title
                                         @{
                                             if (@project.IsTrending == true)

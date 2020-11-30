@@ -4,7 +4,7 @@
 *@
 
 @{
-    ViewData["Title"] = "Browse projects";
+    ViewData["Title"] = "Browse created projects";
 }
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -29,7 +29,6 @@
                     <img class="back" src="/uploadedimages/@Model.PicturePath" width="850" height="400" alt="First Image">
                 </div>
             </div>
-
             <!-- Controls -->
             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,16 +39,13 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
-
-
         <!--description & buttons-->>
         <div class="container">
             <div class="position-absolute" style="margin-top: 5%;">
-                <div class="col-md-4">
+                <div class="col-md-10">
                     <h2>Description</h2>
                     <p>@Model.Description</p>
-                   <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Category: @Model.TagName </div>
+                    <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Category: @Model.TagName </div>
                     <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Deadline until: @Model.EndDate </div>
                     <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Amount: @Model.Goal €</div>
                     <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Progress So Far: @Model.Progress %</div>
@@ -60,24 +56,13 @@
                     </div>
                     <label> Choose a Bundle :</label>
                     @foreach (var item in Model.Bundles)
-                    {
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="amountOptions" id="first" value="@item.Prize">
-                            <label class="form-check-label" for="option1">@item.Prize € - @item.Description</label>
-                        </div>
-                    }
-                    <div class="form-check" style="padding-bottom: 15px;padding-top: 30px;">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">I agree with the terms and conditions</label>
-                    </div>
-
-                    <button id="amount12-btn" type="button" class="btn btn-dark">Support The Project</button>
-                    <div id="support-project-success" class="alert alert-success" role="alert" style="display: none">
-                        Congratulations you are now funding this project !
-                    </div>
+                    {   
+                      <h3>@item.Prize € - @item.Description</h3>                     
+                    }                 
+                   </div>                  
                 </div>
             </div>
-        </div>
+       
 
     </main>
     <div class="navbar" id="sidebar">
@@ -86,7 +71,7 @@
                 <a class="nav-link text-ligh" asp-area="" asp-controller="Home" asp-action="Index"><h4>Home</h4></a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-light" id="creator-dashboard"><h4>Dashboard</h4></a>
+                <a id="my-projects" class="nav-link text-light"><h4>Dashboard</h4></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active text-light" id="my-profile-backer"><h4>My Profile</h4></a>

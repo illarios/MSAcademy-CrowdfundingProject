@@ -207,7 +207,7 @@ function supportProject() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#support-project-success').show();
-            window.location.href = "/backermenu/bdashboard"
+            window.location.href = "/backermenu/bdashboard?id=" + backerId;
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
