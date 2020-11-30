@@ -44,7 +44,7 @@ function addBacker() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#CreateBackerProfileForm').hide();
-            window.location.href = "/backermenu/bdashboard"
+            window.location.href = "/home"
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -622,7 +622,7 @@ async function CheckCreatorLogin() {
         success: function (data) {
             localStorage.setItem('userId', data.userId);
             localStorage.setItem('creatorId', data.userId);
-            window.open("/CreatorMenu/CDashboard", "_self")
+            window.open("/CreatorMenu/CDashboard?id=" + data.userId, "_self")
         },
         error: function () {
             alert('Login denied');
@@ -652,7 +652,7 @@ async function CheckBackerLogin() {
         success: function (data) {
             localStorage.setItem('userId', data.userId);
             localStorage.setItem('backerId', data.userId);
-            window.open("/BackerMenu/BDashboard", "_self")
+            window.open("/BackerMenu/BDashboard?id=" + data.userId, "_self")
         },
         error: function () {
             alert('Login denied');
