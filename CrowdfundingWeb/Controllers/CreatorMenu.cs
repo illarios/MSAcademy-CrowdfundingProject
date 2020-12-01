@@ -49,14 +49,35 @@ namespace CrowdfundingWeb.Controllers
         }
         
         public IActionResult CDashBoard([FromQuery]int id)
-        {
+        {   List<ProjectWithBackers> mod = new List<ProjectWithBackers>();
+            
             var projs = dbContext.Projects
                 .Where(pr => pr.Creator.Id == id)
                 .Include(pr => pr.Bundles)
                 .Include(pr => pr.BackerBundle)   //<----
                 .ToList();
 
-            return View(projs);
+            if (projs.Count()>0)
+            {foreach (var item in projs)
+                {
+                    ProjectWithBackers ind = new ProjectWithBackers();
+                    ind.Id = item.Id;
+                    ind.Title = item.Title;
+                    ind.Bundles = item.Bundles;
+                    ind.EndDate = item.EndDate;
+                    ind.Category = item.Category;
+                    ind.CurrentAmount = item.CurrentAmount;
+                    ind.Progress = item.Progress;
+                    var person = (from p in dbContext.Bundles
+                        join e in dbContext.BackerBundles
+                            on p.Id equals e.BundleId
+                        where p.Project.Id == item.Id
+                        select new {ID = e.BackerId}).Distinct().Count();
+                    ind.BackerCount = person;
+                    mod.Add(ind); 
+                }
+            }
+            return View(mod);
         }
         
         public IActionResult ProjectView([FromRoute]int id)
