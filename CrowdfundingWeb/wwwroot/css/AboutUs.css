@@ -1,7 +1,36 @@
 ﻿body {
-    font-family: 'Roboto';
-    font-size: 14px;
     background-color: #E7DFC6;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #e7dfc6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-item a:hover {
+    cursor: pointer
+}
+
+a:hover {
+    cursor: pointer
+}
+
+nav {
+    height: 50px;
 }
 
 
