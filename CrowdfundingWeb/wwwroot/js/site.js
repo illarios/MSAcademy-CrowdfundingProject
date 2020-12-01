@@ -73,7 +73,7 @@ function updateBacker() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#EditProfileForm-Backer').hide();
-            window.location.href = "/backermenu/bdashboard";
+            window.location.href = "/backermenu/bdashboard?id="+id;
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -297,7 +297,7 @@ function updateCreator() {
         success: function (data) {
             $successAlert.fadeIn(500);
             $('#EditProfileForm').hide();
-            window.location.href = "/creatormenu/cdashboard";
+            window.location.href = window.location.origin + '/creatormenu/cdashboard?id=' +id ;
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
