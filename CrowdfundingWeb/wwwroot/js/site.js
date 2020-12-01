@@ -554,7 +554,7 @@ function addBundle() {
             $('#CreateBundlesForm').hide();
             $('#create-bundle-success').show();
             localStorage.removeItem('projectId');  //**************************************
-            window.open("/CreatorMenu/CDashboard", "_self")
+            window.open("/CreatorMenu/CDashboard?id=" + getUserId(), "_self")
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert(errorThrown);
