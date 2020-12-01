@@ -71,7 +71,10 @@ namespace CrowdFundingProject.Services
         {
             Backer backer = dbContext.Backers.Find(backerId);
             backer.Email = backerOptions.Email;
-            backer.Wallet = backerOptions.Wallet;
+            if (backerOptions.Wallet != 0) {
+                backer.Wallet = backerOptions.Wallet;
+            }
+            
             dbContext.SaveChanges();
             return backer;
         }
@@ -94,6 +97,15 @@ namespace CrowdFundingProject.Services
             bk = dbContext.Backers.FirstOrDefault(i => i.Email == email);
             if (bk == null) return -1;
             return bk.Id;
+        }
+        
+        public int CheckProfileActive(int id)
+        {
+            Backer bk = new Backer();
+            bk = dbContext.Backers.FirstOrDefault(i => i.Id == id);
+            if (bk.IsBackerActive == true) return 1;
+            return 0;
+
         }
     }
 }
