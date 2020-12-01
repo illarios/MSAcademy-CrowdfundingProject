@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="~/css/Cdashboard.css" />
+    <link rel="stylesheet" href="~/css/EditProfileCreator.css" />
 </head>
 
 <div class="container">
@@ -18,27 +18,34 @@
         <h1>
             Edit my Profile
         </h1>
-        <form method="put" class="card p-3 md-light" id="EditProfileForm">
-            <div class="form-group text-center">
+        <form method="put" class="card p-3 md-ligh formframe" id="EditProfileForm">
+            <div class="form-group text-center" style="margin-bottom: 0px;">
                 <label for="username">Username*</label>
-                <input type="text" id="username" value="@Model.Creatoroptions.Username" readonly />
-                <div class="valid-feedback"> Looks good! </div>
+            </div>
+            <div class="form-group text-center"> <input type="text" id="username" value="@Model.Creatoroptions.Username" readonly />
+                                  <div class="valid-feedback"> Looks good! </div> 
+            </div>
+            <div class="form-group text-center" style="margin-bottom: 0px;">
+                <label for="password">Password*</label>
             </div>
             <div class="form-group text-center">
-                <label for="password">Password*</label>
                 <input type="password" id="password" />
             </div>
-            <div class="form-group text-center">
+            <div class="form-group text-center" style="margin-bottom: 0px;">
                 <label for="email">Email Address*</label>
+            </div>
+            <div class="form-group text-center">
                 <input type="text" id="email" value="@Model.Creatoroptions.Email" />
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-            <div class="form-group text-center">
+            <div class="form-group text-center" style="margin-bottom: 0px;">
                 <label for="bio">Biography</label>
+            </div>
+            <div class="form-group text-center">
                 <textarea  type="text" class="form-control" id="bio" placeholder="@Model.Creatoroptions.Bio" rows="3"></textarea>
             </div>
 
-            <button id="edit-profile" type="button" class="btn btn-dark" onclick="this.disabled=true;">Edit Profile</button>
+            <button  id="edit-profile" type="button" class="btn btn-dark" onclick="this.disabled=true;" style="margin-bottom:3px;">Edit Profile</button>
             <button id="delete-profile-creator" type="button" class="btn btn-danger" onclick="this.disabled=true;">Delete Profile</button>
 
         </form>
