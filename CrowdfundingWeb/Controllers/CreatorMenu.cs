@@ -18,18 +18,19 @@ namespace CrowdfundingWeb.Controllers
         
         private readonly ICreatorService creatorService;
         private readonly IBackerService backerService;
-        private readonly IProjectService projects_;
-        private readonly IBundleService bundles_;
+        private readonly IProjectService projectService;
+        private readonly IBundleService bundleService;
         private readonly AppDbContext dbContext = new AppDbContext();
 
-        public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects, IBundleService bundles)
+        public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService _projectService, IBundleService _bundleService)
         
 
         {
             creatorService = _creatorService;
             backerService = _backerService;
-            projects_ = projects;
-            bundles_ = bundles;
+            projectService = _projectService;
+            bundleService = _bundleService;
+
         }
         
         [HttpGet]
@@ -57,12 +58,13 @@ namespace CrowdfundingWeb.Controllers
 
             return View(projs);
         }
-        public IActionResult ProjectView([FromRoute] int id)
+        
+        public IActionResult ProjectView([FromRoute]int id)
         {
-            Project project = projects_.GetProjectById(id);
-            List<Bundle> bundles = bundles_.GetBundlesOfProjects(id);
+            Project project = projectService.GetProjectById(id);
+            List<Bundle> bundles = bundleService.GetBundlesOfProjects(id);       
             ProjectWithBundlesModel model = new ProjectWithBundlesModel
-            {
+            {               
                 Id = project.Id,
                 Title = project.Title,
                 Description = project.Description,
