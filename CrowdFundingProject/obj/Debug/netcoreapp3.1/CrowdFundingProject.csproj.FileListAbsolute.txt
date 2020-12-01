@@ -232,6 +232,7 @@ C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProj
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.csprojAssemblyReference.cache
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.AssemblyInfoInputs.cache
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.AssemblyInfo.cs
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.csproj.CoreCompileInputs.cache
@@ -239,4 +240,3 @@ C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProj
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.dll
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.pdb
 C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.genruntimeconfig.cache
-C:\Users\Κωνσταντίνος\Desktop\CodeHub\Project Final\CrowdFundingProject\obj\Debug\netcoreapp3.1\CrowdFundingProject.csprojAssemblyReference.cache

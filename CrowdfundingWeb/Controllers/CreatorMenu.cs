@@ -70,6 +70,7 @@ namespace CrowdfundingWeb.Controllers
                     ind.Category = item.Category;
                     ind.CurrentAmount = item.CurrentAmount;
                     ind.Progress = item.Progress;
+                    ind.TagName = item.TagName;
                     var person = (from p in dbContext.Bundles
                         join e in dbContext.BackerBundles
                             on p.Id equals e.BundleId
