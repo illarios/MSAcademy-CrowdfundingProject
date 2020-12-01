@@ -96,14 +96,17 @@ namespace CrowdFundingProject.Services
             var backer = dbContext.Backers.Find(backerId);
             backer.Wallet -= amount;
 
-            BackerBundle backerbundle = new BackerBundle()
+                      
+            BackerBundle backerbundlewith = new BackerBundle()
             {
                 BackerId = backerId,
                 BundleId = bundleId,
                 DonateAmount = amount
             };
-
-            dbContext.BackerBundles.Add(backerbundle);            
+            dbContext.BackerBundles.Add(backerbundlewith);
+            
+            
+            //dbContext.BackerBundles.Add(backerbundlewith);            
             dbContext.SaveChanges();
             return project;
         }
