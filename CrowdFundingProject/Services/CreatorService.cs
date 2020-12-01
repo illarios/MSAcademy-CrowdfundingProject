@@ -48,7 +48,14 @@ namespace CrowdFundingProject.Services
             if (cr == null) return -1;
             return cr.Id;
         }
-
+        
+        public int CheckProfileActive(int id)
+        {
+            Creator cr = new Creator();
+            cr = dbContext.Creators.FirstOrDefault(i => i.Id == id);
+            if (cr.IsActive == true) return 1;
+            return 0;
+        }
         public List<Creator> GetCreators()
         {
             List<Creator> creators = dbContext.Creators.ToList();

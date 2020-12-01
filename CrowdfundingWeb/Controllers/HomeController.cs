@@ -29,8 +29,14 @@ namespace CrowdfundingWeb.Controllers
         public IActionResult FunctionL([FromBody] LoginModel options)
         {
             var id = creatorService.CheckIfEmailExists(options.Email);
+            
             if (id != -1) 
             {
+                int active = creatorService.CheckProfileActive(id);
+                if (active == 0)
+                {
+                    return Forbid();
+                }
                 return Ok(new {
                     userId = id
                 });
@@ -45,6 +51,11 @@ namespace CrowdfundingWeb.Controllers
             var id = backerService.CheckIfEmailExists(options.Email);
             if (id != -1) 
             {
+                int active = backerService.CheckProfileActive(id);
+                if (active == 0)
+                {
+                    return Forbid();
+                }
                 return Ok(new {
                     userId = id
                 });

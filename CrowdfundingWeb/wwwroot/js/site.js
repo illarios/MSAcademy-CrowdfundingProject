@@ -59,10 +59,13 @@ function updateBacker() {
     let id = getUserId();
     let actionUrl = '/api/Backer/update/' + id    //<------------   
     let $successAlert = $('#edit-profile-backer-success');
-
+    let wallet = parseInt($("#wallet").val());
+    if (isNaN(wallet)) {
+        wallet = 0;
+    }
     let formData = {
         "email": $('#email').val(),
-        "wallet": parseInt($("#wallet").val()),
+        "wallet": wallet,
     };
 
     $.ajax({

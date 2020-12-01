@@ -16,5 +16,6 @@ namespace CrowdFundingProject.Services
         bool DeleteBacker(int backerId);
         Backer GetBackerByUsername(string username);
         public int CheckIfEmailExists(string email);
+        int CheckProfileActive(int id);
     }
 }
