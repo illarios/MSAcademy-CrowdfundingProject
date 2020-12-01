@@ -55,7 +55,12 @@ footer {
 }
 
 footer#footer {
-    background-color: #F8EEDF;
+    /*-background-color: #F8EEDF;-*/
     margin-top: 0;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
 }
 

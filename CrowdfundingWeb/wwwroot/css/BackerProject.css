@@ -18,32 +18,22 @@ body {
     background-size: 50%, 50%;
 }
 
-.carousel-control-prev-icon {
-    height: 50px;
-    width: 50px;
-    outline: black;
-    background-color: rgba(0, 0, 0, 1);
-    background-size: 50%, 50%;
-    border-radius: 50%;
+.frame
+{
+    background-color: #ffffff;
+    border: 2px;
+    padding: 4px;
 }
 
-.carousel-control-next-icon {
-    height: 50px;
-    width: 50px;
-    outline: black;
-    background-color: rgba(0, 0, 0, 1);
-    background-size: 50%, 50%;
-    border-radius: 50%;
-}
 /*This Section below should be splitted in another file .css and it's responsible for GRID operations*/
 /*-----GRID-----*/
 .container {
     display: grid;
     min-height: 100vh;
     min-width: 100%;
-    grid-template-columns: 0.8fr 5fr;
+    grid-template-columns: 5fr;
     grid-template-rows: 5fr;
-    grid-template-areas: "sidebar main";
+    grid-template-areas: "main";
     grid-gap: 0.2rem;
 }
 
@@ -59,19 +49,11 @@ body {
 }
 
 main {
-    flex: 1 0 auto;
+    flex: 100% ;
     grid-area: main;
     min-height: 100%;
 }
 
-#sidebar {
-    border-radius: 10px;
-    background-color: #43444D;
-    color: #FCFDFE;
-    text-align: center;
-    grid-area: sidebar;
-    height: 70%;
-}
 /*-----GRID END-----*/
 
 a {
