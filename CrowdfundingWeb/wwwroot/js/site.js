@@ -489,23 +489,89 @@ $('#btn-search').on('click', function () {
             for (let i = 0; i < projects.length; i++) {
                 //if (${ projects[i].category }== category){
                 $('#projects-list-card').append(`
-                    <div class="card border-left-primary shadow  py-2" style="background-color:#e9f1f7">
-                    <div class="card-body">
+                    
+                    <div class="card border border-dark border-left-primary shadow  py-2">
+                            <div class="card-body">
+                                <section id="stats-subtitle">
+                                    <div class="row">
+                                        <div class="col-12 mt-3 mb-1">
+                                            <a id="proj-titles" class="nav-link active text-light" href="/BackerMenu/ProjectView/${projects[i].id}">
+                                                <h3 class="text-uppercase">
+                                                    ${projects[i].title}
+                                                    <span class="badge badge-pill badge-success" style="margin-left:10px;">Matching</span>                                                 
+                                                </h3>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-3 col-sm-6 col-12">
+                                            <div class="card overflow-hidden border border-dark shadow">
+                                                <div class="card-content">
+                                                    <div class="card-body cleartfix">
+                                                        <div class="media align-items-stretch">
 
-                        <div class="text-xs font-weight-bold text text-uppercase mb-1" style="color:#2c4a58">
-                            <a id="proj-titles" class="nav-link active text-light" href="/BackerMenu/ProjectView/${projects[i].id}" style="background-color:#43444d;border-radius:10px" >${projects[i].title} <span class="badge badge-success">Matching</span></a> 
-                        </div>  <!-- Make it pop up only for new ones -->
-                            <!-- Progress -->
-                            <div class="h5 mb-0 mr-3 font-weight-bold text" style="color:#2c4a58">Goal Completion:${projects[i].progress} %</div>
+                                                            <div class="media-body">
+                                                                <h4>Category:</h4>
+                                                            </div>
+                                                            <div class="align-self-center">
+                                                                <h4>${projects[i].tagName}</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-sm-6 col-12">
+                                            <div class="card overflow-hidden border border-dark shadow">
+                                                <div class="card-content">
+                                                    <div class="card-body cleartfix">
+                                                        <div class="row">
+                                                            <div class="media media-body d-flex">
 
-                        <div class="progress">
-                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(${projects[i].progress})" aria-valuemin="0" aria-valuemax="100" style="width:"@Math.Round(${projects[i].progress})%";background-color:#2c4a58;">
+
+                                                                <div class="media-body">
+                                                                    <h3>Completion </h3>
+                                                                </div>
+                                                                <div class="align-self-center">
+                                                                    <h2>${projects[i].progress} %</h2>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(${projects[i].progress})%;background-color:#2c4a58;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-4 col-sm-6 col-12">
+                                            <div class="card overflow-hidden border border-dark shadow">
+                                                <div class="card-content">
+                                                    <div class="card-body cleartfix">
+                                                        <div class="media align-items-stretch">
+
+                                                            <div class="media-body">
+                                                                <h4>Total Earnings</h4>
+                                                                <span>Goal Amount: ${projects[i].goal} €</span>
+                                                            </div>
+                                                            <div class="align-self-center">
+                                                                <h3>${projects[i].currentAmount} €</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                             </div>
-                        </div>
-                      
 
                         </div>
-                </div>
                 `);
         //}
 
