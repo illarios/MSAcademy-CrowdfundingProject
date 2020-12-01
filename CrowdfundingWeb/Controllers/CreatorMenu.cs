@@ -20,9 +20,10 @@ namespace CrowdfundingWeb.Controllers
         private readonly IBackerService backerService;
         private readonly IProjectService projectService;
         private readonly IBundleService bundleService;
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
 
-        public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService _projectService, IBundleService _bundleService)
+        public CreatorMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService _projectService,
+            IBundleService _bundleService, AppDbContext appDbContext)
         
 
         {
@@ -30,6 +31,7 @@ namespace CrowdfundingWeb.Controllers
             backerService = _backerService;
             projectService = _projectService;
             bundleService = _bundleService;
+            this.dbContext = appDbContext;
 
         }
         

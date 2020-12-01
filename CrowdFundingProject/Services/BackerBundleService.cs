@@ -4,9 +4,11 @@ namespace CrowdFundingProject.Services
 {
     public class BackerBundleService
     {
-        private readonly AppDbContext dbContext = new AppDbContext();
-        
-       
+        private readonly AppDbContext dbContext;
+        public BackerBundleService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
 
     }
 }

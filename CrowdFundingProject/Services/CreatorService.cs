@@ -11,7 +11,11 @@ namespace CrowdFundingProject.Services
 {
     public class CreatorService : ICreatorService
     {
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
+        public CreatorService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public CreatorOptions CreateCreator(CreatorOptions creatorOptions)
         {          
             Creator creator = new Creator 

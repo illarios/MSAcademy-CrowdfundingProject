@@ -20,13 +20,14 @@ namespace CrowdfundingWeb.Controllers
         private readonly IProjectService projectService;
         private readonly IBackerService backerService;
         private readonly IBundleService bundleService;
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
         private readonly ITagService tagService;
         private readonly IWebHostEnvironment hostingEnvironment;
 
 
         public ProjectController(IProjectService _projectService, ILogger<ProjectController> logger,
-            IBackerService _backerService, IBundleService _bundleService, ITagService _tagService, IWebHostEnvironment _hostingEnvironment)
+            IBackerService _backerService, IBundleService _bundleService, ITagService _tagService,
+            IWebHostEnvironment _hostingEnvironment, AppDbContext appDbContext)
         {
             projectService = _projectService;
             bundleService = _bundleService;
@@ -34,6 +35,7 @@ namespace CrowdfundingWeb.Controllers
             tagService = _tagService;
             hostingEnvironment = _hostingEnvironment;
             _logger = logger;
+            this.dbContext = appDbContext;
         }
 
         [HttpGet("{id}")]

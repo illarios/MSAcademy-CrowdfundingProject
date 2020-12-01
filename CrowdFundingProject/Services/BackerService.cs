@@ -12,8 +12,13 @@ using Microsoft.EntityFrameworkCore;
 namespace CrowdFundingProject.Services
 {
     public class BackerService : IBackerService
-    { 
-        private readonly AppDbContext dbContext = new AppDbContext();
+    {
+        private readonly AppDbContext dbContext;
+        public BackerService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         public BackerOptions CreateBacker(BackerOptions backerOptions)
         {
             Backer backer = new Backer

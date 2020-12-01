@@ -18,14 +18,15 @@ namespace CrowdfundingWeb.Controllers
         private readonly IBackerService backerService;
         private readonly IProjectService projects_;
         private readonly IBundleService bundles_;
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
 
-        public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects, IBundleService bundles)
+        public BackerMenu(ICreatorService _creatorService, IBackerService _backerService, IProjectService projects, IBundleService bundles, AppDbContext appDbContext)
         {
             creatorService = _creatorService;
             backerService = _backerService;
             projects_ = projects;
             bundles_ = bundles;
+            this.dbContext = appDbContext;
         }
         public IActionResult EditProfileBacker()
         {

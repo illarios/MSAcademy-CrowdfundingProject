@@ -8,7 +8,11 @@ namespace CrowdFundingProject.Services
 {
     public class TagService : ITagService
     {
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
+        public TagService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public Tag GetTagbyId(int tagId)
         {
             Tag tag = dbContext.Tags.Find(tagId);

@@ -12,7 +12,11 @@ namespace CrowdFundingProject.Services
 {
     public class ProjectService : IProjectService
     {
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
+        public ProjectService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
 
         public Project CreateProject(int UserId, ProjectOptions projectOptions)
         {

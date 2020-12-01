@@ -16,21 +16,11 @@ namespace CrowdFundingProject.Data
         public DbSet<Image> Images { get; set; }        
         public DbSet<BackerBundle> BackerBundles { get; set; }
 
-
-        private readonly string connectionString =
-            "Server = tcp:team4.database.windows.net,1433;Initial Catalog = Project1; Persist Security Info=False;User ID = team4;" +
-            "Password=Project4; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(connectionString,
-                sqlServerOptionsAction: sqlOptions =>
-                {
-                    sqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 50,
-                        maxRetryDelay: TimeSpan.FromSeconds(2),
-                        errorNumbersToAdd: null);
-                });
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+           : base(options)
+            {
+            }            
+     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Creator>();

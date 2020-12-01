@@ -10,7 +10,12 @@ namespace CrowdFundingProject.Services
 {
     public class BundleService : IBundleService
     {
-        private readonly AppDbContext dbContext = new AppDbContext();
+        private readonly AppDbContext dbContext;
+
+        public BundleService(AppDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public Bundle AddBundle(BundleOptions bundleOpt, int projectId)
         {
             if (projectId < 0) return null;
