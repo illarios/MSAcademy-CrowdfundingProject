@@ -167,21 +167,24 @@ function supportProject() {
     let backerId = getUserId();
     let actionUrl = '/api/project/support';  
     let $successAlert = $('#support-project-success');
-
+    
     let bundleid = -1;
     var checkboxes = document.getElementsByName("amountOptions");
+
     let bool = false;
+    let requiredamount = -1;
     for (var i = 0; i != checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             bool = true;
+            bundleid = checkboxes[i].getAttribute("data-valuetwo");
+            requiredamount = parseInt(checkboxes[i].getAttribute("value"));
         }
     }
-    if (bool) {
-        bundleid = $("input[name='bundleid']").val();
-    }
 
-    let requiredamount = -1;
-    requiredamount = parseFloat($("input[name='amountOptions']").val());
+    if (bundleid == -1) {
+        alert('You have to select a bundle !');
+        return 0;
+    }
     let amountGiven = $('#sup-amount').val();
     if (requiredamount > amountGiven) {
         alert('The given Donation must be higher than the selected bundle !');

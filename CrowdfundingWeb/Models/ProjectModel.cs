@@ -42,6 +42,8 @@ namespace CrowdfundingWeb.Models
         public string Description { get; set; }
         public int Category { get; set; }
         public decimal Goal { get; set; }
+        public List<Bundle> Bundles { get; set; }
+        public decimal CurrentAmount { get; set; }
         public string EndDate { get; set; }
         public bool IsTrending { get; set; }
         public decimal Progress { get; set; }
