@@ -368,7 +368,12 @@ function addProject() {
     var formData = new FormData();
     for (var i = 0; i != files.length; i++) {
         formData.append("Picture", files[i]);
-    }
+    }   
+    let goal = $('#goal').val();
+    if (goal==""){
+        alert('Please insert a Goal amount!');
+        return 0;
+    }       
     formData.append("id", parseInt(id));
     formData.append("title", $('#title').val());
     formData.append("description", $('#description').val());
@@ -546,7 +551,7 @@ $('#btn-search').on('click', function () {
                                                             </div>
                                                         </div>
                                                         <div class="progress">
-                                                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(project.Progress)" aria-valuemin="0" aria-valuemax="100" style="width:@Math.Round(${projects[i].progress})%;background-color:#2c4a58;">
+                                                            <div id="one" class="progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="@Math.Round(${projects[i].progress})" aria-valuemin="0" aria-valuemax="100" style="width:${projects[i].progress}% ;background-color:#2c4a58;">
                                                             </div>
                                                         </div>
                                                     </div>
